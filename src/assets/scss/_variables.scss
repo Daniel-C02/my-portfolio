@@ -1,0 +1,78 @@
+
+// Theme Colors
+$white: #fff;
+$black: #000;
+
+$blue-400: #73c3dd;
+$blue-500: #50b4d4;
+$blue-600: #388fa7;
+$blue-700: #206a7f;
+$blue-800: #124559;
+$blue-900: #0d313e;
+
+$bluef-100: #eef3f5;
+$bluef-200: #dce7ea;
+$bluef-300: #c9dbdf;
+$bluef-400: #b7cfd5;
+$bluef-500: #a4c3ca;
+$bluef-600: #598392;
+$bluef-700: #4a6c7a;
+$bluef-800: #3c5661;
+$bluef-900: #2d4049;
+
+$beige-100: #eff6e0;
+$beige-200: #dbe8c8;
+$beige-300: #c7d9b0;
+$beige-400: #b3ca98;
+
+$gray-400: #aec3b0;
+$gray-500: #93ad96;
+
+$dark-800: #0a2e40;
+$dark-900: #01161e;
+$dark-950: #000f14;
+
+// Grid breakpoints
+$xs_bp:   0;
+$ms_bp:   380px; // custom (for smaller mobile devices)
+$sm_bp:   576px;
+$md_bp:   768px;
+$lg_bp:   992px;
+$xl_bp:   1200px;
+$xxl_bp:  1400px;
+
+// Grid breakpoints map
+$grid-breakpoints: (
+   xs:   $xs_bp,
+   ms:   $ms_bp, 
+   sm:   $sm_bp,
+   md:   $md_bp,
+   lg:   $lg_bp,
+   xl:   $xl_bp,
+   xxl:  $xxl_bp,
+);
+
+// Spacing variables
+$space: 1rem;            // 16px
+$sp-0: 0;                // 0px
+$sp-1s: $space * 0.075;  // 1px
+$sp-1: $space * 0.15;    // 2px
+$sp-2: $space * 0.25;    // 4px
+$sp-3: $space * 0.375;   // 6px
+$sp-4: $space * 0.5;     // 8px
+$sp-5: $space * 0.75;    // 12px
+$sp-6: $space;           // 16px
+$sp-7: $space * 1.25;    // 20px
+$sp-8: $space * 1.5;     // 24px
+$sp-9: $space * 2.25;    // 36px
+$sp-10: $space * 3;      // 48px
+$sp-11: $space * 4.5;    // 72px
+$sp-12: $space * 6;      // 96px
+$sp-13: $space * 7;      // 112px
+$sp-14: $space * 8;      // 128px
+$sp-15: $space * 10;     // 160px
+$sp-16: $space * 12;     // 192px
+
+// Ease Out Slow Transition Value
+$eo-slow-transition: cubic-bezier(0.25, 1, 0.5, 1);
+

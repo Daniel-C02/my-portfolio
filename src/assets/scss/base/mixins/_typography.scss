@@ -1,0 +1,114 @@
+@use "../../variables" as *;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Typography related mixins
+
+@mixin responsive-font-weight($font-weights) {
+   @each $weight in $font-weights {
+      .fw-#{$weight} { font-weight: #{$weight} !important; }
+   }
+   @each $key, $value in $grid-breakpoints {
+      @media (min-width: $value) {
+         @each $weight in $font-weights {
+            .fw-#{$key}-#{$weight} { font-weight: #{$weight} !important; }
+         }
+      }
+   }
+}
+
+@mixin responsive-font-size($header-sizes, $font-sizes) {
+   // Retrieve keys from grid breakpoints
+   $breakpoints-keys: map-keys($grid-breakpoints);
+
+   @each $size in $font-sizes {
+      .fs-#{$size} { font-size: #{$size}px; }
+   }
+   @each $breakpoint, $sizes in $header-sizes {
+      $value: map-get($grid-breakpoints, $breakpoint);
+      @media (min-width: $value) {
+         @each $font, $size in $sizes {
+            #{$font} { font-size: #{$size}px; }
+         }
+         @each $font, $size in $sizes {
+            .#{$font} { font-size: #{$size}px; }
+         }
+         // Generate classes for each breakpoint up to the current one
+         $index: index($breakpoints-keys, $breakpoint);
+         @for $i from 1 through $index {
+            @each $font, $size in $sizes {
+               $desired-key: nth($breakpoints-keys, $i);
+               .#{$font}-#{$desired-key} { font-size: #{$size}px; }
+            }
+         }
+         @each $size in $font-sizes {
+            .fs-#{$breakpoint}-#{$size} { font-size: #{$size}px; }
+         }
+      }
+   }
+}
+
+@mixin responsive-line-heights($line-heights) {
+   @each $key, $value in $line-heights {
+      .lh-#{$key}p { line-height: #{$value}; }
+   }
+
+   @each $bp, $width in $grid-breakpoints {
+      @media (min-width: $width) {
+         @each $key, $value in $line-heights {
+            .lh-#{$bp}-#{$key}p {
+               line-height: #{$value};
+            }
+         }
+      }
+   }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Responsive Line Heights
+
+$line-heights: ();
+@for $i from 0 to 40 {
+   $key: 100 + ($i * 5); // Generate key as integer (e.g., 105, 110, etc.)
+   $value: 1 + ($i * 0.05); // Generate corresponding line-height value (e.g., 1.05, 1.10, etc.)
+   $line-heights: map-merge($line-heights, ($key: $value));
+}
+@include responsive-line-heights($line-heights);
+
+//----------------------------------------------------------------------------------------------------------------------
+// Responsive Font Weights
+
+$font-weights: (100, 200, 300, 400, 500, 600, 700, 800, 900);
+@include responsive-font-weight($font-weights);
+
+//----------------------------------------------------------------------------------------------------------------------
+// Responsive Header Sizes and Font Sizes
+
+// Font header class sizes
+$header-sizes: (
+   xs:     (p: 15, h6: 16, h5: 20, h4: 21, h3: 24, h2: 11, h1: 11), //
+   ms:     (p: 16, h6: 17, h5: 21, h4: 22, h3: 25, h2: 11, h1: 11), // true design sizes
+   sm:     (p: 16, h6: 18, h5: 22, h4: 25, h3: 28, h2: 11, h1: 11), //
+   md:     (p: 16, h6: 18, h5: 23, h4: 27, h3: 30, h2: 11, h1: 11), // true design sizes \
+   lg:     (p: 17, h6: 19, h5: 24, h4: 29, h3: 33, h2: 11, h1: 11), // true design sizes /
+   xl:     (p: 18, h6: 20, h5: 25, h4: 30, h3: 36, h2: 11, h1: 11), //
+   xxl:    (p: 18, h6: 20, h5: 25, h4: 31, h3: 39, h2: 11, h1: 11)  // true design sizes
+);
+
+// Font Sizes
+$font-sizes: ();
+$matrix: (
+   (6,   40,     1),
+   (42,  100,    2),
+   (104, 200,    4)
+);
+@each $row in $matrix {
+   $start: nth($row, 1);
+   $end: nth($row, 2);
+   $step: nth($row, 3);
+   @for $i from $start through $end {
+      @if ($i % $step == 0) {
+         $font-sizes: append($font-sizes, $i, comma);
+      }
+   }
+}
+@include responsive-font-size($header-sizes, $font-sizes);

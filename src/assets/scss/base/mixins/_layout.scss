@@ -1,0 +1,40 @@
+@use "../../variables" as *;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Layout related mixins
+
+@mixin responsive-percentage-vars($name, $fullname, $values) {
+  @each $size in $values {
+    .#{$name}-#{$size} { #{$fullname}: #{$size} + '%' !important; }
+  }
+  .#{$name}-auto { #{$fullname}: auto; }
+  @each $key, $value in $grid-breakpoints {
+    @media (min-width: $value) {
+      @each $size in $values {
+        .#{$name}-#{$key}-#{$size} { #{$fullname}: #{$size} + '%' !important; }
+      }
+      .#{$name}-#{$key}-auto { #{$fullname}: auto !important; }
+    }
+  }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Responsive Width, Height and Offset Percentages
+
+$item-percentage: ();
+$matrix: (
+    (2, 100, 2),
+);
+@each $row in $matrix {
+   $start: nth($row, 1);
+   $end: nth($row, 2);
+   $step: nth($row, 3);
+   @for $i from $start through $end {
+      @if ($i % $step == 0) {
+         $item-percentage: append($item-percentage, $i, comma);
+      }
+   }
+}
+@include responsive-percentage-vars('w', 'width', $item-percentage);
+@include responsive-percentage-vars('h', 'height', $item-percentage);
+@include responsive-percentage-vars('offset', 'margin-left', $item-percentage);

@@ -1,0 +1,22 @@
+// Import Sass's built-in math module for advanced mathematical functions
+@use "sass:math";
+
+// Import Bootstrap's core styles, making all Bootstrap variables, mixins, and functions available
+@use "bootstrap" as *;
+
+// Import base styles for the project (e.g., typography, colors, global variables)
+@use "base" as *;
+
+// Import component-specific styles (similar to Bootstrap components, e.g., buttons, cards)
+@use "components" as *;
+
+// Import plugin styles, specifically related to js library styles and their style customisations
+@use "plugins" as *;
+
+// Import component- or section-specific styles (e.g., navbar, articles section styles)
+// define class wrapper: s_wrapper
+@use "partials" as *;
+
+// Import page-specific styles (e.g., home page, about page styles)
+// define class wrapper: p_wrapper
+@use "pages" as *;

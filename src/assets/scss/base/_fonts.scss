@@ -1,0 +1,63 @@
+/*
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+// Instrument Serif
+.ff-instrument {
+  font-family: 'Instrument Serif', serif;
+}
+// Instrument Serif Italic
+.ff-instrument-italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+}
+// Inter Variable
+.ff-inter {
+  font-family: 'Inter', sans-serif;
+  font-weight: 100 900;  
+}
+// Inter Italic Variable
+.ff-inter-italic {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 100 900;
+}
+*/
+
+// Instrument Serif
+@font-face {
+   font-family: 'instrument-serif';
+   src: url("@fonts/instrument-serif.ttf") format('truetype');
+   font-optical-sizing: auto;
+   font-style: normal;
+}
+.ff-instrument { font-family: "instrument-serif", sans-serif; }
+
+// Instrument Serif Italic
+@font-face {
+   font-family: 'instrument-serif-italic';
+   src: url("@fonts/instrument-serif-italic.ttf") format('truetype');
+   font-optical-sizing: auto;
+   font-style: normal;
+}
+.ff-instrument-italic { font-family: "instrument-serif-italic", sans-serif; }
+
+// Inter Variable
+@font-face {
+   font-family: 'inter-variable';
+   src: url("@fonts/inter-variable.ttf") format('truetype');
+   font-weight: 100 900;
+   font-display: swap;
+   font-style: normal;
+}
+.ff-inter { font-family: "inter-variable", sans-serif; }
+
+// Inter Italic Variable
+@font-face {
+   font-family: 'inter-italic-variable';
+   src: url("@fonts/inter-italic-variable.ttf") format('truetype');
+   font-weight: 100 900;
+   font-display: swap;
+   font-style: normal;
+}
+.ff-inter-italic { font-family: "inter-italic-variable", sans-serif; }
