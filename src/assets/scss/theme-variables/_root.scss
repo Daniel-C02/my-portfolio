@@ -1,0 +1,12 @@
+@use "../theme" as *;
+
+:root, [data-bs-theme=light] {
+  --bs-body-color: #212529;
+  --bs-body-bg: #fff;
+}
+
+[data-bs-theme=dark] {
+  color-scheme: dark;
+  --bs-body-color: #{$frost-200};
+  --bs-body-bg: #{$midnight-900};
+}

@@ -1,5 +1,12 @@
 @use "../mixins" as *;
 
+html {
+
+}
+
+body {
+   background-color: var(--bs-body-bg);
+}
 
 // Gutter padding varibales and container reset
 .px-gutter {
