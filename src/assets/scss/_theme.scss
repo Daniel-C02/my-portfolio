@@ -1,0 +1,99 @@
+
+/*
+ * Primarily dark theme colors
+ */
+
+// Theme Colors
+$white: #fff;
+$black: #000;
+
+// Ocean Blue
+$ocean-400: #73c3dd;
+$ocean-500: #50b4d4;
+$ocean-600: #388fa7;
+$ocean-700: #206a7f;
+$ocean-800: #124559;
+$ocean-900: #0d313e;
+
+// Frosted Blue
+$frost-100: #eef3f5;
+$frost-200: #dce7ea;
+$frost-300: #c9dbdf;
+$frost-400: #b7cfd5;
+$frost-500: #a4c3ca;
+$frost-600: #598392;
+$frost-700: #4a6c7a;
+$frost-800: #3c5661;
+$frost-900: #2d4049;
+
+// Sage Beige
+$sage-100: #eff6e0;
+$sage-200: #dbe8c8;
+$sage-300: #c7d9b0;
+$sage-400: #b3ca98;
+
+// Moss Gray
+$moss-400: #aec3b0;
+$moss-500: #93ad96;
+
+// Deep Night
+$midnight-800: #0a2e40;
+$midnight-900: #01161e;
+$midnight-950: #000f14;
+
+/*
+ * Primary light theme colors
+ */
+
+
+// > > > > > > > > > > > > > > > > > > > > > > > > >
+// > > > > > > > > > > > > > > > > > > > > > > > > >
+
+/*
+ * Global Bootstrap variable overrides also used across project styles
+ */
+
+// Grid breakpoints
+$xs_bp:   0;
+$ms_bp:   380px; // custom (for smaller mobile devices)
+$sm_bp:   576px;
+$md_bp:   768px;
+$lg_bp:   992px;
+$xl_bp:   1200px;
+$xxl_bp:  1400px;
+
+// Grid breakpoints map
+$grid-breakpoints: (
+   xs:   $xs_bp,
+   ms:   $ms_bp,
+   sm:   $sm_bp,
+   md:   $md_bp,
+   lg:   $lg_bp,
+   xl:   $xl_bp,
+   xxl:  $xxl_bp,
+);
+
+// Spacing variables
+$spacer: 1rem;            // 16px
+$sp-0: 0;                 // 0px
+$sp-1s: $spacer * 0.075;  // 1px
+$sp-1: $spacer * 0.15;    // 2px
+$sp-2: $spacer * 0.25;    // 4px
+$sp-3: $spacer * 0.375;   // 6px
+$sp-4: $spacer * 0.5;     // 8px
+$sp-5: $spacer * 0.75;    // 12px
+$sp-6: $spacer;           // 16px
+$sp-7: $spacer * 1.25;    // 20px
+$sp-8: $spacer * 1.5;     // 24px
+$sp-9: $spacer * 2.25;    // 36px
+$sp-10: $spacer * 3;      // 48px
+$sp-11: $spacer * 4.5;    // 72px
+$sp-12: $spacer * 6;      // 96px
+$sp-13: $spacer * 7;      // 112px
+$sp-14: $spacer * 8;      // 128px
+$sp-15: $spacer * 10;     // 160px
+$sp-16: $spacer * 12;     // 192px
+
+// Ease Out Slow Transition Value
+$eo-slow-transition: cubic-bezier(0.25, 1, 0.5, 1);
+

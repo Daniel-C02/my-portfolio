@@ -1,4 +1,4 @@
-@use "../../variables" as *;
+@use "../../theme" as *;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Layout related mixins
@@ -23,7 +23,7 @@
 
 $item-percentage: ();
 $matrix: (
-    (2, 100, 2),
+    (2, 100, 1),
 );
 @each $row in $matrix {
    $start: nth($row, 1);
@@ -37,4 +37,3 @@ $matrix: (
 }
 @include responsive-percentage-vars('w', 'width', $item-percentage);
 @include responsive-percentage-vars('h', 'height', $item-percentage);
-@include responsive-percentage-vars('offset', 'margin-left', $item-percentage);

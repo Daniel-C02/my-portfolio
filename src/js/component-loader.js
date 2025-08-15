@@ -19,8 +19,7 @@ async function loadComponent(selector, url) {
       const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-      const html = await response.text();
-      document.querySelector(selector).innerHTML = html;
+      document.querySelector(selector).innerHTML = await response.text();
    } catch (error) {
       console.error(`Error loading component ${url}:`, error);
    }

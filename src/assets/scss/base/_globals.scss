@@ -1,0 +1,33 @@
+@use "../mixins" as *;
+
+
+// Gutter padding varibales and container reset
+.px-gutter {
+   & { padding-left: calc(var(--bs-gutter-x) / 2); }
+   & { padding-right: calc(var(--bs-gutter-x) / 2); }
+   @include responsive-gutter;
+}
+.ps-gutter {
+   & { padding-left: calc(var(--bs-gutter-x) / 2); }
+   @include responsive-gutter;
+}
+.pe-gutter {
+   & { padding-right: calc(var(--bs-gutter-x) / 2); }
+   @include responsive-gutter;
+}
+.mx-gutter-n {
+   & { margin-left: calc(0rem - (var(--bs-gutter-x) / 2)); }
+   & { margin-right: calc(0rem - (var(--bs-gutter-x) / 2)); }
+   @include responsive-gutter;
+}
+.ms-gutter-n {
+   & { margin-left: calc(0rem - (var(--bs-gutter-x) / 2)); }
+   @include responsive-gutter;
+}
+.me-gutter-n {
+   & { margin-right: calc(0rem - (var(--bs-gutter-x) / 2)); }
+   @include responsive-gutter;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+   @include responsive-gutter;
+}
