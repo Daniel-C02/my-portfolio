@@ -14,9 +14,9 @@ import gsap from "gsap";
 window.Alpine = Alpine;
 Alpine.start();
 
-// Project Router initialization
+// Project router initialization
 import(`./js/router.js`).then(async (module) => await module.init());
 
-// main.js
+// Project component loader
 import('./js/component-loader.js').then(async (module) => await module.init());
 

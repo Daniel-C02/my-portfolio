@@ -4,6 +4,9 @@
 // Import Bootstrap's core styles, making all Bootstrap variables, mixins, and functions available
 @use "bootstrap" as *;
 
+// Import theme variables
+@use "theme-variables" as *;
+
 // Import base styles for the project (e.g., typography, colors, global variables)
 @use "base" as *;
 
