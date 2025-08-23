@@ -1,0 +1,26 @@
+@use "../../theme" as *;
+
+#s_home_hero {
+   min-height: calc(100vh - var(--navbar-height));
+   display: flex; flex-direction: column; justify-content: center;
+
+   // author image
+   .auth_image {
+      width: 120px;
+   }
+
+   // skills card
+   .skills_card {
+      border: var(--border-primary-3);
+      .skill_card {
+         &.type-primary {
+            background-color: var(--card-bg-1);
+            border: var(--border-primary-1);
+         }
+         &.type-secondary {
+            background-color: var(--card-bg-2);
+            border: var(--border-primary-3);
+         }
+      }
+   }
+}

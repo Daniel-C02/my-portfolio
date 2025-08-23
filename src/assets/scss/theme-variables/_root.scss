@@ -1,12 +1,20 @@
+// project theme variables
 @use "../theme" as *;
 
+// bootstrap functions
+@use "bootstrap/scss/functions" as *;
+
+// Light theme
 :root, [data-bs-theme=light] {
-  --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+   --bs-body-color: #212529;
+   --bs-body-bg: #fff;
 }
 
+// Dark theme
 [data-bs-theme=dark] {
-  color-scheme: dark;
-  --bs-body-color: #{$frost-200};
-  --bs-body-bg: #{$midnight-900};
+   color-scheme: dark;
+
+   --bs-body-color: #{$frost-200};
+   --bs-body-bg: #{$midnight-900};
+   --bs-secondary-bg: rgba(#{to-rgb($ocean-500)}, 0.038);;
 }

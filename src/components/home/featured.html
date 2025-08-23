@@ -1,0 +1,102 @@
+
+<div
+    id="s_home_featured" class="px-gutter"
+    x-data="{
+        featuredProjects: [
+            {
+                id: 1,
+                title: 'Oral Cancer Classification using Neural Networks',
+                image: '/images/placeholder_project_management.avif',
+                into: 'Developing a machine learning model to detect and classify oral cancer levels from images. It involves data collection, preprocessing, feature extraction, and model evaluation.',
+                tags: [
+                    'Python', 'Javascript', 'React'
+                ],
+                sourceCodeUrl: '#',
+            },
+            {
+                id: 2,
+                title: 'Personal Portfolio',
+                image: '/images/placeholder_project_management.avif',
+                into: 'A responsive personal portfolio website showcasing projects and skills.',
+                tags: [
+                    'Python', 'Javascript', 'React'
+                ],
+                sourceCodeUrl: '#',
+            },
+            {
+                id: 3,
+                title: 'E-commerce Platform',
+                image: '/images/placeholder_project_management.avif',
+                into: 'A full-st ack e-commerce platform with user authentication, product catalog, and payment processing.',
+                tags: [
+                    'Python', 'Javascript', 'React'
+                ],
+                sourceCodeUrl: '#',
+            },
+        ],
+    }"
+>
+    <!-- spacing | 58px, 96px, 112px -->
+    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
+    <!-- featured projects section start -->
+    <div
+        slot="tag-title-text"
+        x-data="{
+            tag: 'Portfolio',
+            title: 'Featured Projects',
+            text: `A selection of my recent web development and programming projects.`
+        }"
+    ></div>
+    <!-- spacing -->
+    <div class="pb-10 mb-4"></div>
+    <!-- projects -->
+    <div class="row row-gap-8 gx-xl-8">
+        <template x-for="project in featuredProjects" :key="project.id">
+            <div class="col-lg-48">
+                <div class="my_card h-100 d-flex flex-column rounded-2 overflow-hidden">
+                    <!-- hero image -->
+                    <div class="card-hero w-100 position-relative">
+                        <img class="my_image-fluid" :src="project.image" src="" alt="placeholder">
+                    </div>
+                    <!-- body content -->
+                    <div class="card-body h-100 d-flex flex-column gap-4 p-8">
+                        <!-- title -->
+                        <h6 class="h6 fw-600 text-white mb-0" x-text="project.title"></h6>
+                        <!-- intro -->
+                        <div class="body-text-sm" x-text="project.into"></div>
+                        <!-- tags -->
+                        <div class="d-flex flex-wrap gap-3 py-4 mb-3">
+                            <template x-for="tag in project.tags" :key="tag">
+                                <div class="d-center bg-midnight-9 rounded-pill py-2 px-5">
+                                    <span class="text-frost-2 fs-12 lh-130p" x-text="tag"></span>
+                                </div>
+                            </template>
+                        </div>
+                        <!-- source code -->
+                        <div class="mt-auto" x-show="project.sourceCodeUrl !== null">
+                            <div class="d-flex justify-content-center" >
+                                <a :href="project.sourceCodeUrl" class="body-text-sm d-center gap-4">
+                                    <i class="bi bi-github fs-20"></i>
+                                    <span>View Source Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+    <!-- spacing | 32, 40, 48 -->
+    <div class="pt-8 mt-4 mt-sm-6 mt-lg-0 pt-lg-10"></div>
+    <!-- CTA button -->
+    <div class="d-center">
+        <a
+            href="/projects"
+            class="btn btn-primary"
+            slot="btn-primary"
+            x-data="{ text: 'View Projects' }"
+        ></a>
+    </div>
+    <!-- spacing | 58px, 96px, 112px -->
+    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
+</div>

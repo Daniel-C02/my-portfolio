@@ -1,0 +1,19 @@
+@use "../../theme" as *;
+
+#s_home_featured {
+   min-height: 100vh;
+   display: flex; flex-direction: column; justify-content: center;
+
+   background-color: var(--bs-secondary-bg);
+
+   .my_card {
+      border: var(--border-primary-3);
+   }
+   .card-hero {
+      aspect-ratio: 2 / 1;
+      background-color: $frost-200;
+   }
+   .card-body {
+      background-color: var(--card-bg-3);
+   }
+}

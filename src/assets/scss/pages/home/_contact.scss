@@ -1,0 +1,18 @@
+@use "../../theme" as *;
+
+#s_home_contact_cta {
+   min-height: 100vh;
+   display: flex; flex-direction: column; justify-content: center;
+
+   .my_card {
+      background-color: var(--card-bg-4);
+      border: var(--border-primary-4);
+      max-width: 950px;
+   }
+
+   // Icon inside main card
+   .my_icon {
+      width: 56px; height: 56px;
+      background: var(--icon-bg-1);
+   }
+}

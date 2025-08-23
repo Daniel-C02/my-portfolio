@@ -1,3 +1,5 @@
+@use "../theme" as *;
+
 /*
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
@@ -61,3 +63,18 @@
    font-style: normal;
 }
 .ff-inter-italic { font-family: "inter-italic-variable", sans-serif; }
+
+// Body Text Font
+.body-text, .body-text-sm {
+   font-weight: 400;
+   color: $frost-100;
+   line-height: 1.5;
+}
+.body-text {
+   font-size: 1rem;
+   @media(min-width: $sm_bp) { font-size: 1.125rem; }
+}
+.body-text-sm {
+   font-size: .875rem;
+   @media(min-width: $sm_bp) { font-size: 1rem; }
+}

@@ -1,3 +1,4 @@
+@use "../theme" as *;
 @use "../mixins" as *;
 
 html {
@@ -6,7 +7,24 @@ html {
 
 body {
    background-color: var(--bs-body-bg);
+   color: var(--bs-body-text);
+
+   overflow-x: hidden;
+   margin: 0;
+
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   justify-content: space-between;
+
+   font-family: "inter-variable", sans-serif;
 }
+
+button, a {
+   transition: $base-transition;
+}
+
+h1, h2, h3, h4, h5, h6 { line-height: 1.3; }
 
 // Gutter padding varibales and container reset
 .px-gutter {
@@ -35,6 +53,20 @@ body {
    & { margin-right: calc(0rem - (var(--bs-gutter-x) / 2)); }
    @include responsive-gutter;
 }
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-   @include responsive-gutter;
+
+// Project wide css variables
+:root {
+   --navbar-height: calc(68px + 2px + 0.75rem); // nav height + border height + spacing top height
 }
+
+// Project specific class Variables
+.d-center {
+   display: flex; align-items: center; justify-content: center;
+}
+.my_image-fluid {
+   position: absolute;
+   top: 0; left: 0;
+   width: 100%; height: 100%;
+   object-fit: cover;
+}
+.opacity-80 { opacity: 0.8; }

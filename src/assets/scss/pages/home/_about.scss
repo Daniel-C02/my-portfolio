@@ -1,0 +1,20 @@
+@use "../../theme" as *;
+
+#s_home_about {
+   min-height: 100vh;
+   display: flex; flex-direction: column; justify-content: center;
+
+   background-color: var(--bs-secondary-bg);
+
+   // About cards
+   .my_card {
+      border: var(--border-primary-3);
+      background: var(--card-bg-3);
+   }
+
+   // Icon inside each card
+   .my_icon {
+      width: 40px; height: 40px;
+      background: var(--icon-bg-1);
+   }
+}

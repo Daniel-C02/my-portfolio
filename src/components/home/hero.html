@@ -1,0 +1,146 @@
+
+<div
+    id="s_home_hero" class="px-gutter"
+    x-data="{
+        skillCards: [
+            {   title: 'Python',
+                text: 'Expert level proficiency',
+                type: 'primary',
+                class: 'col-72',
+                iconName: ''
+            },
+            {   title: 'Javascript',
+                text: 'Expert level proficiency',
+                type: 'secondary',
+                class: 'col-72',
+                iconName: ''
+            },
+            {   title: 'React',
+                text: 'UI Library',
+                type: 'secondary',
+                class: 'col-48',
+                iconName: ''
+            },
+            {   title: 'Laravel',
+                text: '',
+                type: 'primary',
+                class: 'col-48',
+                iconName: ''
+            },
+            {   title: 'Django',
+                text: '',
+                type: 'primary',
+                class: 'col-48',
+                iconName: ''
+            },
+            {   title: 'Vue.js',
+                text: '',
+                type: 'primary',
+                class: 'col-72',
+                iconName: ''
+            },
+            {   title: 'Bootstrap',
+                text: 'Frontend & Backend Development',
+                type: 'secondary',
+                class: 'col-72',
+                iconName: ''
+            },
+            {   title: 'Livewire',
+                text: '',
+                type: 'secondary',
+                class: 'col-72',
+                iconName: ''
+            },
+            {   title: 'Filament',
+                text: '',
+                type: 'primary',
+                class: 'col-72',
+                iconName: ''
+            },
+        ],
+    }"
+>
+    <!-- spacing | 58px, 96px, 112px -->
+    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
+    <!-- hero Section start -->
+    <div class="row row-gap-10">
+        <!-- content section -->
+        <div class="col-lg-60 col-xl-72 pe-xl-9">
+            <div>
+                <!-- primary tag -->
+                <div slot="tag-primary" x-data="{ tag: 'Welcome to my portfolio' }"></div>
+                <!-- spacing -->
+                <div class="pt-8 mt-5"></div>
+                <!-- title section -->
+                <div class="d-flex gap-8">
+                    <div class="auth_image position-relative my-3">
+                        <img
+                            class="position-absolute h-100 w-100 object-fit-cover rounded-2"
+                            src="/images/placeholder_gym.webp" alt="author image"
+                        >
+                    </div>
+                    <div>
+                        <div class="text-white fs-40 fs-sm-50 fs-lg-58 fw-500 lh-120p">
+                            Hello World! <br> I'm
+                            <span class="ff-instrument-italic fs-48 fs-sm-58 fs-lg-68">Daniel</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- spacing -->
+                <div class="pt-8"></div>
+                <!-- hobbies -->
+                <div class="text-white fs-28 fs-sm-32 fs-lg-34 fw-500">
+                    Web Developer
+                </div>
+                <!-- short intro -->
+                <div class="body-text pt-6">
+                    Passionate about programming and software development
+                    with expertise in Python, JavaScript, and C++. Building
+                    modern web applications using Node.js, React.js, and
+                    Next.js. Freelancer specializing in AI-powered solutions.
+                </div>
+                <!-- CTA Buttons -->
+                <div class="d-flex gap-6 pt-8 mt-4">
+                    <!-- primary arrow -->
+                    <a
+                        href="/contact"
+                        class="btn btn-arrow btn-arrow-primary"
+                        slot="btn-arrow"
+                        x-data="{ text: 'Get In Touch' }"
+                    ></a>
+                    <!-- primary button -->
+                    <a
+                        href="/projects"
+                        class="btn btn-primary"
+                        slot="btn-primary"
+                        x-data="{ text: 'View Projects' }"
+                    ></a>
+                </div>
+            </div>
+        </div>
+        <!-- skills -->
+        <div class="col-lg-84 col-xl-72">
+            <!-- skills card container -->
+            <div class="skills_card h-100 bg-ocean-8 rounded-2 p-8">
+                <div class="row h-100 p-2 row-gap-7 gx-7">
+                    <template x-for="card in skillCards" :key="card.title">
+                        <!-- skill item -->
+                        <div :class="card.class">
+                            <div class="skill_card w-100 h-100 rounded-2 py-7" :class="'type-' + card.type">
+                                <div class="h-100 ps-8 d-flex flex-column justify-content-center gap-2">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="/icons/git.svg" alt="">
+                                        <div class="fs-18 fs-sm-19 fs-lg-20 text-white fw-600" x-text="card.title"></div>
+                                    </div>
+                                    <div class="fs-13 fs-sm-14 text-white" x-text="card.text"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- spacing | 58px, 96px, 112px -->
+    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
+</div>

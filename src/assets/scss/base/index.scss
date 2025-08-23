@@ -1,4 +1,14 @@
+
+// Fonts
 @use 'fonts' as *;
-@use 'functions' as *;
-@use 'globals' as *;
+
+// Resets
 @use 'resets' as *;
+
+// Layout function class variables
+@use 'functions/layout' as *;
+// Typography function class variables
+@use 'functions/typography' as *;
+
+// Global Styles
+@use 'globals' as *;

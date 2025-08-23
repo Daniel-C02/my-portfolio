@@ -2,8 +2,28 @@
  * Load all components
  */
 export const init = async () => {
-   await loadComponent("#navbar", "/partials/navbar.html");
-   await loadComponent("#footer", "/partials/footer.html");
+   // partials
+   await loadComponent('navbar', "/partials/navbar.html");
+   await loadComponent('footer', "/partials/footer.html");
+
+   // sections
+   await loadComponent('home-hero', "/components/home/hero.html");
+   await loadComponent('home-about', "/components/home/about.html");
+   await loadComponent('home-showcase', "/components/home/showcase.html");
+   await loadComponent('home-featured', "/components/home/featured.html");
+   await loadComponent('home-contact', "/components/home/contact.html");
+
+   // section or page specific components | Organisms or Molecules
+   await loadComponent('home-showcase-card-cta', "/components/home/x/showcase-card-cta.html");
+
+   // reusable components | Molecules
+   await loadComponent('tag-title-text', "/components/molecules/tag-title-text.html");
+
+   // reusable components | Atoms
+   await loadComponent('logo', "/components/atoms/logo.html");
+   await loadComponent('btn-arrow', "/components/atoms/buttons/arrow.html");
+   await loadComponent('btn-primary', "/components/atoms/buttons/primary.html");
+   await loadComponent('tag-primary', "/components/atoms/tags/primary.html");
 };
 
 /**
@@ -13,13 +33,17 @@ export const init = async () => {
  */
 async function loadComponent(selector, url) {
    try {
-      const container = document.querySelector(selector);
-      if (!container) return;
+      const containers = document.querySelectorAll(`[slot="${selector}"]`);
+      if (containers.length === 0) return;
 
       const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-      document.querySelector(selector).innerHTML = await response.text();
+      const responseText = await response.text();
+
+      containers.forEach((container) => {
+         container.innerHTML = responseText;
+      });
    } catch (error) {
       console.error(`Error loading component ${url}:`, error);
    }
