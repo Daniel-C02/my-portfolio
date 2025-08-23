@@ -1,6 +1,53 @@
-<nav>
-   <a href="/" data-link>Home</a>
-   <a href="/about" data-link>About</a>
-   <a href="/projects" data-link>Projects</a>
-   <a href="/contact" data-link>Contact</a>
+<!-- navbar -->
+<nav
+    id="s_navbar"
+    class="px-gutter"
+    x-data="{
+        navLinks: [
+            { name: 'Home', route: '/' },
+            { name: 'About', route: '/about' },
+            { name: 'Projects', route: '/projects' },
+            { name: 'Resume', route: '/resume' },
+            { name: 'Contact', route: '/contact' },
+        ],
+        locationPath: window.location.pathname,
+    }"
+>
+    <div class="navbar rounded-pill d-flex align-items-center justify-content-between">
+        <!-- navbar brand -->
+        <a class="navbar_brand" href="/">
+            <span slot="logo"></span>
+        </a>
+        <!-- navbar menu | collapse menu -->
+        <div class="navbar-collapse">
+            <div class="d-flex align-items-center gap-9">
+                <!-- nav links -->
+                <template x-for="navLink in navLinks" :key="navLink.route">
+                    <div class="">
+                        <a
+                            class="nav-link body-text expanding-border"
+                            :class="navLink.route === locationPath ? 'active' : ''"
+                            :href="navLink.route"
+                        >
+                            <span x-text="navLink.name"></span>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <!-- Theme Toggle -->
+        <button class="theme_toggle rounded-circle">
+            <img src="/icons/moon.svg" alt="moon">
+        </button>
+        <!-- menu toggle | mobile, tablet -->
+        <button
+            class="navbar_toggle d-lg-none"
+            type="button"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
 </nav>

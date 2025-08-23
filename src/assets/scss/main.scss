@@ -1,10 +1,13 @@
 // Import Sass's built-in math module for advanced mathematical functions
 @use "sass:math";
 
+// Import Bootstrap Icons
+@use "bootstrap-icons/font/bootstrap-icons.min.css" as *;
+
 // Import Bootstrap's core styles, making all Bootstrap variables, mixins, and functions available
 @use "bootstrap" as *;
 
-// Import theme variables
+// Import theme variables | Dark & Light theme | Bootstrap theme overrides
 @use "theme-variables" as *;
 
 // Import base styles for the project (e.g., typography, colors, global variables)
@@ -21,5 +24,5 @@
 @use "partials" as *;
 
 // Import page-specific styles (e.g., home page, about page styles)
-// define class wrapper: p_wrapper
+// Note: define the wrapper class or id: s_wrapper
 @use "pages" as *;

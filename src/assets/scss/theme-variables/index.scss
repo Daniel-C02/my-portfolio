@@ -1,1 +1,5 @@
+// bootstrap related variable overrides
 @use "root" as *;
+
+// custom variables (non bootstrap related)
+@use "custom" as *;

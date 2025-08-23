@@ -1,0 +1,47 @@
+@use "../theme" as *;
+
+#s_navbar {
+
+   --spacing-top: 0.75rem;
+   padding-top: var(--spacing-top);
+
+   // navbar wrapper
+   .navbar {
+      height: calc(var(--navbar-height) - 2px - var(--spacing-top));
+      border: 1px solid $sage-100;
+      padding: 0 $sp_7;
+   }
+
+   // navbar brand
+   .navbar_brand {
+      .my_logo {
+         --logo-size: 60px;
+         color: $frost-100;
+      }
+   }
+
+   // navbar link
+   .nav-link {
+      &.active {
+         color: $ocean-500;
+      }
+   }
+
+   // theme toggle button
+   .theme_toggle {
+      width: 40px; height: 40px;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 1px $sage-100;
+      img { width: 24px; height: 24px; }
+
+      &:hover {
+         background-color: rgba($sage-100, 0.08);
+         box-shadow: inset 0 0 0 2px $sage-100;
+      }
+   }
+
+   // navbar toggle button
+   .navbar_toggle {
+
+   }
+}

@@ -19,7 +19,7 @@
 }
 
 //----------------------------------------------------------------------------------------------------------------------
-// Responsive Width, Height and Offset Percentages
+// Responsive Height Percentages
 
 $item-percentage: ();
 $matrix: (
@@ -35,5 +35,4 @@ $matrix: (
       }
    }
 }
-@include responsive-percentage-vars('w', 'width', $item-percentage);
 @include responsive-percentage-vars('h', 'height', $item-percentage);

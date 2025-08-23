@@ -8,6 +8,7 @@ $white: #fff;
 $black: #000;
 
 // Ocean Blue
+$ocean-200: #b9e1ef;
 $ocean-400: #73c3dd;
 $ocean-500: #50b4d4;
 $ocean-600: #388fa7;
@@ -38,6 +39,7 @@ $moss-500: #93ad96;
 
 // Deep Night
 $midnight-800: #0a2e40;
+$midnight-850: #041c26;
 $midnight-900: #01161e;
 $midnight-950: #000f14;
 
@@ -96,4 +98,5 @@ $sp-16: $spacer * 12;     // 192px
 
 // Ease Out Slow Transition Value
 $eo-slow-transition: cubic-bezier(0.25, 1, 0.5, 1);
+$base-transition: all 0.12s ease-in-out;
 

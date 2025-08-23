@@ -29,5 +29,13 @@ export default defineConfig({
    server: {
       port: 5173,
       open: true,
+      // watch: {
+      //    // Watch all asset + HTML files in src
+      //    paths: [
+      //       path.resolve(__dirname, "src/assets/**/*"),
+      //       path.resolve(__dirname, "src/**/*.html"),
+      //    ],
+      //    usePolling: true, // helps on WSL/Docker/VMs
+      // },
    },
 });

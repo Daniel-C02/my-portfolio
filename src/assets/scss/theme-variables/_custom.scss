@@ -1,0 +1,31 @@
+// project theme variables
+@use "../theme" as *;
+
+// bootstrap functions
+@use "bootstrap/scss/functions" as *;
+
+// Light theme
+:root, [data-bs-theme=light] {
+
+}
+
+// Dark theme
+[data-bs-theme=dark] {
+   color-scheme: dark;
+
+   // -- borders --
+   --border-primary-1: 0.5px solid #{$sage-100};
+   --border-primary-2: 0.5px solid rgba(#{to-rgb($sage-100)}, 0.8);
+   --border-primary-3: 0.5px solid rgba(#{to-rgb($sage-100)}, 0.6);
+   --border-primary-4: 0.5px solid rgba(#{to-rgb($sage-100)}, 0.44);
+
+   // -- cards --
+   --card-bg-1: #{$moss-500};
+   --card-bg-2: #{$frost-600};
+   --card-bg-3: rgba(#{to-rgb($midnight-800)}, 0.8);
+   --card-bg-4: #{$midnight-850};
+
+
+   // -- icons --
+   --icon-bg-1: rgba(#{to-rgb($ocean-500)}, 0.34)
+}

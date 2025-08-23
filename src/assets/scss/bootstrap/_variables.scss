@@ -65,43 +65,45 @@ $colors: (
 //$dark: $gray-900 !default;
 
 $theme-colors: (
-  //"primary": $primary,
-  //"secondary": $secondary,
-  //"success": $success,
-  //"info": $info,
-  //"warning": $warning,
-  //"danger": $danger,
-  //"light": $light,
-  //"dark": $dark,
+   //"primary": $primary,
+   //"secondary": $secondary,
+   //"success": $success,
+   //"info": $info,
+   //"warning": $warning,
+   //"danger": $danger,
+   //"light": $light,
+   //"dark": $dark,
 
-  "ocean-4": $ocean-400,
-  "ocean-5": $ocean-500,
-  "ocean-6": $ocean-600,
-  "ocean-7": $ocean-700,
-  "ocean-8": $ocean-800,
-  "ocean-9": $ocean-900,
+   "ocean-2": $ocean-200,
+   "ocean-4": $ocean-400,
+   "ocean-5": $ocean-500,
+   "ocean-6": $ocean-600,
+   "ocean-7": $ocean-700,
+   "ocean-8": $ocean-800,
+   "ocean-9": $ocean-900,
 
-  "frost-1": $frost-100,
-  "frost-2": $frost-200,
-  "frost-3": $frost-300,
-  "frost-4": $frost-400,
-  "frost-5": $frost-500,
-  "frost-6": $frost-600,
-  "frost-7": $frost-700,
-  "frost-8": $frost-800,
-  "frost-9": $frost-900,
+   "frost-1": $frost-100,
+   "frost-2": $frost-200,
+   "frost-3": $frost-300,
+   "frost-4": $frost-400,
+   "frost-5": $frost-500,
+   "frost-6": $frost-600,
+   "frost-7": $frost-700,
+   "frost-8": $frost-800,
+   "frost-9": $frost-900,
 
-  "sage-1": $sage-100,
-  "sage-2": $sage-200,
-  "sage-3": $sage-300,
-  "sage-4": $sage-400,
+   "sage-1": $sage-100,
+   "sage-2": $sage-200,
+   "sage-3": $sage-300,
+   "sage-4": $sage-400,
 
-  "moss-4": $moss-400,
-  "moss-5": $moss-500,
+   "moss-4": $moss-400,
+   "moss-5": $moss-500,
 
-  "midnight-8": $midnight-800,
-  "midnight-9": $midnight-900,
-  "midnight-9f": $midnight-950
+   "midnight-8":  $midnight-800,
+   "midnight-8f": $midnight-850,
+   "midnight-9":  $midnight-900,
+   "midnight-9f": $midnight-950
 ) !default;
 
 // ---------------------------------------------------------------------------------------------------
@@ -206,7 +208,7 @@ $container-max-widths: (
 // ---------------------------------------------------------------------------------------------------
 // -- Grid columns --
 
-$grid-columns: 0 !default;
+$grid-columns: 144 !default;
 //$grid-gutter-width: 1.5rem !default;
 //$grid-row-columns: 6 !default;
 

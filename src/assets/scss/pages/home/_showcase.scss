@@ -1,0 +1,92 @@
+@use "../../theme" as *;
+
+#s_home_showcase {
+   min-height: 100vh;
+   display: flex; flex-direction: column; justify-content: center;
+
+   /*
+    * Main Layout Configuration
+    */
+   .canvas {
+      position: relative;
+      width: 100%;
+      max-width: 950px;
+      height: 620px;
+
+      --gap: 1.25rem;
+
+      --pivot-w: 36%;
+      --pivot-h: 33%;
+
+      --short-w: calc((100% - var(--pivot-w) - (2 * var(--gap))) / 2);
+      --short-h: calc((100% - var(--pivot-h) - (2 * var(--gap))) / 2);
+
+      --long-w: calc(var(--short-w) + var(--gap) + var(--pivot-w));
+      --long-h: calc(var(--short-h) + var(--gap) + var(--pivot-h));
+   }
+
+   .my_card {
+      position: absolute;
+      overflow: hidden;
+      border-style: solid;
+      border-width: 0.5px;
+      border-radius: var(--bs-border-radius);
+
+      a.link-btn { color: currentColor; }
+   }
+   .card_tl {
+      top: 0; left: 0;
+      width: var(--long-w);
+      height: var(--short-h);
+      border-color: $sage-100;
+      color: $sage-100;
+   }
+   .card_tr {
+      top: 0; right: 0;
+      width: var(--short-w);
+      height: var(--long-h);
+      border-color: $sage-300;
+      color: $sage-300;
+   }
+   .card_c {
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: var(--pivot-w);
+      height: var(--pivot-h);
+      border-color: white;
+      color: white;
+   }
+   .card_bl {
+      bottom: 0; left: 0;
+      width: var(--short-w);
+      height: var(--long-h);
+      border-color: $ocean-400;
+      color: $ocean-400;
+   }
+   .card_br {
+      bottom: 0; right: 0;
+      width: var(--long-w);
+      height: var(--short-h);
+      border-color: $ocean-200;
+      color: $ocean-200;
+   }
+
+   // call to action which opens up on hover inside certain cards
+   .my_card {
+      .card_cta {
+         position: absolute;
+         left: 1.25rem; bottom: 1rem;
+         transform: translateY(34px); // link-btn height + padding
+         --transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+         transition: var(--transition);
+         i.top_icon { font-size: 26px; transition: var(--transition); }
+         a.link-btn { opacity: 0; transition: var(--transition); }
+      }
+
+      &.hover .card_cta {
+         transform: translateY(0);
+         i.top_icon { font-size: 20px; }
+         a.link-btn { opacity: 1; }
+      }
+
+   }
+}
