@@ -1,0 +1,19 @@
+@use "../theme" as *;
+
+.embla {
+   overflow: hidden;
+   max-width: 100%;
+}
+
+.embla__viewport {
+   overflow: hidden;
+   width: 100%;
+}
+
+.embla__container {
+   display: flex;
+}
+
+.embla__slide {
+   user-select: none;
+}
