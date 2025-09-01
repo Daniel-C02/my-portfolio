@@ -1,8 +1,10 @@
 @use "../../theme" as *;
 
 #s_home_hero {
-   min-height: calc(100vh - var(--navbar-height));
+   min-height: 100vh;
    display: flex; flex-direction: column; justify-content: center;
+
+   padding-top: var(--navbar-height);
 
    // author image
    .auth_image {
