@@ -10,12 +10,12 @@
    .canvas {
       position: relative;
       width: 100%;
-      max-width: 950px;
-      height: 620px;
+      max-width: 1280px;
+      height: clamp(750px, calc(100vh - 120px), 960px);
 
       --gap: 1.25rem;
 
-      --pivot-w: 36%;
+      --pivot-w: 35.8%;
       --pivot-h: 33%;
 
       --short-w: calc((100% - var(--pivot-w) - (2 * var(--gap))) / 2);
@@ -23,13 +23,14 @@
 
       --long-w: calc(var(--short-w) + var(--gap) + var(--pivot-w));
       --long-h: calc(var(--short-h) + var(--gap) + var(--pivot-h));
+
+      --grad1-opacity: 0.024;
+      --grad2-opacity: 0.088;
    }
 
    .my_card {
       position: absolute;
       overflow: hidden;
-      border-style: solid;
-      border-width: 0.5px;
       border-radius: var(--bs-border-radius);
 
       a.link-btn { color: currentColor; }
@@ -38,36 +39,41 @@
       top: 0; left: 0;
       width: var(--long-w);
       height: var(--short-h);
-      border-color: $sage-100;
       color: $sage-100;
+      background: radial-gradient(at top left, rgba($sage-100, var(--grad1-opacity)), transparent),
+      radial-gradient(at bottom right, rgba($sage-100, var(--grad2-opacity)), transparent);
    }
    .card_tr {
       top: 0; right: 0;
       width: var(--short-w);
       height: var(--long-h);
-      border-color: $sage-300;
       color: $sage-300;
+      background: radial-gradient(at top left, rgba($sage-300, var(--grad1-opacity)), transparent),
+      radial-gradient(at bottom right, rgba($sage-300, var(--grad2-opacity)), transparent);
    }
    .card_c {
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       width: var(--pivot-w);
       height: var(--pivot-h);
-      border-color: white;
       color: white;
+      background: radial-gradient(at top left, rgba(#fff, var(--grad1-opacity)), transparent),
+      radial-gradient(at bottom right, rgba(#fff, var(--grad2-opacity)), transparent);
    }
    .card_bl {
       bottom: 0; left: 0;
       width: var(--short-w);
       height: var(--long-h);
-      border-color: $ocean-400;
       color: $ocean-400;
+      background: radial-gradient(at top left, rgba($ocean-400, var(--grad1-opacity)), transparent),
+      radial-gradient(at bottom right, rgba($ocean-400, var(--grad2-opacity)), transparent);
    }
    .card_br {
       bottom: 0; right: 0;
       width: var(--long-w);
       height: var(--short-h);
-      border-color: $ocean-200;
       color: $ocean-200;
+      background: radial-gradient(at top left, rgba($ocean-200, var(--grad1-opacity)), transparent),
+      radial-gradient(at bottom right, rgba($ocean-200, var(--grad2-opacity)), transparent);
    }
 
    // call to action which opens up on hover inside certain cards
@@ -78,15 +84,316 @@
          transform: translateY(34px); // link-btn height + padding
          --transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
          transition: var(--transition);
-         i.top_icon { font-size: 26px; transition: var(--transition); }
+         i.top_icon { font-size: 28px; transition: var(--transition); }
          a.link-btn { opacity: 0; transition: var(--transition); }
       }
 
       &.hover .card_cta {
          transform: translateY(0);
-         i.top_icon { font-size: 20px; }
+         i.top_icon { font-size: 22px; }
          a.link-btn { opacity: 1; }
       }
+   }
 
+   // center card styling
+   .card_c {
+      .my_logo {
+         --logo-size: 120px;
+      }
+      button.copy-btn {
+         border-radius: var(--bs-border-radius-lg);
+         height: 48px;
+         background-color: color-mix(in oklab, currentColor 6%, transparent);
+         &:hover {
+            background-color: color-mix(in oklab, currentColor 12%, transparent);
+         }
+      }
+   }
+
+   // top left card styling
+   .card_tl {
+
+      .circles_ctn div {
+         position: absolute;
+         bottom: 0; right: 0;
+         transform: translate(50%, 50%);
+         width: var(--size); height: var(--size);
+
+         @function fib($n) {
+            @if $n <= 1 {
+               @return $n;
+            }
+            @return fib($n - 1) + fib($n - 2);
+         }
+
+         @for $i from 2 through 7 {
+            &:nth-child(#{$i - 1}) {
+               // Fibonacci scaling: 1, 1, 2, 3, 5…
+               --size: #{fib($i) * 100px};
+            }
+         }
+
+         span {
+            display: inline-block;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px rgba($sage-100, 0.44);
+         }
+      }
+
+      .auth_image_ctn {
+         img {
+            width: 76px; height: 76px;
+            padding: 3px;
+            box-shadow: 0 0 0 0.5px white;
+         }
+      }
+
+      .user_image {
+         position: absolute;
+         width: var(--size); height: var(--size);
+         transform: translate(-50%, -50%);
+
+         padding: 3px;
+         box-shadow: 0 0 0 0.5px white;
+
+         --delay-dif: 0.1s;
+         animation: hideCardTlImage 0.28s cubic-bezier(.4, 0, .2, 1) forwards;
+
+         &:nth-child(2), &:nth-child(3) { --size: 36px; opacity: 0.7; }
+         &:nth-child(4)                 { --size: 42px; opacity: 0.8; }
+         &:nth-child(5), &:nth-child(6) { --size: 48px; opacity: 0.9; }
+
+         &:nth-child(2) {
+            top: 23%; left: 86%;
+            animation-delay: calc(var(--delay-dif) * 3);
+         }
+         &:nth-child(3) {
+            top: 59%; left: 73%;
+            animation-delay: calc(var(--delay-dif) * 2);
+         }
+         &:nth-child(4) {
+            top: 21%; left: 22%;
+            animation-delay: calc(var(--delay-dif) * 1);
+         }
+         &:nth-child(5) {
+            top: 25%; left: 66%;
+            animation-delay: calc(var(--delay-dif) * 4);
+         }
+         &:nth-child(6) {
+            top: 53%; left: 33%;
+            animation-delay: calc(var(--delay-dif) * 5);
+         }
+      }
+
+      // hover state of the card
+      &.hover {
+         .user_image {
+            opacity: 0;
+            animation: showCardTlImage 0.24s cubic-bezier(.4, 0, .2, 1) forwards;
+
+            &:nth-child(2) { animation-delay: calc(var(--delay-dif) * 3); }
+            &:nth-child(3) { animation-delay: calc(var(--delay-dif) * 2); }
+            &:nth-child(4) { animation-delay: calc(var(--delay-dif) * 1); }
+            &:nth-child(5) { animation-delay: calc(var(--delay-dif) * 4); }
+            &:nth-child(6) { animation-delay: calc(var(--delay-dif) * 5); }
+         }
+
+         .circles_ctn div span {
+            animation: bounce-soft 0.9s ease forwards;
+         }
+      }
+
+      // image animation
+      @keyframes showCardTlImage {
+         from {
+            opacity: 0;
+            transform: translate(-50%, calc(-50% - 20px));
+         }
+         to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+         }
+      }
+      @keyframes hideCardTlImage {
+         from {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+         }
+         to {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+         }
+      }
+
+      @keyframes bounce-soft {
+         0%, 100% { transform: scale(1); }
+         30% { transform: scale(0.9, 1.1); }
+         50% { transform: scale(1.05, 0.95); }
+         70% { transform: scale(0.97, 1.03); }
+      }
+   }
+
+   // top right card styling
+   .card_tr {
+      .my_tag {
+         border: 0.5px solid rgba($sage-300, 0.3);
+         color: $sage-300;
+         height: 28px;
+         background-color: color-mix(in oklab, currentColor 8%, transparent);
+      }
+      .browser_ctn {
+         --browser-height: 164px;
+         height: var(--browser-height);
+      }
+      .browser {
+         --transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+
+         width: 68%;
+         height: var(--browser-height);
+         overflow: hidden;
+         transition: var(--transition);
+
+         border-width: 2px 2px 0 2px;
+         border-style: solid;
+         border-color: rgba($sage-300, 0.4);
+         border-radius: 6px 6px 0 0;
+
+         .browser-bar {
+            position: relative;
+            width: 100%; height: 18px;
+            background-color: rgba($sage-300, 0.4);
+
+            div {
+               position: absolute;
+               top: 50%; transform: translateY(-50%);
+               border-radius: 50%;
+               background-color: $midnight-900;
+
+               --size: 10px;
+               --start: 8px;
+               --gap: 4px;
+
+               width: var(--size); height: var(--size);
+
+               &:nth-child(1) { left: calc(var(--start) + (0 * (var(--size) + var(--gap)))); }
+               &:nth-child(2) { left: calc(var(--start) + (1 * (var(--size) + var(--gap)))); }
+               &:nth-child(3) { left: calc(var(--start) + (2 * (var(--size) + var(--gap)))); }
+            }
+         }
+
+         .nav-bar {
+            position: relative;
+            width: 52%; height: 20px;
+            background-color: rgba($sage-300, 0.8);
+            border-radius: var(--bs-border-radius-pill);
+            margin: 12px auto;
+            transition: var(--transition);
+
+            div {
+               position: absolute;
+               top: 50%; transform: translateY(-50%);
+               border-radius: 50%;
+               background-color: $midnight-900;
+
+               --size: 12px;
+               --start: 6px;
+
+               right: var(--start);
+               width: var(--size); height: var(--size);
+            }
+         }
+
+         .title {
+            padding-top: 6px;
+            padding-bottom: 16px;
+         }
+
+         .buttons {
+
+            .btn {
+               height: 18px;
+               width: 50px;
+               padding: 0;
+               cursor: default !important;
+            }
+
+            .btn.btn-arrow {
+               --space: 4px;
+               --width: 10px;
+               span.arrow { display: none; }
+
+               background: rgba($sage-300, 0.3);
+               span.body-text { color: white; }
+               span.circle {
+                  background: rgba($sage-300, 0.3);
+                  box-shadow: none;
+               }
+               &:hover { background: rgba($sage-300, 0.4); }
+            }
+            .btn.btn-primary {
+               box-shadow: inset 0 0 0 2px rgba($sage-300, 0.3);
+
+               &:hover {
+                  background: rgba($sage-300, 0.08);
+                  box-shadow: inset 0 0 0 3px rgba($sage-300, 0.3);
+               }
+            }
+         }
+      }
+
+      // Hover state of the mini browser
+      &.hover .browser {
+         height: calc(var(--browser-height) - 20px);
+
+         .nav-bar {
+            width: 76%;
+            background-color: rgba($sage-300, 0.4);
+         }
+      }
+   }
+
+   .card_bl {
+      canvas {
+         position: absolute;
+         left: 50%;
+         transform: translateX(-50%);
+         bottom: -36%;
+      }
+      .controls {
+         button {
+            background-color: color-mix(in oklab, $ocean-500 10%, transparent);
+         }
+      }
+   }
+
+   .card_br {
+      .hover_scroll_cards {
+         position: absolute;
+         top: 6%; left: 0;
+         height: 72%;
+
+         .scroll_card {
+            width: 174px;
+            transition: all 0.3s $eo-slow-transition;
+
+            // hover effect
+            background-color: rgba($ocean-200, 0.12);
+            opacity: 0.8;
+            &:hover {
+               opacity: 1;
+               background-color: rgba($ocean-200, 0.14);
+            }
+
+            // fade to bottom
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+            mask-repeat: no-repeat;
+            mask-size: 100% 100%;
+         }
+      }
    }
 }

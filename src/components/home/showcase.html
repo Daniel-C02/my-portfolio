@@ -5,8 +5,22 @@
 
     <!-- canvas -->
     <div class="canvas mx-auto">
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!-- Top Left card -->
         <div class="my_card card_tl js-hover-target">
             <div class="position-relative w-100 h-100">
+                <!-- Circle background elements -->
+                <div class="position-absolute start-0 top-0 w-100 h-100">
+                    <div class="circles_ctn position-relative w-100 h-100">
+                        <div><span></span></div>
+                        <div><span></span></div>
+                        <div><span></span></div>
+                        <div><span></span></div>
+                        <div><span></span></div>
+                        <div><span></span></div>
+                    </div>
+                </div>
                 <!-- CTA hover element -->
                 <div
                     slot="home-showcase-card-cta"
@@ -17,16 +31,172 @@
                         ctaLink: '/contact', ctaText: 'Book A Call'
                     }"
                 ></div>
+                <!-- author image -->
+                <div class="auth_image_ctn position-absolute start-50 top-50 translate-middle rounded-circle pb-6">
+                    <img class="object-fit-cover rounded-circle" src="/images/placeholder_gym.webp" alt="author image">
+                </div>
+                <!-- user images -->
+                <div
+                    class="user-images"
+                    x-data="{
+                        userImages: [
+                            '/images/showcase/5.avif', '/images/showcase/2.avif', '/images/showcase/3.avif',
+                            '/images/showcase/1.avif', '/images/showcase/6.avif',
+                        ],
+                    }"
+                >
+                    <template x-for="image in userImages" :key="image">
+                        <div class="user_image overflow-hidden rounded-circle">
+                            <img class="w-100 h-100 object-fit-cover rounded-circle" src="" :src="image" alt="user image">
+                        </div>
+                    </template>
+                </div>
             </div>
         </div>
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!-- Top Right card -->
         <div class="my_card card_tr js-hover-target">
+            <div class="d-flex align-items-center justify-content-between flex-column h-100 text-center">
+                <!-- card title -->
+                <div class="pt-8 px-7">
+                    <div class="fs-24 text-sage-3 fw-500 mt-n4 lh-130p pt-4">
+                        Passionate about
+                        <span class="ff-georgia-pro-semibold-italic">
+                            cutting-<br>edge
+                        </span>
+                        technologies
+                    </div>
+                </div>
 
+                <!-- Embla carousel auto scroll tags -->
+                <div class="d-flex flex-column w-100 gap-6 pb-6">
+                    <div
+                        class="w-100" slot="home-showcase-card-skills"
+                        x-data="{
+                            speed: 0.7, direction: 'forward',
+                            thisSkills: devSkills.slice(0, Math.ceil(devSkills.length / 3)),
+                        }"
+                    ></div>
+                    <div
+                        class="w-100" slot="home-showcase-card-skills"
+                        x-data="{
+                            speed: 0.7, direction: 'backward',
+                            thisSkills: devSkills.slice(Math.ceil(devSkills.length / 3), Math.ceil(2 * devSkills.length / 3)),
+                        }"
+                    ></div>
+                    <div
+                        class="w-100" slot="home-showcase-card-skills"
+                        x-data="{
+                            speed: 0.7, direction: 'forward',
+                            thisSkills: devSkills.slice(Math.ceil(2 * devSkills.length / 3)),
+                        }"
+                    ></div>
+                </div>
+
+                <!-- hover browser window -->
+                <div class="browser_ctn position-relative w-100">
+                    <div class="browser position-absolute bottom-0 start-50 translate-middle-x">
+                        <div class="browser-bar">
+                            <div></div><div></div><div></div>
+                        </div>
+                        <div class="nav-bar">
+                            <div></div>
+                        </div>
+                        <div class="title fs-13 fw-500 text-sage-1 lh-130p">
+                            Websites that stand out <br>
+                            and make a difference
+                        </div>
+                        <div class="buttons d-flex justify-content-center gap-2">
+                            <button
+                                class="btn btn-arrow btn-arrow-primary"
+                                slot="btn-arrow" x-data="{ text: '' }"
+                            ></button>
+                            <button
+                                class="btn btn-primary"
+                                slot="btn-primary" x-data="{ text: '' }"
+                            ></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!-- Center card -->
         <div class="my_card card_c js-hover-target">
-
+            <div class="d-flex align-items-center justify-content-around flex-column h-100 text-center p-8">
+                <!-- Logo -->
+                <div slot="logo" class="ms-n5 mb-n8"></div>
+                <!-- card title -->
+                <!--<div class="fs-20 text-white fw-500 lh-130p">
+                    Let's work together on your<br>
+                    next project
+                </div>-->
+                <!-- copy button -->
+                <div
+                    class="mt-autow"
+                    x-data="{
+                        email: '02.christensendaniel@gmail.com',
+                        copyEmail() {
+                            navigator.clipboard.writeText(this.email)
+                                .then(() => {
+                                    // change the tooltip text to 'Copied!'
+                                    const tooltipInner = document.querySelector('.tooltip.copy-email-tooltip .tooltip-inner');
+                                    tooltipInner.innerText = 'Copied!';
+                                    // Reset after 1.5s
+                                    setTimeout(() => {
+                                        // reset tooltip text
+                                        tooltipInner.innerText = 'Copy';
+                                        // remove focus from the button
+                                        this.$refs.btn.blur();
+                                    }, 1500);
+                                })
+                                .catch(err => console.error('Failed to copy: ', err));
+                        },
+                    }"
+                >
+                    <button
+                        x-ref="btn"
+                        class="btn copy-btn d-center gap-4 px-6"
+                        @click="copyEmail"
+                        data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        data-bs-custom-class="primary-tooltip copy-email-tooltip" data-bs-title="Copy"
+                    >
+                        <i class="bi bi-copy lh-100p"></i>
+                        <span class="fs-14" x-text="email"></span>
+                    </button>
+                </div>
+            </div>
         </div>
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!-- Bottom Left card -->
         <div class="my_card card_bl js-hover-target">
             <div class="position-relative w-100 h-100">
+                <!-- card title -->
+                <div class="pt-8 px-7">
+                    <div class="fs-24 text-ocean-4 fw-500 text-center mt-n4 lh-130p pt-4">
+                        I'm very
+                        <span class="ff-georgia-pro-semibold-italic">flexible</span>
+                        with time<br>
+                        zone communications
+                    </div>
+                </div>
+                <!-- spacing -->
+                <div class="pb-8"></div>
+                <!-- Rotate to Buttons -->
+                <div class="controls d-flex justify-content-center gap-4">
+                    <button id="btn-sa" class="fs-14 rounded-2 px-5 py-2">South Africa</button>
+                    <button id="btn-uk" class="fs-14 rounded-2 px-5 py-2">UK</button>
+                </div>
+                <!-- Globe canvas -->
+                <canvas
+                    id="cobe-canvas"
+                    style="width: 580px; height: 580px"
+                    width="950"
+                    height="800"
+                ></canvas>
                 <!-- CTA hover element -->
                 <div
                     slot="home-showcase-card-cta"
@@ -39,8 +209,32 @@
                 ></div>
             </div>
         </div>
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!-- Bottom Right card -->
         <div class="my_card card_br js-hover-target">
             <div class="position-relative w-100 h-100">
+                <!-- Embla auto scroll carousel | Current project overview -->
+                <div class="embla hover_scroll_cards w-100">
+                    <div class="embla__viewport h-100">
+                        <div class="embla__container h-100">
+                            <template x-for="scoopItem in insideScoop" :key="scoopItem.title">
+                                <div class="embla__slide pt-6">
+                                    <div class="scroll_card rounded-2 p-6 h-100 mx-4">
+                                        <div
+                                            class="ff-georgia-pro-semibold-italic fs-14 lh-130p pb-3"
+                                            x-text="scoopItem.title"
+                                        ></div>
+                                        <div
+                                            class="fs-12"
+                                            x-text="scoopItem.description"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
                 <!-- CTA hover element -->
                 <div
                     slot="home-showcase-card-cta"

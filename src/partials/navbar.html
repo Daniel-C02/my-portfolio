@@ -11,9 +11,60 @@
             { name: 'Contact', route: '/contact' },
         ],
         locationPath: window.location.pathname,
+
+        // Scroll logic properties
+        lastScroll: 0,
+        thresholdBottom: 40,
+        thresholdTop: 40,
+        scrolledDown: false,
+        scrolledUp: false,
+        scrolledDownValue: 0,
+        scrolledUpValue: 0,
+
+        init() {
+            // set the threshold
+            this.thresholdBottom = window.innerHeight * 0.02; // 2% of window height
+            this.thresholdTop = window.innerHeight * 0.16; // 16% of window height
+
+            // Scroll listener
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.scrollY;
+
+                // If at the very top of the page, force the navbar to be visible.
+                if (currentScroll <= 0) {
+                    this.scrolledUp = true;
+                    this.scrolledDown = false;
+                    this.lastScroll = 0; // Reset last scroll position for accuracy
+                    return; // Exit early
+                }
+
+                const delta = currentScroll - this.lastScroll;
+
+                if (delta !== 0) {
+                    if (delta > 0) {
+                        this.scrolledUpValue = 0;
+                        this.scrolledDownValue += delta;
+                        if (this.scrolledDownValue >= this.thresholdBottom) {
+                            this.scrolledDown = true;
+                            this.scrolledUp = false;
+                        }
+                    } else {
+                        this.scrolledDownValue = 0;
+                        this.scrolledUpValue += Math.abs(delta);
+                        if (this.scrolledUpValue >= this.thresholdTop) {
+                            this.scrolledUp = true;
+                            this.scrolledDown = false;
+                        }
+                    }
+                }
+
+                this.lastScroll = currentScroll;
+            });
+        }
     }"
+    :class="{'scrolled-bottom': scrolledDown, 'scrolled-top': scrolledUp}"
 >
-    <div class="navbar rounded-pill d-flex align-items-center justify-content-between">
+    <div class="navbar rounded-pill d-flex align-items-center justify-content-between mx-auto">
         <!-- navbar brand -->
         <a class="navbar_brand" href="/">
             <span slot="logo"></span>
@@ -36,7 +87,11 @@
             </div>
         </div>
         <!-- Theme Toggle -->
-        <button class="theme_toggle rounded-circle">
+        <button
+            class="theme_toggle rounded-circle"
+            data-bs-toggle="tooltip" data-bs-placement="bottom"
+            data-bs-title="Feature Not Implemented" data-bs-custom-class="primary-tooltip"
+        >
             <img src="/icons/moon.svg" alt="moon">
         </button>
         <!-- menu toggle | mobile, tablet -->

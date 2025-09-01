@@ -1,41 +1,5 @@
 
-<div
-    id="s_home_featured" class="px-gutter"
-    x-data="{
-        featuredProjects: [
-            {
-                id: 1,
-                title: 'Oral Cancer Classification using Neural Networks',
-                image: '/images/placeholder_project_management.avif',
-                into: 'Developing a machine learning model to detect and classify oral cancer levels from images. It involves data collection, preprocessing, feature extraction, and model evaluation.',
-                tags: [
-                    'Python', 'Javascript', 'React'
-                ],
-                sourceCodeUrl: '#',
-            },
-            {
-                id: 2,
-                title: 'Personal Portfolio',
-                image: '/images/placeholder_project_management.avif',
-                into: 'A responsive personal portfolio website showcasing projects and skills.',
-                tags: [
-                    'Python', 'Javascript', 'React'
-                ],
-                sourceCodeUrl: '#',
-            },
-            {
-                id: 3,
-                title: 'E-commerce Platform',
-                image: '/images/placeholder_project_management.avif',
-                into: 'A full-st ack e-commerce platform with user authentication, product catalog, and payment processing.',
-                tags: [
-                    'Python', 'Javascript', 'React'
-                ],
-                sourceCodeUrl: '#',
-            },
-        ],
-    }"
->
+<div id="s_home_featured" class="px-gutter">
     <!-- spacing | 58px, 96px, 112px -->
     <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
     <!-- featured projects section start -->
@@ -51,8 +15,8 @@
     <div class="pb-10 mb-4"></div>
     <!-- projects -->
     <div class="row row-gap-8 gx-xl-8">
-        <template x-for="project in featuredProjects" :key="project.id">
-            <div class="col-lg-48">
+        <template x-for="(project, index) in featuredProjects" :key="project.id">
+            <div class="col-lg-48 col-xxl-36" :class="{ 'd-none d-xxl-block': index === 3 }">
                 <div class="my_card h-100 d-flex flex-column rounded-2 overflow-hidden">
                     <!-- hero image -->
                     <div class="card-hero w-100 position-relative">

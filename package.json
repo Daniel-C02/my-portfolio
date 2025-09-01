@@ -16,6 +16,10 @@
       "alpinejs": "^3.14.9",
       "bootstrap": "^5.3.7",
       "bootstrap-icons": "^1.13.1",
+      "cobe": "^0.6.4",
+      "devicon": "^2.17.0",
+      "embla-carousel": "^8.6.0",
+      "embla-carousel-auto-scroll": "^8.6.0",
       "gsap": "^3.13.0"
    }
 }

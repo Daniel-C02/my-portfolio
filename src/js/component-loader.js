@@ -15,6 +15,7 @@ export const init = async () => {
 
    // section or page specific components | Organisms or Molecules
    await loadComponent('home-showcase-card-cta', "/components/home/x/showcase-card-cta.html");
+   await loadComponent('home-showcase-card-skills', "/components/home/x/showcase-card-skills.html");
 
    // reusable components | Molecules
    await loadComponent('tag-title-text', "/components/molecules/tag-title-text.html");

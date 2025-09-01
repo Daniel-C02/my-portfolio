@@ -2,7 +2,6 @@
 export const init = () => {
     const targets = document.querySelectorAll('.js-hover-target');
     targets.forEach(target => {
-        console.log('each target');
         let timeout;
         target.addEventListener('mouseenter', () => {
             clearTimeout(timeout);

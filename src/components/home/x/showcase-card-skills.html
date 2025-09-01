@@ -1,0 +1,19 @@
+
+<div
+    class="embla auto-scroll-tags w-100"
+    :data-speed="speed"
+    :data-direction="direction"
+>
+    <div class="embla__viewport">
+        <div class="embla__container">
+            <template x-for="skill in thisSkills">
+                <div class="embla__slide pe-8">
+                    <div class="my_tag d-center gap-3 rounded-2 px-4">
+                        <i class="fs-18" :class="skill.devIcon"></i>
+                        <span class="fs-12" x-text="skill.name"></span>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>

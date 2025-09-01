@@ -5,11 +5,38 @@
    --spacing-top: 0.75rem;
    padding-top: var(--spacing-top);
 
+   position: fixed;
+   width: 100vw;
+   z-index: 1051;
+
+   // show / hide animation
+   --curve: cubic-bezier(0.645, 0.045, 0.355, 1);
+   --timing: 0.44s;
+   --delay: 0.15s;
+   
+   transition: transform var(--timing) var(--curve);
+   .navbar {
+      transition: width var(--timing) var(--delay) var(--curve);
+   }
+
+   &.scrolled-bottom {
+      transition: transform var(--timing) var(--delay) var(--curve);
+      transform: translateY(-120%);
+      .navbar {
+         transition: width var(--timing) var(--curve);
+         width: 74%;
+      }
+   }
+
    // navbar wrapper
    .navbar {
       height: calc(var(--navbar-height) - 2px - var(--spacing-top));
+      width: 100%;
       border: 1px solid $sage-100;
       padding: 0 $sp_7;
+
+      background-color: color-mix(in oklab, var(--bs-body-bg) 68%, transparent);
+      backdrop-filter: blur(3px);
    }
 
    // navbar brand

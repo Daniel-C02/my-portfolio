@@ -1,0 +1,6 @@
+@use "../theme" as *;
+
+.primary-tooltip {
+   --bs-tooltip-bg: #fff;
+   --bs-tooltip-color: #{$midnight-900};
+}
