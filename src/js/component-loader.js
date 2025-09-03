@@ -17,11 +17,15 @@ export const init = async () => {
    await loadComponent('home-showcase-card-cta', "/components/home/x/showcase-card-cta.html");
    await loadComponent('home-showcase-card-skills', "/components/home/x/showcase-card-skills.html");
 
+   await loadComponent('input-field', "/components/contact/input.html");
+   await loadComponent('textarea-field', "/components/contact/textarea.html");
+
    // reusable components | Molecules
    await loadComponent('tag-title-text', "/components/molecules/tag-title-text.html");
 
    // reusable components | Atoms
    await loadComponent('logo', "/components/atoms/logo.html");
+
    await loadComponent('btn-arrow', "/components/atoms/buttons/arrow.html");
    await loadComponent('btn-primary', "/components/atoms/buttons/primary.html");
    await loadComponent('tag-primary', "/components/atoms/tags/primary.html");

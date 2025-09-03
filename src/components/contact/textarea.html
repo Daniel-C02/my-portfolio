@@ -1,0 +1,60 @@
+<div class="w-100">
+    <div
+        x-data="{
+            isFocused: false,
+            inputValue: '',
+            hasSet: false,
+            handleInput(el) {
+                // auto resize
+                (() => {
+                    el.style.height = 'auto';
+                    let newHeight = el.scrollHeight;
+                    if(newHeight < 104) newHeight = 104;
+                    el.style.height = `${newHeight}px`;
+                    $el.style.setProperty('--addy-space', `${newHeight + 2}px`);
+                })();
+
+                // delayed input deactivation - counteract transition for border element, the fix follows in the SCSS
+                (() => {
+                    if(this.inputValue === '') {
+                        setTimeout(() => { this.hasSet = false; }, 10);
+                    } else {
+                        this.hasSet = true;
+                    }
+                })();
+            }
+        }"
+        class="my-input textarea-input"
+        :class="{
+            'focused': isFocused,
+            'isset': inputValue !== '',
+            'hasSet': hasSet,
+        }"
+    >
+        <div class="my-border"></div>
+
+        <div
+            class="title fs-16 text-neutral-9f fw-500 w-100"
+            @mousedown.prevent="if (!isFocused) $refs.inputField.focus()"
+            x-text="title"
+        ></div>
+
+        <textarea
+            class="inputEL"
+            :name="name"
+            x-model="inputValue"
+            x-ref="inputField"
+            x-init="$nextTick(() => handleInput($refs.inputField))"
+            @input="handleInput($refs.inputField)"
+            @focus="isFocused = true"
+            @blur="isFocused = false"
+            :placeholder="placeholder"
+            rows="1"
+        ></textarea>
+    </div>
+    <!-- error message -->
+    <div x-show="hasErrors">
+        <div id="name + '_error'" class="errorSection"></div>
+    </div>
+</div>
+

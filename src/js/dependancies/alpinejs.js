@@ -7,6 +7,7 @@ import {homeAboutCards} from "@js/data/home-about-cards.js";
 import {projects} from "@js/data/projects.js";
 import {devSkills} from "@js/data/skills.js";
 import {insideScoop} from "@js/data/inside-scoop.js";
+import {copyEmail} from "@js/utilities/copy_email.js";
 
 // Assign Alpine to the window object
 window.Alpine = Alpine;
@@ -22,6 +23,8 @@ Alpine.data("appData", () => ({
 
     devSkills,
     insideScoop,
+
+    copyEmail,
 }));
 
 // Start AlpineJs

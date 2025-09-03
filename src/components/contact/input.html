@@ -1,0 +1,33 @@
+<div class="w-100">
+    <div
+        x-data="{ isFocused: false, inputValue: '' }"
+        class="my-input"
+        :class="{
+            'focused': isFocused,
+            'isset': inputValue.trim() !== ''
+        }"
+    >
+        <div class="my-border"></div>
+
+        <div
+            class="title fs-16 text-neutral-9f fw-500 w-100"
+            @mousedown.prevent="if (!isFocused) $refs.inputField.focus()"
+            x-text="title"
+        ></div>
+
+        <input
+            class="inputEL"
+            :type="type"
+            :name="name"
+            x-model="inputValue"
+            x-ref="inputField"
+            @focus="isFocused = true"
+            @blur="isFocused = false"
+            :placeholder="placeholder"
+        />
+    </div>
+
+    <div x-show="hasErrors">
+        <div id="name + '_error'" class="errorSection"></div>
+    </div>
+</div>

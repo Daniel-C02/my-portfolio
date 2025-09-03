@@ -1,0 +1,174 @@
+<!-- contact page -->
+<div id="s_contact_page" class="px-gutter">
+    <!-- spacing | 58px, 80px, 96px -->
+    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+    <!-- about section start -->
+    <div
+        slot="tag-title-text"
+        x-data="{
+            tag: 'Get In Touch',
+            title: 'Let\'s Connect',
+            text: `Got a project in mind? Drop me a message and let's create something amazing together!`
+        }"
+    ></div>
+    <!-- spacing -->
+    <div class="pb-10 mb-4"></div>
+    <!-- contact blocks -->
+    <div class="row row-gap-8">
+        <div class="col-lg-72 order-lg-2">
+            <div class="my_card rounded-2 p-8">
+                <div class="row g-6">
+                    <!-- name input -->
+                    <div
+                        slot="input-field" class="col-72"
+                        x-data="{
+                            title: 'Your Name',
+                            name: 'name',
+                            type: 'text',
+                            placeholder: 'John Doe',
+                            hasErrors: true,
+                        }"
+                    ></div>
+                    <!-- email input -->
+                    <div
+                        slot="input-field" class="col-72"
+                        x-data="{
+                            title: 'Email',
+                            name: 'email',
+                            type: 'email',
+                            placeholder: 'you@example.com',
+                            hasErrors: true,
+                        }"
+                    ></div>
+                    <!-- subject input -->
+                    <div
+                        slot="input-field" class="col-144"
+                        x-data="{
+                            title: 'Subject',
+                            name: 'subject',
+                            type: 'text',
+                            placeholder: 'Project inquiry / Collaboration',
+                            hasErrors: true,
+                        }"
+                    ></div>
+                    <!-- message textarea -->
+                    <div
+                        slot="textarea-field" class="col-144"
+                        x-data="{
+                            title: 'Message',
+                            name: 'message',
+                            placeholder: 'Tell me what you think',
+                            hasErrors: true,
+                        }"
+                    ></div>
+                    <!-- Privacy Clause & Submit Button -->
+                    <div class="d-flex align-items-center justify-content-between gap-5 pt-4">
+                        <div class="w-100">
+                            <div class="text-frost-2 fs-12 opacity-80">
+                                I value your privacy. Your information<br>
+                                will never be shared with 3rd parties.
+                            </div>
+                        </div>
+                        <button
+                            type="submit"
+                            class="btn btn-arrow btn-arrow-secondary flex-shrink-0"
+                            slot="btn-arrow"
+                            x-data="{ text: 'Send Message' }"
+                        ></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-72 order-lg-1">
+            <div class="h-100 d-flex flex-column">
+                <div
+                    class="my_card flex-shrink-0 rounded-2 p-8 d-flex flex-column gap-6"
+                    x-data="{
+                        copyButtons: [
+                            {
+                                name: 'Email',
+                                text: '02.christensendaniel@gmail.com',
+                                iconClass: 'bi-envelope',
+                                link: 'mailto:02.christensendaniel@gmail.com'
+                            },
+                            {
+                                name: 'Location',
+                                text: 'Johannesburg, South Africa',
+                                iconClass: 'bi-geo-alt', // Changed icon for better context
+                                link: 'https://www.google.com/maps/search/?api=1&query=Johannesburg%2C+South+Africa'
+                            },
+                        ],
+                        socialLinks: [
+                            {
+                                iconClass: 'bi-instagram',
+                                link: 'https://cubezoo.co.za'
+                            },
+                            {
+                                iconClass: 'bi-facebook',
+                                link: 'https://cubezoo.co.za'
+                            },
+                            {
+                                iconClass: 'bi-linkedin',
+                                link: 'https://cubezoo.co.za'
+                            },
+                        ],
+                    }"
+                >
+                    <!-- card title -->
+                    <div class="fs-28 fw-600 text-sage-1">
+                        Contact Information
+                    </div>
+                    <!-- email and location cards -->
+                    <template x-for="button in copyButtons" :key="button.name">
+                        <a
+                            class="copy_btn d-flex align-items-center bg-midnight-8f rounded-1 gap-6 w-100"
+                            :href="button.link" target="_blank"
+                        >
+                            <div class="icon d-center rounded-1">
+                                <i class="bi text-ocean-5 fs-22" :class="button.iconClass"></i>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <div class="text-white d-flex fs-16 fs-600" x-text="button.name"></div>
+                                <div class="text-frost-2 opacity-80 fs-15" x-text="button.text"></div>
+                            </div>
+                        </a>
+                    </template>
+                    <!-- Social media -->
+                    <div class="fs-18 fw-600 text-sage-1">
+                        Social Media
+                    </div>
+                    <div class="d-flex gap-4 mt-n2">
+                        <template x-for="socialLink in socialLinks">
+                            <a
+                                class="social_link d-center rounded-1"
+                                :href="socialLink.link" target="_blank"
+                            >
+                                <i class="bi text-ocean-5 fs-22" :class="socialLink.iconClass"></i>
+                            </a>
+                        </template>
+                    </div>
+                </div>
+                <!-- Response time card -->
+                <div
+                    class="my_card rounded-2 p-8 mt-8"
+                    style="height: 100%;"
+                    x-init="
+                        setTimeout(() => {
+                            const height = $el.offsetHeight;
+                            $el.style.height = `${height}px`;
+                        }, 100);
+                    "
+                >
+                    <div class="fs-18 fw-600 text-sage-1 pb-2">
+                        Response Time
+                    </div>
+                    <div class="text-frost-2 fs-16 opacity-80">
+                        I typically reply within 24 hours during business days.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- spacing | 58px, 80px, 96px -->
+    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+</div>

@@ -29,6 +29,8 @@ export const init = () => {
      */
     (() => {
         const emblaNode = document.querySelector("#s_home_showcase .embla.hover_scroll_cards");
+        if(!emblaNode) return;
+
         const viewportNode = emblaNode.querySelector('.embla__viewport');
 
         EmblaCarousel(viewportNode, { loop: true }, [
