@@ -31,6 +31,7 @@ const router = async () => {
       { path: "/", view: "/pages/home.html" },
       { path: "/about", view: "/pages/about.html" },
       { path: "/projects", view: "/pages/projects.html" },
+      { path: "/resume", view: "/pages/resume.html" },
       { path: "/contact", view: "/pages/contact.html" },
    ];
 

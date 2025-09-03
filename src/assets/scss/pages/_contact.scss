@@ -1,0 +1,37 @@
+@use "../theme" as *;
+
+#s_contact_page {
+   min-height: 100vh;
+   display: flex; flex-direction: column; justify-content: center;
+
+   padding-top: var(--navbar-height);
+
+   // Contact cards
+   .my_card {
+      border: var(--border-primary-3);
+      background: var(--card-bg-4);
+   }
+   // copy button
+   a.copy_btn {
+      height: 64px;
+      padding: 0 16px;
+      .icon {
+         width: 42px; height: 42px;
+         background-color: rgba($ocean-500, 0.34);
+      }
+
+      &:focus {
+         box-shadow: 0 0 0 2px rgba($ocean-500, 0.34);
+         cursor: default;
+      }
+   }
+   // social media links
+   a.social_link {
+      width: 42px; height: 42px;
+      background-color: $midnight-900;
+      transition: $base-transition;
+      &:hover {
+         transform: scale(1.02) translateY(-3px);
+      }
+   }
+}
