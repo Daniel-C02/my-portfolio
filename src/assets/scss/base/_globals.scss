@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.3; }
 
 // Project wide css variables
 :root {
-   --navbar-height: calc(60px + 2px + 0.75rem); // nav height + border height + spacing top height
+   --navbar-height: 64px; // nav height
 }
 
 // Project specific class Variables

@@ -10,3 +10,6 @@ import(`./_embla-carousel.js`).then(module => module.init());
 
 // Globe from Cobe
 import(`./_cobe-globe.js`).then(module => module.init());
+
+
+import(`./_image-slider.js`).then(module => module.init());
