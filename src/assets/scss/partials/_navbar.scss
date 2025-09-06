@@ -3,11 +3,12 @@
 #s_navbar {
 
    --spacing-top: 0.75rem;
-   padding-top: var(--spacing-top);
 
    position: fixed;
    width: 100vw;
    z-index: 1051;
+   background-color: color-mix(in oklab, $frost-100 10%, transparent);
+   backdrop-filter: blur(3px);
 
    // show / hide animation
    --curve: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -30,13 +31,8 @@
 
    // navbar wrapper
    .navbar {
-      height: calc(var(--navbar-height) - 2px - var(--spacing-top));
+      height: var(--navbar-height);
       width: 100%;
-      border: 1px solid rgba($frost-100, 0.60);
-      padding: 0 $sp_7;
-
-      background-color: color-mix(in oklab, var(--bs-body-bg) 68%, transparent);
-      backdrop-filter: blur(3px);
    }
 
    // navbar brand

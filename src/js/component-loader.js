@@ -13,6 +13,8 @@ export const init = async () => {
    await loadComponent('home-featured', "/components/home/featured.html");
    await loadComponent('home-contact', "/components/home/contact.html");
 
+   await loadComponent('about-hero', "/components/about/hero.html");
+
    // section or page specific components | Organisms or Molecules
    await loadComponent('home-showcase-card-cta', "/components/home/x/showcase-card-cta.html");
    await loadComponent('home-showcase-card-skills', "/components/home/x/showcase-card-skills.html");
