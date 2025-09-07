@@ -1,0 +1,53 @@
+
+<div id="s_about_counters" class="px-gutter">
+    <div class="row">
+        <!-- stat counters -->
+        <div class="col-lg-60">
+            <div
+                class="counters_ctn h-lg-100 d-flex flex-column justify-content-between"
+                x-data="{
+                    counters: [
+                        { counter: 9, text: 'Projects Completed' },
+                        { divider: true },
+                        { counter: 2, text: 'Years Experience' },
+                        { divider: true },
+                        { counter: 23, text: 'Years Old' },
+                    ],
+                }"
+            >
+                <template x-for="item in counters">
+                    <div>
+                        <div x-show="! item.divider">
+                            <div
+                                class="counter-animation ff-georgia-pro-semibold-italic text-white fw-600 fs-52"
+                                :data-value="item.counter"
+                            ></div>
+                            <p class="body-text mb-0" x-text="item.text"></p>
+                        </div>
+                        <div x-show="item.divider" class="col-60 border-top border-frost-1 opacity-80"></div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <!-- info about me -->
+        <div class="col-lg-60">
+            <h3 class="h3 text-white fw-500 pb-4">
+                Who Am I
+            </h3>
+            <div
+                x-data="{
+                    infoAboutMe: [
+                        `I'm <span class='text-ocean-4 fw-600'>Daniel C</span>, a Computer Science student specializing in AI & Machine Learning at Presidency University, Bengaluru.`,
+                        `My journey in programming began with an interest in solving complex problems. This led me to explore various programming languages and technologies, with a focus on web development and artificial intelligence.`,
+                        `I'm passionate about building web applications and software that is not only functional but also intuitive and user-friendly. I believe in continuous learning and staying updated with the latest technologies.`,
+                        `When I'm not coding, I enjoy exploring new technologies, solving algorithmic problems, contributing to open-source projects and playing video games.`,
+                    ],
+                }"
+            >
+                <template x-for="text in infoAboutMe">
+                    <p class="body-text" x-html="text"></p>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>

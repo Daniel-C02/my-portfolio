@@ -8,6 +8,7 @@ import {projects} from "@js/data/projects.js";
 import {devSkills} from "@js/data/skills.js";
 import {insideScoop} from "@js/data/inside-scoop.js";
 import {copyEmail} from "@js/utilities/copy_email.js";
+import {intersectionAnimation} from "@js/utilities/intersection_animation.js";
 
 // Assign Alpine to the window object
 window.Alpine = Alpine;
@@ -25,6 +26,7 @@ Alpine.data("appData", () => ({
     insideScoop,
 
     copyEmail,
+    intersectionAnimation,
 }));
 
 // Start AlpineJs

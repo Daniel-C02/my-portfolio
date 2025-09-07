@@ -14,6 +14,9 @@ export const init = async () => {
    await loadComponent('home-contact', "/components/home/contact.html");
 
    await loadComponent('about-hero', "/components/about/hero.html");
+   await loadComponent('about-counters', "/components/about/counters.html");
+   await loadComponent('about-skills', "/components/about/skills.html");
+
 
    // section or page specific components | Organisms or Molecules
    await loadComponent('home-showcase-card-cta', "/components/home/x/showcase-card-cta.html");

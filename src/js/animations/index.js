@@ -1,0 +1,1 @@
+import(`./_counter-animation.js`).then(module => module.init());
