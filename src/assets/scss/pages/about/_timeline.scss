@@ -1,0 +1,65 @@
+@use "../../theme" as *;
+
+#s_about_timeline {
+   min-height: 100vh;
+   display: flex; flex-direction: column; justify-content: center;
+
+   --inner-gap: 1rem;
+   --col1-width: 86px;
+   --col2-width: 50px;
+   @media(min-width: $sm_bp){
+      --inner-gap: 1.5rem;
+   }
+
+   // Timeline Item Inner element
+   .my_item .inner {
+      gap: var(--inner-gap);
+
+      div:nth-child(1) {
+         flex-shrink: 0;
+         width: var(--col1-width);
+      }
+      div:nth-child(2) {
+         flex-shrink: 0;
+         width: var(--col2-width); height: var(--col2-width);
+      }
+      div:nth-child(3) {
+         width: 100%;
+      }
+
+      .text_card {
+         border: 1px solid #{rgba($ocean-500, 0.6)};
+         transition: $base-transition;
+
+         &.passed { border-color: $ocean-500; }
+      }
+   }
+
+   // vertical progress bar connected to the timeline
+   .bar_ctn {
+      top: calc(var(--col2-width) / 2); bottom: 0;
+      left: calc(var(--col2-width) / 2);
+      @media(min-width: $sm_bp){
+         left: calc(var(--col1-width) + var(--inner-gap) + (var(--col2-width) / 2));
+      }
+   }
+   .progress-bar {
+      width: 8px; height: 100%;
+      transform: translateX(-50%);
+      overflow: hidden;
+
+      span {
+         position: absolute;
+         top: 0; left: 0; width: 100%;
+
+         &:nth-child(1) {
+            background-color: $midnight-800;
+            height: 100%;
+         }
+         &:nth-child(2) {
+            background-color: $ocean-500;
+            transition: height 0.4s $eo-slow-transition;
+         }
+      }
+   }
+}

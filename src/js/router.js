@@ -33,6 +33,7 @@ const router = async () => {
       { path: "/projects", view: "/pages/projects.html" },
       { path: "/resume", view: "/pages/resume.html" },
       { path: "/contact", view: "/pages/contact.html" },
+      { path: "/test", view: "/pages/test.html" },
    ];
 
    // Match route or default to home

@@ -1,0 +1,99 @@
+
+<div id="s_about_timeline" class="px-gutter">
+    <!-- spacing | 58px, 80px, 96px -->
+    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+
+    <!-- about section start -->
+    <div
+        slot="tag-title-text"
+        x-data="{
+            tag: null,
+            title: 'Timeline',
+            text: null
+        }"
+    ></div>
+
+    <!-- spacing -->
+    <div class="pt-10"></div>
+
+    <!-- Timeline Section -->
+    <div
+        class="timeline_ctn col-120 col-xl-88 col-xxl-80 mx-auto position-relative"
+        x-data="{ progress: 0 }"
+        x-init="
+            $nextTick(() => {
+                ScrollTrigger.create({
+                    trigger: $el,
+                    start: 'top 68%',       // when top hits the 32%-from-bottom line
+                    end: 'bottom 68%',      // when bottom crosses the same line
+                    onUpdate: self => {
+                        progress = Math.round(self.progress * 100);
+                    }
+                });
+            });
+        "
+    >
+        <!-- progress bar -->
+        <div class="bar_ctn position-absolute z-n1">
+            <div class="progress-bar position-relative">
+                <span></span>
+                <span :style="`height: ${progress}%;`"></span>
+            </div>
+        </div>
+
+        <!-- timeline items -->
+        <template x-for="item in aboutTimeline">
+            <div class="my_item">
+                <div class="inner d-flex align-items-center">
+                    <div class="d-none d-sm-block">
+                        <span class="body-text-sm text-white text-nowrap fw-500 lh-125p">
+                            <span x-text="item.timeline[0] + ' –'"></span>
+                            <br>
+                            <span x-text="item.timeline[1]"></span>
+                        </span>
+                    </div>
+                    <div class="rounded-circle bg-white d-center">
+                        <img class="col-74 object-fit-cover" :src="item.logo" alt="logo">
+                    </div>
+                    <div>
+                        <span class="body-text-sm text-white fw-500 lh-120p">
+                            <span x-text="item.position"></span> <span class="opacity-60" x-text="'– ' + item.company"></span>
+                        </span>
+                        <span class="body-text-sm text-white text-nowrap fw-500 lh-125p d-block d-sm-none pt-2">
+                            <span x-text="item.timeline[0] + ' – '"></span>
+                            <span x-text="item.timeline[1]"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="inner d-flex py-6">
+                    <div class="d-none d-sm-block"></div>
+                    <div></div>
+                    <div
+                        class="text_card rounded-2 p-6 ms-n5"
+                        x-data="{ passed: false }"
+                        x-init="
+                            $nextTick(() => {
+                               ScrollTrigger.create({
+                                    trigger: $el,
+                                    start: 'bottom 68%',
+                                    onEnter: () => passed = true,
+                                    onLeaveBack: () => passed = false
+                                });
+                            });
+                        "
+                        :class="passed ? 'passed' : ''"
+                    >
+                        <span class="w-100 d-inline-block px-2">
+                            <template x-for="text in item.description">
+                                <span class="body-text-sm" x-text="text"></span>
+                            </template>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- spacing | 58px, 80px, 96px -->
+    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+</div>
