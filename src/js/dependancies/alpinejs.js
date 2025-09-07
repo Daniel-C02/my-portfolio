@@ -8,7 +8,8 @@ import {projects} from "@js/data/projects.js";
 import {devSkills} from "@js/data/skills.js";
 import {insideScoop} from "@js/data/inside-scoop.js";
 import {copyEmail} from "@js/utilities/copy_email.js";
-import {intersectionAnimation} from "@js/utilities/intersection_animation.js";
+import {aboutTimeline} from "@js/data/about-timeline.js";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 // Assign Alpine to the window object
 window.Alpine = Alpine;
@@ -16,17 +17,26 @@ window.Alpine = Alpine;
 // Initialise project data inside AlpineJs.
 // AlpineJs appData gets set on the body of the project
 Alpine.data("appData", () => ({
+    // Gsap ScrollTrigger plugin
+    ScrollTrigger,
+
+    // Home page data
     homeAboutCards,
     homeSkillCards,
+    insideScoop,
 
+    // Projects
     projects,
     featuredProjects: projects.filter(p => p.isFeatured),
 
+    // Developer skills
     devSkills,
-    insideScoop,
 
+    // About page data
+    aboutTimeline,
+
+    // Utility methods
     copyEmail,
-    intersectionAnimation,
 }));
 
 // Start AlpineJs

@@ -10,6 +10,8 @@ import "./js/dependancies/alpinejs.js"
 
 // GSAP
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 // Project router initialization
 import(`./js/router.js`).then(async (module) => await module.init());

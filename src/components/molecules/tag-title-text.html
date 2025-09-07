@@ -2,11 +2,11 @@
     <!-- primary tag -->
     <div x-show="tag" slot="tag-primary" class="pb-8 mb-2"></div>
     <!-- title -->
-    <h2 class="h2 fw-600 text-white text-center" x-text="title">
+    <h2 class="h2 fw-600 text-white text-center mb-0" x-text="title">
         Who I Am
     </h2>
     <!-- description -->
-    <div class="body-text text-center pt-4" x-html="text">
+    <div x-show="text" class="body-text text-center pt-6" x-html="text">
         I'm a Computer Science student specializing in AI & ML. Passionate about programming, AI
         <br>
         integration, and building innovative web applications.
