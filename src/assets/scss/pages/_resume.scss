@@ -1,0 +1,84 @@
+@use "../theme" as *;
+
+#s_resume_page {
+   padding-top: var(--navbar-height);
+
+   .my_icon {
+      background-color: rgba($ocean-500, 0.12);
+      color: $ocean-500;
+      flex-shrink: 0;
+
+      &.s_60 { width: 60px; height: 60px; }
+   }
+}
+
+#s_resume_page #filter_tags {
+   .filter_tag {
+      height: 42px;
+      padding: 0 .75rem;
+      box-shadow: 0 0 0 1px #ffffff;
+      transition: $base-transition;
+      &, .body-text { color: white !important; }
+
+      &.active {
+         box-shadow: 0 0 0 1px rgba(#fff, 0.58), inset 0 0 0 1px rgba(#fff, 0.58);
+         background: $midnight-800;
+      }
+
+      &:hover:not(.active) {
+         background: rgba(255, 255, 255, 0.08);
+      }
+   }
+}
+
+#s_resume_page #skills {
+   --slate-200: #e2e8f0;
+   --gray-200: #e5e7eb;
+   --zinc-200: #e4e4e7;
+   --neutral-200: #e5e5e5;
+   --stone-200: #e7e5e4;
+
+   --red-200: #fecaca;
+   --orange-200: #fed7aa;
+   --amber-200: #fde68a;
+   --yellow-200: #fef08a;
+   --lime-200: #d9f99d;
+   --green-200: #bbf7d0;
+   --emerald-200: #a7f3d0;
+   --teal-200: #99f6e4;
+   --cyan-200: #a5f3fc;
+   --sky-200: #bae6fd;
+   --blue-200: #bfdbfe;
+   --indigo-200: #c7d2fe;
+   --violet-200: #ddd6fe;
+   --purple-200: #e9d5ff;
+   --fuchsia-200: #f5d0fe;
+   --pink-200: #fbcfe8;
+   --rose-200: #fecdd3;
+
+   .dev_icon {
+      --size: 44px;
+      @media(min-width: $sm_bp) { --size: 48px; }
+      @media(min-width: $md_bp) { --size: 56px; }
+      @media(min-width: $lg_bp) { --size: 64px; }
+      @media(min-width: $xl_bp) { --size: 72px; }
+
+      width: var(--size); height: var(--size);
+
+      i {
+         font-size: calc(var(--size) * 0.56);
+      }
+   }
+}
+
+#s_resume_page #education {
+
+}
+
+#s_resume_page #experience {
+
+}
+
+#s_resume_page #certifications {
+
+}

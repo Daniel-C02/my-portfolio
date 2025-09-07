@@ -85,13 +85,13 @@ $font-weights: (100, 200, 300, 400, 500, 600, 700, 800, 900);
 
 // Font header class sizes
 $header-sizes: (
-   xs:     (h6: 17, h3: 27, h2: 37, h1: 11), //
-   ms:     (h6: 18, h3: 28, h2: 38, h1: 11), // true design sizes
-   sm:     (h6: 18, h3: 30, h2: 40, h1: 11), //
-   md:     (h6: 19, h3: 32, h2: 42, h1: 11), // true design sizes \
-   lg:     (h6: 19, h3: 32, h2: 44, h1: 11), // true design sizes /
-   xl:     (h6: 20, h3: 34, h2: 46, h1: 11), //
-   xxl:    (h6: 20, h3: 34, h2: 48, h1: 11)  // true design sizes
+   xs:     (h6: 17, h5: 20, h3: 27, h2: 37, h1: 11), //
+   ms:     (h6: 18, h5: 21, h3: 28, h2: 38, h1: 11), // true design sizes
+   sm:     (h6: 18, h5: 22, h3: 30, h2: 40, h1: 11), //
+   md:     (h6: 19, h5: 23, h3: 32, h2: 42, h1: 11), // true design sizes \
+   lg:     (h6: 19, h5: 23, h3: 32, h2: 44, h1: 11), // true design sizes /
+   xl:     (h6: 20, h5: 24, h3: 34, h2: 46, h1: 11), //
+   xxl:    (h6: 20, h5: 24, h3: 34, h2: 48, h1: 11)  // true design sizes
 );
 
 // Font Sizes

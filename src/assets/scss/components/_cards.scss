@@ -1,0 +1,7 @@
+@use "../theme" as *;
+
+.my_skill_card {
+   background-color: var(--card-bg-5);
+   border: var(--border-primary-4);
+   border-radius: var(--bs-border-radius);
+}

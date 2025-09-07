@@ -18,6 +18,12 @@ export const init = async () => {
    await loadComponent('about-skills', "/components/about/skills.html");
    await loadComponent('about-timeline', "/components/about/timeline.html");
 
+   await loadComponent('resume-hero', "/components/resume/hero.html");
+   await loadComponent('resume-skills', "/components/resume/skills.html");
+   await loadComponent('resume-education', "/components/resume/education.html");
+   await loadComponent('resume-experience', "/components/resume/experience.html");
+   await loadComponent('resume-certifications', "/components/resume/certifications.html");
+
    // section or page specific components | Organisms or Molecules
    await loadComponent('home-showcase-card-cta', "/components/home/x/showcase-card-cta.html");
    await loadComponent('home-showcase-card-skills', "/components/home/x/showcase-card-skills.html");
