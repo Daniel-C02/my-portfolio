@@ -1,0 +1,47 @@
+
+<div id="s_about_skills" class="px-gutter">
+    <!-- spacing | 58px, 80px, 96px -->
+    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+
+    <!-- about section start -->
+    <div
+        slot="tag-title-text"
+        x-data="{
+            tag: null,
+            title: 'Professional Skills',
+            text: `These are the technologies and programming languages I've worked with and continue<br>to develop expertise in.`
+        }"
+    ></div>
+
+    <!-- spacing -->
+    <div class="pt-10"></div>
+
+    <!-- skill cards -->
+    <div class="row g-7 g-sm-6 g-md-7 g-xl-6 g-xxl-7">
+        <template x-for="(skill, i) in devSkills.slice(0, 10)">
+            <div
+                class="col-sm-40 col-lg-30 col-xl-24"
+                :class="{
+                    'd-lg-none d-xl-block': (i + 1) % 5 === 0,
+                    'd-none d-lg-block': (i + 1) % 10 === 0
+                }"
+            >
+                <div class="my_card rounded-2 p-6 p-md-8 px-xl-7 p-xxl-8" :class="i % 2 === 0 ? 'v1' : 'v2'">
+                    <div class="d-flex flex-column gap-7 p-0">
+                        <div class="d-flex align-items-center gap-5">
+                            <i class="fs-36 fs-md-38 fs-lg-40 fs-xl-36 fs-xxl-40 colored" :class="skill.devIcon"></i>
+                            <div class="fs-16 fs-md-17 fs-lg-18 text-white fw-500" x-text="skill.name"></div>
+                        </div>
+                        <div class="progress-bar" x-data="intersectionAnimation($el, 12)">
+                            <span></span>
+                            <span :style="'--progress: ' + skill.proficiency + '%;'"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- spacing | 58px, 80px, 96px -->
+    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+</div>

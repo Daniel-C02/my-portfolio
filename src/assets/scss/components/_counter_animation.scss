@@ -1,0 +1,39 @@
+@use '../theme' as *;
+
+/*
+ * CSS for the Counter Animation
+ */
+.counter-animation {
+    display: flex;
+    overflow: hidden; /* Important for the sliding effect */
+}
+
+.digit-slot {
+    position: relative;
+    display: inline-block;
+    width: 1ch; /* Set width to accommodate one character */
+    height: 1.3em; /* Adjust height based on font size */
+    text-align: center;
+}
+
+.digit {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Initial state for new digits entering */
+.digit.slide-in {
+    transform: translateY(100%);
+}
+
+/* State for digits that are visible */
+.digit.visible {
+    transform: translateY(0);
+}
+
+/* State for old digits leaving */
+.digit.slide-out {
+    transform: translateY(-100%);
+}

@@ -21,7 +21,7 @@ if (import.meta.hot) {
             html.style.scrollBehavior = "auto"; // turn off smooth scroll
             void html.offsetHeight; // force a reflow so browser applies it immediately
             window.scrollTo(0, parseInt(scrollPosition)); // now jump
-        }, 190);
+        }, 350);
 
         // Clean up the stored value after use.
         sessionStorage.removeItem('scrollPosition');

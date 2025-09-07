@@ -1,5 +1,3 @@
-// Run Vite Development Configuration (file watchers, scroll restoration, etc.)
-import "./js/vite-dev-config.js";
 
 // Project styles entry point
 import "./assets/scss/main.scss";
@@ -23,3 +21,9 @@ await loader.init();
 
 // Modules
 import('./js/modules');
+
+// Animations
+import('./js/animations');
+
+// Run Vite Development Configuration (file watchers, scroll restoration, etc.)
+import "./js/vite-dev-config.js";
