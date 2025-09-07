@@ -1,0 +1,112 @@
+
+<div
+    class="row g-8"
+    x-data="{
+        primarySkills: [
+            {
+                title: 'AI & ML Specialist',
+                text: 'Specialized in machine learning algorithms and AI applications with practical implementation experience',
+                iconClass: 'bi-cpu-fill' // chip / AI / computing
+            },
+            {
+                title: 'Full-Stack Developer',
+                text: 'Proficient in both front-end and back-end technologies, creating complete web solutions',
+                iconClass: 'bi-code-slash' // coding / development
+            },
+        ],
+
+        softSkills: [
+            {
+                title: 'Problem Solving',
+                text: 'Breaks down complex challenges into structured, practical solutions.',
+            },
+            {
+                title: 'Attention to Detail',
+                text: 'Ensures code, design, and documentation remain clean and consistent.',
+            },
+            {
+                title: 'Team Collaboration',
+                text: 'Works well across teams while sharing knowledge effectively.',
+            },
+            {
+                title: 'Adaptability',
+                text: 'Quickly learns new tools and frameworks to meet project needs.',
+            },
+            {
+                title: 'Creative Thinking',
+                text: 'Finds innovative approaches to both technical and design challenges.',
+            },
+            {
+                title: 'Communication',
+                text: 'Explains technical concepts clearly to technical and non-technical people.',
+            },
+        ],
+    }"
+>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!-- Primary Skill Cards -->
+
+    <template x-for="primarySkill in primarySkills">
+        <div class="col-lg-60">
+            <div class="my_skill_card p-8">
+                <div class="d-flex gap-6">
+                    <div class="my_icon s_60 rounded-circle d-center">
+                        <i :class="primarySkill.iconClass" class="fs-30"></i>
+                    </div>
+                    <div>
+                        <div class="fs-20 fw-500 text-white mb-3" x-text="primarySkill.title"></div>
+                        <div class="body-text-sm" x-text="primarySkill.text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!-- Technical Skills Card -->
+    <div class="col-120">
+        <div class="my_skill_card p-8">
+            <div class="pt-2 pb-6 px-4">
+                <h5 class="h5 fw-600 text-white pb-8 mb-6">Technical Skills</h5>
+                <div class="row gy-10">
+                    <template x-for="(skill, i) in devSkills.slice(0, 12)">
+                        <div
+                            class="col-40 col-sm-30 col-md-24 col-xl-20"
+                            :class="{
+                                'd-md-none d-xl-block': (i + 1) > 10,
+                            }"
+                        >
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="dev_icon d-center rounded-3" :style="`background: var(--${skill.background});`">
+                                    <i class="colored" :class="skill.devIcon"></i>
+                                </div>
+                                <div class="fs-12 fw-500 text-white pt-3" x-text="skill.name"></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!-- Soft Skills Cards -->
+    <div class="col-120">
+        <div class="my_skill_card p-8">
+            <div class="pt-2 pb-4 px-4">
+                <h5 class="h5 fw-600 text-white pb-8 mb-2">Soft Skills</h5>
+                <div class="row gy-8">
+                    <template x-for="softSkill in softSkills">
+                        <div class="col-120 col-sm-60 col-lg-40">
+                            <div class="rounded-2 bg-midnight-9 p-8">
+                                <div class="fs-16 fs-sm-17 fs-lg-18 text-white pb-2" x-text="softSkill.title"></div>
+                                <div class="fs-13 fs-sm-14 text-frost-2 opacity-80" x-text="softSkill.text"></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

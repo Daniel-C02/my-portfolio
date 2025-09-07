@@ -1,0 +1,63 @@
+<!-- resume page -->
+<div id="s_resume_page" class="px-gutter">
+
+    <!-- hero -->
+    <div id="hero" slot="resume-hero"></div>
+
+    <!-- filter tags -->
+    <div id="filter_tags">
+        <div
+            class="d-flex justify-content-center gap-5"
+            x-data="{
+                activeFilter: null,
+                filters: [
+                    { name: 'Skills', iconClass: 'bi-lightning-fill' },
+                    { name: 'Education', iconClass: 'bi-mortarboard-fill' },
+                    { name: 'Experience', iconClass: 'bi-briefcase-fill' },
+                    { name: 'Certifications', iconClass: 'bi-award-fill' }
+                ],
+                toggleFilter(filterName) {
+                    this.activeFilter = filterName;
+                    window.dispatchEvent(new CustomEvent('filter-toggle', { detail: {
+                        filter: this.activeFilter,
+                    }}));
+                }
+            }"
+            x-init="
+                $nextTick(() => {
+                    activeFilter = filters[0].name;
+                });
+            "
+        >
+            <template x-for="filter in filters">
+                <button
+                    type="button"
+                    class="filter_tag d-center gap-3 rounded-2"
+                    :class="filter.name === activeFilter ? 'active' : ''"
+                    @click="toggleFilter(filter.name)"
+                >
+                    <i :class="filter.iconClass" class="fs-18"></i>
+                    <span x-text="filter.name" class="body-text"></span>
+                </button>
+            </template>
+        </div>
+    </div>
+
+    <!-- spacing -->
+    <div class="pb-9 mb-3"></div>
+
+    <!-- skills section -->
+    <div id="skills" slot="resume-skills"></div>
+
+    <!-- education section -->
+    <div id="education" slot="resume-education"></div>
+
+    <!-- experience section -->
+    <div id="experience" slot="resume-experience"></div>
+
+    <!-- certifications section -->
+    <div id="certifications" slot="resume-certifications"></div>
+
+    <!-- spacing | 72px, 104px, 120px -->
+    <div class="mt-md-4 pt-11 pt-sm-12 pt-lg-13"></div>
+</div>
