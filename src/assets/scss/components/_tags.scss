@@ -8,7 +8,7 @@
 
    // text and background element
    .tag_inner {
-      position: relative;
+      position: relative; z-index: 2;
       border-radius: var(--bs-border-radius-pill);
       display: flex; align-items: center; justify-content: center;
       height: 100%;
@@ -21,19 +21,28 @@
    }
 
    // pulsing animation
-   span {
-      position: absolute;
-      top: 50%; left: 50%;
-      width: calc(100% - 3px); height: calc(100% - 2px);;
-      transform: translate(-50%, -50%);
+   &::after {
+      content: "";
+      position: absolute; z-index: 1;
+      inset: 0;
+      width: 100%; height: 100%;
       border-radius: var(--bs-border-radius-pill);
       background-color: $ocean-400;
-      box-shadow: 0 0 0 0 $ocean-400;
-      animation: ping-grow 2s ease-out infinite;
+      animation: ping-grow 1.75s ease-out infinite;
    }
+}
 
-   @keyframes ping-grow {
-      0% {   box-shadow: 0 0 0 0 $ocean-400; }
-      100% { box-shadow: 0 0 0 7px rgba($ocean-400, 0); }
+@keyframes ping-grow {
+   0% {
+      box-shadow: 0 0 0 0 $ocean-400;
+      opacity: 0.6;
+   }
+   70% {
+      box-shadow: 0 0 0 5px $ocean-400;
+      opacity: 0;
+   }
+   100% {
+      box-shadow: 0 0 0 5px $ocean-400;
+      opacity: 0;
    }
 }

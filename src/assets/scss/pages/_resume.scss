@@ -8,6 +8,8 @@
       color: $ocean-500;
       flex-shrink: 0;
 
+      &.s_40 { width: 40px; height: 40px; }
+      &.s_48 { width: 48px; height: 48px; }
       &.s_60 { width: 60px; height: 60px; }
    }
 }
@@ -72,7 +74,15 @@
 }
 
 #s_resume_page #education {
-
+   div.dot {
+      background: $ocean-500;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+   }
+   .courses_bar {
+      background: $ocean-500;
+      width: 2px;
+   }
 }
 
 #s_resume_page #experience {

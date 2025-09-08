@@ -1,1 +1,89 @@
 
+<div
+    class="row g-8"
+    x-data="{
+        certifications: [
+            {
+                name: 'API Prototyping Learning Path',
+                institution: 'Udemy',
+                date: 'November 2022',
+                tags: [
+                    'Python', 'JavaScript', 'React'
+                ],
+                credentialId: 'Credential ID: PST-APL-2024',
+            },
+            {
+                name: 'Full-Stack Web Development',
+                institution: 'Coursera',
+                date: 'March 2023',
+                tags: [
+                    'HTML', 'CSS', 'Node.js', 'Express', 'MongoDB'
+                ],
+                credentialId: 'Credential ID: FSWD-CRS-2023',
+            },
+            {
+                name: 'Machine Learning Foundations',
+                institution: 'edX',
+                date: 'July 2023',
+                tags: [
+                    'Machine Learning', 'Python', 'TensorFlow'
+                ],
+                credentialId: 'Credential ID: MLF-EDX-2023',
+            },
+            {
+                name: 'Cloud Practitioner Essentials',
+                institution: 'AWS Training',
+                date: 'January 2024',
+                tags: [
+                    'AWS', 'Cloud Computing', 'Security'
+                ],
+                credentialId: 'Credential ID: AWS-CLD-2024',
+            },
+            {
+                name: 'Data Visualization with D3.js',
+                institution: 'Pluralsight',
+                date: 'May 2024',
+                tags: [
+                    'D3.js', 'Data Visualization', 'JavaScript'
+                ],
+                credentialId: 'Credential ID: DV-D3-PLS-2024',
+            },
+        ],
+    }"
+>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!-- Certification Cards -->
+
+    <template x-for="item in certifications">
+        <div class="col-lg-60">
+            <div class="my_skill_card p-8">
+                <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between gap-6">
+                    <div class="my_icon s_40 rounded-circle d-center">
+                        <i class="bi bi-award fs-20"></i>
+                    </div>
+                    <div class="w-100 w-sm-auto">
+                        <!-- certification name -->
+                        <div class="body-text fw-600 text-white mb-1" x-text="item.name"></div>
+                        <!-- platform and date -->
+                        <p class="body-text-sm text-frost-2 opacity-80 mb-0">
+                            <span x-text="item.institution"></span>
+                            <span> • </span>
+                            <span x-text="item.date"></span>
+                        </p>
+                        <!-- tags / skills -->
+                        <div class="d-flex flex-wrap gap-4 py-6">
+                            <template x-for="tag in item.tags">
+                                <div class="d-center bg-midnight-9 rounded-pill py-2 px-5">
+                                    <span class="text-frost-2 fs-12 lh-130p" x-text="tag"></span>
+                                </div>
+                            </template>
+                        </div>
+                        <!-- certification id -->
+                        <p class="fs-12 fs-sm-13 text-frost-2 opacity-80 mb-0" x-text="item.credentialId"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>
