@@ -1,34 +1,34 @@
 <!-- resume page -->
-<div id="s_resume_page" class="px-gutter">
+<div
+    id="s_resume_page" class="px-gutter"
+    x-data="{
+        activeFilter: null,
+        filters: [
+            { name: 'Skills', iconClass: 'bi-lightning-fill' },
+            { name: 'Education', iconClass: 'bi-mortarboard-fill' },
+            { name: 'Experience', iconClass: 'bi-briefcase-fill' },
+            { name: 'Certifications', iconClass: 'bi-award-fill' }
+        ],
+        toggleFilter(filterName) {
+            this.activeFilter = filterName;
+            window.dispatchEvent(new CustomEvent('filter-toggle', { detail: {
+                filter: this.activeFilter,
+            }}));
+        }
+    }"
+    x-init="
+        $nextTick(() => {
+            activeFilter = filters[3].name;
+        });
+    "
+>
 
     <!-- hero -->
     <div id="hero" slot="resume-hero"></div>
 
     <!-- filter tags -->
     <div id="filter_tags">
-        <div
-            class="d-flex justify-content-center gap-5"
-            x-data="{
-                activeFilter: null,
-                filters: [
-                    { name: 'Skills', iconClass: 'bi-lightning-fill' },
-                    { name: 'Education', iconClass: 'bi-mortarboard-fill' },
-                    { name: 'Experience', iconClass: 'bi-briefcase-fill' },
-                    { name: 'Certifications', iconClass: 'bi-award-fill' }
-                ],
-                toggleFilter(filterName) {
-                    this.activeFilter = filterName;
-                    window.dispatchEvent(new CustomEvent('filter-toggle', { detail: {
-                        filter: this.activeFilter,
-                    }}));
-                }
-            }"
-            x-init="
-                $nextTick(() => {
-                    activeFilter = filters[0].name;
-                });
-            "
-        >
+        <div class="d-flex justify-content-center gap-5">
             <template x-for="filter in filters">
                 <button
                     type="button"
@@ -47,16 +47,28 @@
     <div class="pb-9 mb-3"></div>
 
     <!-- skills section -->
-    <div id="skills" slot="resume-skills"></div>
+    <div
+        id="skills" slot="resume-skills"
+        x-show="activeFilter === filters[0].name" x-transition:enter
+    ></div>
 
     <!-- education section -->
-    <div id="education" slot="resume-education"></div>
+    <div
+        id="education" slot="resume-education"
+        x-show="activeFilter === filters[1].name" x-transition:enter
+    ></div>
 
     <!-- experience section -->
-    <div id="experience" slot="resume-experience"></div>
+    <div
+        id="experience" slot="resume-experience"
+        x-show="activeFilter === filters[2].name" x-transition:enter
+    ></div>
 
     <!-- certifications section -->
-    <div id="certifications" slot="resume-certifications"></div>
+    <div
+        id="certifications" slot="resume-certifications"
+        x-show="activeFilter === filters[3].name" x-transition:enter
+    ></div>
 
     <!-- spacing | 72px, 104px, 120px -->
     <div class="mt-md-4 pt-11 pt-sm-12 pt-lg-13"></div>

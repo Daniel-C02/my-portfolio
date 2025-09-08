@@ -1,1 +1,62 @@
 
+<div
+    class="row g-8"
+    x-data="{
+        experienceItems: [
+            {
+                name: 'Freelance Developer',
+                type: 'Self-employed',
+                intro: 'Working as a freelance developer on various projects, specializing in web development and AI solutions.',
+                timeline: 'January 2023 - Present',
+                responsibilities: [
+                    'Developed full-stack web applications for clients using React, Node.js, and MongoDB',
+                    'Created AI-powered solutions for data analysis and automation',
+                    'Managed project timelines and client communication',
+                    'Integrated AI tools into development workflows for improved efficiency',
+                ],
+            },
+        ],
+    }"
+>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!-- Experience Cards -->
+
+    <template x-for="item in experienceItems">
+        <div class="col-120">
+            <div class="my_skill_card p-8">
+                <!-- role and company -->
+                <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between gap-6">
+                    <div class="my_icon s_48 rounded-circle d-center">
+                        <i class="bi bi-person-workspace fs-24"></i>
+                    </div>
+                    <div class="w-100 w-sm-auto">
+                        <h6 class="h6 fw-600 text-white mb-1" x-text="item.name"></h6>
+                        <p class="body-text-sm text-white mb-2" x-text="item.type"></p>
+                    </div>
+                    <div class="w-100 w-sm-auto ms-sm-auto text-sm-end">
+                        <div class="fs-13 fs-sm-14 text-frost-2 opacity-80 pt-4" x-text="item.timeline"></div>
+                    </div>
+                </div>
+
+                <!-- intro and responsibilities -->
+                <div class="ps-8">
+                    <!-- intro -->
+                    <div class="py-6 mt-3 mb-4">
+                        <p class="body-text-sm text-frost-2 opacity-80 mb-0" x-text="item.intro"></p>
+                    </div>
+                    <!-- responsibilities -->
+                    <div class="d-flex flex-column gap-1">
+                        <div class="body-text-sm text-white mb-2 fw-500">Key Responsibilities:</div>
+                        <template x-for="responsibility in item.responsibilities">
+                            <div class="d-flex align-items-center gap-4">
+                                <i class="bi bi-check2-circle fs-22 text-ocean-5"></i>
+                                <div class="body-text-sm text-frost-2 opacity-80" x-text="responsibility"></div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>

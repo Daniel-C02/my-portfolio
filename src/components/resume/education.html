@@ -1,1 +1,70 @@
 
+<div
+    class="row g-8"
+    x-data="{
+        educationItems: [
+            {
+                degreeType: 'Bachelor of Science',
+                degreeName: 'Mathematical Sciences & Computer Science',
+                institution: 'University of Johannesburg',
+                courses: [
+                    'Data Structures & Algorithms',
+                    'Database Systems',
+                    'Artificial Intelligence & Machine Learning',
+                    'Numerical Methods & Applied Mathematics',
+                    'Operating Systems & Computer Architecture',
+                    'Software Engineering & Project Management',
+                ],
+                timeline: '2021 - 2023',
+                location: 'Johannesburg, South Africa',
+                status: 'completed',
+            },
+        ],
+    }"
+>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!-- Education Cards -->
+
+    <template x-for="item in educationItems">
+        <div class="col-120">
+            <div class="my_skill_card p-8">
+                <!-- degree info and status -->
+                <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between gap-6">
+                    <div class="my_icon s_48 rounded-circle d-center">
+                        <i class="bi bi-mortarboard fs-24"></i>
+                    </div>
+                    <div class="w-100 w-sm-auto">
+                        <h6 class="h6 fw-600 text-white mb-1" x-text="item.degreeType"></h6>
+                        <p class="body-text-sm text-white mb-2" x-text="item.institution"></p>
+                        <p class="body-text-sm text-frost-2 opacity-80 mb-0" x-text="item.degreeName"></p>
+                    </div>
+                    <div class="w-100 w-sm-auto ms-sm-auto text-sm-end">
+                        <div class="tag-primary">
+                            <div class="tag_inner" x-text="item.status"></div>
+                        </div>
+                        <div class="fs-13 fs-sm-14 text-frost-2 opacity-80 pt-4">
+                            <div class="pb-1" x-text="item.timeline"></div>
+                            <div x-text="item.location"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- spacing -->
+                <div class="pb-8 mb-4"></div>
+                <!-- courses -->
+                <div class="d-flex gap-7">
+                    <div class="flex-shrink-0 courses_bar"></div>
+                    <div class="row row-gap-3">
+                        <div class="body-text-sm text-white mb-2">Key Courses:</div>
+                        <template x-for="course in item.courses">
+                            <div class="col-md-60 d-flex align-items-center gap-4">
+                                <div class="dot"></div>
+                                <div class="fs-13 fs-sm-14 text-white" x-text="course"></div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>
