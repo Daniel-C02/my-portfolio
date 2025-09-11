@@ -1,0 +1,59 @@
+
+<div class="row row-gap-8">
+    <template x-for="(project, index) in filteredProjects" :key="project.id">
+        <!-- each project card -->
+        <div class="col-120">
+            <div class="project_list_card h-100 d-flex flex-column rounded-2 overflow-hidden p-8">
+                <div class="d-flex flex-wrap flex-lg-nowrap p-4">
+                    <!-- banner image -->
+                    <div class="flex-shrink-0 d-flex align-items-center">
+                        <div class="banner position-relative rounded-2 overflow-hidden">
+                            <img class="my_image-fluid" :src="project.image" src="" alt="placeholder">
+                        </div>
+                    </div>
+                    <!-- main details -->
+                    <div class="w-100 px-8">
+                        <!-- title -->
+                        <h6 class="h6 fw-600 text-white mb-0" x-text="project.title"></h6>
+                        <!-- intro -->
+                        <div class="py-5 mb-1">
+                            <p class="body-text-sm text-frost-2 opacity-80 mb-0" x-text="project.into"></p>
+                        </div>
+                        <!-- Key Accomplishments -->
+                        <div class="d-flex flex-column gap-1s">
+                            <div class="body-text-sm text-white mb-3 fw-500">Key Accomplishments:</div>
+                            <template x-for="accomplishment in project.accomplishments">
+                                <div class="d-flex gap-4">
+                                    <i class="bi bi-check2-circle fs-20 text-ocean-5" style="margin-top: -0.1875rem;"></i>
+                                    <div class="body-text-sm text-frost-2 opacity-80" x-text="accomplishment"></div>
+                                </div>
+                            </template>
+                        </div>
+                        <!-- tags -->
+                        <div class="d-flex flex-wrap gap-4 pt-6">
+                            <template x-for="tag in project.tags">
+                                <div class="d-center bg-midnight-9 rounded-pill py-2 px-5">
+                                    <span class="text-white fs-12 lh-130p" x-text="tag"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                    <!-- category & timeline -->
+                    <div class="flex-shrink-0">
+                        <div class="text-sm-end">
+                            <!-- project category -->
+                            <div class="tag-primary">
+                                <div class="tag_inner" x-text="project.statusOrCategory"></div>
+                            </div>
+                            <!-- timeline -->
+                            <div class="fs-13 fs-sm-14 text-frost-2 opacity-80 pt-4">
+                                <div class="pb-1" x-text="project.timeline"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>
+

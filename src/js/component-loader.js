@@ -33,6 +33,8 @@ export const init = async () => {
 
    // reusable components | Molecules
    await loadComponent('tag-title-text', "/components/molecules/tag-title-text.html");
+   await loadComponent('project-grid-card', "/components/molecules/project-grid-card.html");
+   await loadComponent('project-list-card', "/components/molecules/project-list-card.html");
 
    // reusable components | Atoms
    await loadComponent('logo', "/components/atoms/logo.html");
