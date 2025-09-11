@@ -1,0 +1,125 @@
+@use "../theme" as *;
+
+#s_projects_page {
+
+   .search_bar {
+      background: var(--card-bg-3);
+      border: var(--border-primary-4);
+   }
+
+   .filter_tag {
+      transition: $base-transition;
+
+      background: $midnight-900;
+      color: rgba($frost-200, 0.8);
+
+      &:hover {
+         background: rgba($midnight-900, 0.8);
+         color: rgba($frost-200, 1);
+      }
+
+      &.active {
+         background: rgba($ocean-500, 0.6);
+         color: rgb(255, 255, 255);
+      }
+   }
+
+   .search_input_ctn {
+      .bi.bi-search {
+         left: 1.25rem;
+         opacity: 0.44;
+         transition: $base-transition;
+      }
+      &.focused .bi.bi-search {
+         opacity: 1;
+      }
+   }
+
+   .form-control {
+      display: block;
+      padding: 0.5625rem 0.75rem 0.5625rem 2.5rem;
+      color: var(--bs-body-color);
+      background-color: var(--bs-body-bg);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-clip: padding-box;
+      border: none;
+      border-radius: var(--bs-border-radius);
+      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+      @mixin placeholderStyles {
+         opacity: .44; color: var(--bs-body-color);
+      }
+
+      &::placeholder { @include placeholderStyles; }
+      &::-webkit-input-placeholder { @include placeholderStyles; }
+      &::-moz-placeholder { @include placeholderStyles; }
+      &:-ms-input-placeholder { @include placeholderStyles; }
+      &::-ms-input-placeholder { @include placeholderStyles; }
+
+      &:focus {
+         color: var(--bs-body-color);
+         background-color: var(--bs-body-bg);
+         outline: 0;
+         box-shadow: 0 0 0 0.1875rem rgba($ocean-500, 0.3);
+      }
+   }
+
+   .toggle_ctn {
+      --height: 1.75rem;
+      --gap: .125rem;
+
+      height: var(--height);
+      width: calc((var(--height) - var(--gap)) / 2 * 3 + var(--gap));
+   }
+   button.layout_toggle {
+      position: relative;
+
+      height: var(--height);
+      width: calc((var(--height) - var(--gap)) / 2 * 3 + var(--gap));
+
+      span {
+         position: absolute;
+         border-radius: 4px;
+         border: 0.5px solid rgba(white, 0.6);
+         transition: $base-transition;
+
+         height: calc((100% - var(--gap)) / 2);
+
+         &:nth-child(1) { top: 0; left: 0; }
+         &:nth-child(2) { bottom: 0; left: 0; }
+         &:nth-child(3) { top: 0; right: 0; }
+         &:nth-child(4) { bottom: 0; right: 0; }
+      }
+
+      &.is_grid span {
+         &:nth-child(1), &:nth-child(2) {
+            width: calc((var(--height) - var(--gap)) / 2);
+         }
+         &:nth-child(3), &:nth-child(4) {
+            width: calc(var(--height) - var(--gap));
+         }
+      }
+      &:not(.is_grid) {
+         width: var(--height);
+         span {
+            &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+               width: calc((var(--height) - var(--gap)) / 2);
+            }
+         }
+      }
+
+      &:hover span {
+         border-color: rgba(white, 0.8);
+      }
+   }
+
+   .project_grid_card {
+      border: var(--border-primary-4);
+
+      .card-body {
+         background-color: var(--card-bg-5);
+      }
+   }
+}

@@ -1,0 +1,147 @@
+<!-- projects page -->
+<div
+    id="s_projects_page" class="px-gutter"
+    x-data="{
+        activeTag: null,
+        is_grid: true,
+        searchQuery: '', // This will hold the value of the search input
+
+        filterTags: [
+            'All Projects',
+            // This will be dynamically populated with project types
+        ],
+
+        // This is a computed property that reactively filters projects based on the active tag and search query.
+        get filteredProjects() {
+            // Start with the full list of projects.
+            let projectsToShow = projects;
+
+            // 1. Filter projects based on the selected 'activeTag'.
+            // We check if a tag is selected and it's not 'All Projects'.
+            if (this.activeTag && this.activeTag !== 'All Projects') {
+                projectsToShow = projectsToShow.filter(
+                    project => project.projectType === this.activeTag
+                );
+            }
+
+            // 2. Filter the already-tagged projects based on the 'searchQuery'.
+            // We proceed only if the search query is not empty.
+            if (this.searchQuery.trim() !== '') {
+                // Convert the search query to lowercase for case-insensitive matching.
+                const query = this.searchQuery.toLowerCase().trim();
+                projectsToShow = projectsToShow.filter(project => {
+                    // Create a single string of all searchable project data.
+                    // This makes it easy to check if the query exists anywhere in the project's details.
+                    const searchableContent = `
+                        ${project.title}
+                        ${project.timeline}
+                        ${project.into}
+                        ${project.tags.join(' ')}
+                        ${project.projectType}
+                        ${project.statusOrCategory}
+                        ${project.accomplishments.join(' ')}
+                    `.toLowerCase();
+
+                    // Return true if the searchable content includes the query.
+                    return searchableContent.includes(query);
+                });
+            }
+
+            return projectsToShow;
+        },
+
+        init() {
+            // Dynamically create filter tags from project types.
+            const projectTypes = [...new Set(this.projects.map(p => p.projectType))];
+            this.filterTags.push(...projectTypes);
+
+            // Set the initial active tag to 'All Projects'.
+            this.activeTag = this.filterTags[0];
+        }
+    }"
+>
+
+    <!-- spacing | 58px, 80px, 96px -->
+    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+
+    <!-- projects tag, title & description -->
+    <div
+        slot="tag-title-text"
+        x-data="{
+            tag: 'Projects',
+            title: 'My Projects',
+            text: `Explore a collection of my recent work across various technologies and domains.`
+        }"
+    ></div>
+
+    <!-- spacing -->
+    <div class="pb-10 mb-6"></div>
+
+    <!-- filter & search bar -->
+    <div class="search_bar p-8 rounded-2">
+        <div class="d-flex align-items-center justify-content-between gap-8">
+            <!-- filter title & tags -->
+            <div class="d-flex align-items-center gap-7">
+                <!-- filter icon & title -->
+                <div class="d-flex align-items-center gap-4">
+                    <i class="bi bi-funnel fs-24"></i>
+                    <div class="text-white fs-16">Filter:</div>
+                </div>
+                <!-- filter tags -->
+                <div class="d-flex flex-wrap gap-4">
+                    <template x-for="tag in filterTags">
+                        <button
+                            class="filter_tag d-center rounded-pill px-5 py-2"
+                            :class="{'active': tag === activeTag}"
+                            @click="activeTag = tag"
+                        >
+                            <span class="fs-13 fs-sm-14 px-2 py-1 lh-120p" x-text="tag"></span>
+                        </button>
+                    </template>
+                </div>
+            </div>
+            <!-- search bar & grid toggle -->
+            <div class="d-flex align-items-center gap-8">
+                <!-- search bar -->
+                <div x-data="{ focussed: false, }" class="search_input_ctn position-relative" :class="{'focused': focussed}">
+                    <i class="bi bi-search fs-18 position-absolute top-50 translate-middle"></i>
+                    <input
+                        x-model.debounce.300ms="searchQuery"
+                        @focus="focussed = true"
+                        @blur="focussed = false"
+                        class="form-control fs-14 fs-sm-15"
+                        type="text" name="search_projects"
+                        placeholder="Search projects..."
+                        aria-label="search for projects input"
+                    >
+                </div>
+                <!-- grid toggle -->
+                <div class="toggle_ctn d-flex justify-content-end">
+                    <button
+                        class="layout_toggle" :class="{'is_grid': is_grid}"
+                        @click="is_grid = !is_grid"
+                    >
+                        <span></span><span></span>
+                        <span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- spacing -->
+    <div class="pb-10 mb-2"></div>
+
+    <!-- grid cards -->
+    <div class="w-100" x-show="is_grid" x-transition:enter>
+        <div slot="project-grid-card"></div>
+    </div>
+
+    <!-- list cards -->
+    <div class="w-100" x-show="!is_grid" x-transition:enter style="display: none;">
+        <div slot="project-list-card"></div>
+    </div>
+
+    <!-- spacing | 58px, 80px, 96px -->
+    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+</div>

@@ -1,0 +1,38 @@
+
+<div class="row row-gap-8 gx-xl-8">
+    <template x-for="(project, index) in filteredProjects" :key="project.id">
+        <!-- each project card -->
+        <div class="col-sm-36 col-lg-40">
+            <div class="project_grid_card h-100 d-flex flex-column rounded-2 overflow-hidden">
+                <!-- hero image -->
+                <div class="card-hero w-100 position-relative">
+                    <img class="my_image-fluid" :src="project.image" src="" alt="placeholder">
+                </div>
+                <!-- body content -->
+                <div class="card-body h-100 d-flex flex-column gap-4 p-8">
+                    <!-- title -->
+                    <h6 class="h6 fw-600 text-white mb-0" x-text="project.title"></h6>
+                    <!-- intro -->
+                    <div class="body-text-sm" x-text="project.into"></div>
+                    <!-- tags -->
+                    <div class="d-flex flex-wrap gap-3 py-4 mb-3">
+                        <template x-for="tag in project.tags" :key="tag">
+                            <div class="d-center bg-midnight-9 rounded-pill py-2 px-5">
+                                <span class="text-frost-2 fs-12 lh-130p" x-text="tag"></span>
+                            </div>
+                        </template>
+                    </div>
+                    <!-- source code -->
+                    <div class="mt-auto" x-show="project.sourceCodeUrl !== null">
+                        <div class="d-flex justify-content-center" >
+                            <a :href="project.sourceCodeUrl" class="body-text-sm d-center gap-4">
+                                <i class="bi bi-github fs-20"></i>
+                                <span>View Source Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>
