@@ -1,12 +1,12 @@
 
 // Project styles entry point
-import "./assets/scss/main.scss";
+import('@scss/main.scss');
 
 // Bootstrap
-import "bootstrap";
+import('bootstrap');
 
 // AlpineJS
-import "./js/alpine/index.js"
+import('./js/alpine/index.js');
 
 // GSAP
 import gsap from "gsap";
@@ -25,4 +25,4 @@ await loader.init();
 import('./js/modules');
 
 // Run Vite Development Configuration (file watchers, scroll restoration, etc.)
-import "./js/vite-dev-config.js";
+import('./js/vite-dev-config.js');
