@@ -1,3 +1,123 @@
-<footer id="s_footer">
 
+<footer
+    id="s_footer" class="px-gutter py-9"
+    x-data="footerAlpine()"
+>
+    <div class="position-relative py-sm-4 py-md-6 py-lg-8 text-white">
+
+        <!-- pretty circles -->
+        <div class="circles_ctn position-absolute">
+            <div
+                x-data="prettyCircles($el)"
+                @mousemove="onMove($event)"
+                @mouseleave="reset()"
+                class="pretty_circles playing"
+                title="Click to toggle animation (hover to speed)"
+                aria-label="Decorative animated circles"
+                data-orbit-radius="42"
+                data-orbit-radius-diff="13"
+            >
+                <div class="stage">
+                    <!-- rings -->
+                    <span class="ring r3"></span>
+                    <span class="ring r2"></span>
+                    <span class="ring r1"></span>
+
+                    <!-- core -->
+                    <div class="core"><span class="dot"></span></div>
+
+                    <!-- accents (these orbit because each accent is offset from center) -->
+                    <div class="accents" aria-hidden="true">
+                        <span class="accent a1"></span>
+                        <span class="accent a2"></span>
+                        <span class="accent a3"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- top section -->
+        <div class="row gy-9">
+            <!-- main quote -->
+            <div class="col-lg-40">
+                <div class="fs-40 ff-georgia-pro-semibold-italic">
+                    DC
+                </div>
+                <div class="body-text-sm">
+                    Full-stack developer, freelancer &
+                    <br class="d-sm-none d-lg-block">
+                    problem
+                    <br class="d-none d-sm-block d-lg-none">
+                    solver. Thanks for
+                    <br class="d-sm-none d-lg-block">
+                    checking out my site!
+                </div>
+            </div>
+            <!-- guestbook -->
+            <div class="col-sm-60 col-lg-40">
+                <h5 class="h5 fw-500">
+                    Guestbook
+                </h5>
+                <div class="body-text-sm d-flex flex-column" style="width: fit-content;">
+                    <div>Enjoyed the... experience?</div>
+                    <div class="d-flex align-items-center gap-4">
+                        <div class="text-nowrap">Leave a message!</div>
+                        <button
+                            class="w-100 guest_btn rounded-pill d-center"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            data-bs-title="Coming Soon!" data-bs-custom-class="primary-tooltip"
+                        >
+                            <i class="bi bi-arrow-right lh-100p text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- socials and contact -->
+            <div class="col-sm-60 col-lg-40">
+                <div class="d-flex justify-content-between align-items-end">
+                    <div>
+                        <h5 class="h5 fw-500">
+                            Connect
+                        </h5>
+                        <div class="d-flex align-items-center gap-5">
+                            <template x-for="socialLink in socialLinks">
+                                <a class="social_link" :href="socialLink.link" target="_blank">
+                                    <i class="bi text-white fs-18 fs-sm-20 fs-lg-22" :class="socialLink.iconClass"></i>
+                                </a>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="d-sm-none">
+                        <div class="fw-300 fs-10 fs-sm-11 fs-lg-12">
+                            ©copyright <span x-text="currentYear">2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- main springy divider -->
+        <div class="py-9 my-sm-4 my-md-6 my-lg-8">
+            <div class="springy_divider col-120 col-lg-90 bg-white"></div>
+        </div>
+
+        <!-- bottom section -->
+        <div class="d-flex justify-content-between align-items-end text-sage-1">
+            <!-- author name -->
+            <div class="d-flex align-items-end">
+                <div class="author_title lh-100p">
+                    Daniel Christensen
+                </div>
+                <div class="author_sub ps-2 ps-sm-3 ps-lg-4 ff-georgia-pro-italic">
+                    aka Xanss
+                </div>
+            </div>
+            <!-- copyright | tablet & Desktop -->
+            <div class="d-none d-sm-block">
+                <div class="fw-300 fs-10 fs-sm-11 fs-lg-12">
+                    ©copyright <span x-text="currentYear">2025</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
