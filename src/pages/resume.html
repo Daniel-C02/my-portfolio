@@ -1,34 +1,15 @@
 <!-- resume page -->
 <div
-    id="s_resume_page" class="px-gutter"
-    x-data="{
-        activeFilter: null,
-        filters: [
-            { name: 'Skills', iconClass: 'bi-lightning-fill' },
-            { name: 'Education', iconClass: 'bi-mortarboard-fill' },
-            { name: 'Experience', iconClass: 'bi-briefcase-fill' },
-            { name: 'Certifications', iconClass: 'bi-award-fill' }
-        ],
-        toggleFilter(filterName) {
-            this.activeFilter = filterName;
-            window.dispatchEvent(new CustomEvent('filter-toggle', { detail: {
-                filter: this.activeFilter,
-            }}));
-        }
-    }"
-    x-init="
-        $nextTick(() => {
-            activeFilter = filters[0].name;
-        });
-    "
+    id="s_resume_page"
+    x-data="resumeAlpine()"
 >
 
     <!-- hero -->
-    <div id="hero" slot="resume-hero"></div>
+    <div id="hero" slot="resume-hero" class="px-gutter"></div>
 
     <!-- filter tags -->
     <div id="filter_tags">
-        <div class="d-flex justify-content-center gap-5">
+        <div class="my-scroll-tags scroll-lg d-flex justify-content-lg-center gap-5 py-1">
             <template x-for="filter in filters">
                 <button
                     type="button"
@@ -46,29 +27,31 @@
     <!-- spacing -->
     <div class="pb-9 mb-3"></div>
 
-    <!-- skills section -->
-    <div
-        id="skills" slot="resume-skills"
-        x-show="activeFilter === filters[0].name" x-transition:enter
-    ></div>
+    <div class="px-gutter">
+        <!-- skills section -->
+        <div
+            id="skills" slot="resume-skills"
+            x-show="activeFilter === filters[0].name" x-transition:enter
+        ></div>
 
-    <!-- education section -->
-    <div
-        id="education" slot="resume-education"
-        x-show="activeFilter === filters[1].name" x-transition:enter
-    ></div>
+        <!-- education section -->
+        <div
+            id="education" slot="resume-education"
+            x-show="activeFilter === filters[1].name" x-transition:enter
+        ></div>
 
-    <!-- experience section -->
-    <div
-        id="experience" slot="resume-experience"
-        x-show="activeFilter === filters[2].name" x-transition:enter
-    ></div>
+        <!-- experience section -->
+        <div
+            id="experience" slot="resume-experience"
+            x-show="activeFilter === filters[2].name" x-transition:enter
+        ></div>
 
-    <!-- certifications section -->
-    <div
-        id="certifications" slot="resume-certifications"
-        x-show="activeFilter === filters[3].name" x-transition:enter
-    ></div>
+        <!-- certifications section -->
+        <div
+            id="certifications" slot="resume-certifications"
+            x-show="activeFilter === filters[3].name" x-transition:enter
+        ></div>
+    </div>
 
     <!-- spacing | 72px, 104px, 120px -->
     <div class="mt-md-4 pt-11 pt-sm-12 pt-lg-13"></div>

@@ -56,7 +56,9 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.3; }
 
 // Project wide css variables
 :root {
-   --navbar-height: 64px; // nav height
+   @include responsive-gutter;
+   --navbar-height: calc(64px + (var(--bs-gutter-x) / 4));;
+   @media(min-width: $lg_bp) { --navbar-height: 64px; }
 }
 
 // Project specific class Variables

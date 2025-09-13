@@ -24,7 +24,7 @@
                 <div class="row g-6">
                     <!-- name input -->
                     <div
-                        slot="input-field" class="col-60"
+                        slot="input-field" class="col-sm-60"
                         x-data="{
                             title: 'Your Name',
                             name: 'name',
@@ -35,7 +35,7 @@
                     ></div>
                     <!-- email input -->
                     <div
-                        slot="input-field" class="col-60"
+                        slot="input-field" class="col-sm-60"
                         x-data="{
                             title: 'Email',
                             name: 'email',
@@ -85,45 +85,13 @@
         </div>
         <div class="col-lg-60 order-lg-1">
             <div class="h-100 d-flex flex-column">
-                <div
-                    class="my_card flex-shrink-0 rounded-2 p-8 d-flex flex-column gap-6"
-                    x-data="{
-                        copyButtons: [
-                            {
-                                name: 'Email',
-                                text: '02.christensendaniel@gmail.com',
-                                iconClass: 'bi-envelope',
-                                link: 'mailto:02.christensendaniel@gmail.com'
-                            },
-                            {
-                                name: 'Location',
-                                text: 'Johannesburg, South Africa',
-                                iconClass: 'bi-geo-alt', // Changed icon for better context
-                                link: 'https://www.google.com/maps/search/?api=1&query=Johannesburg%2C+South+Africa'
-                            },
-                        ],
-                        socialLinks: [
-                            {
-                                iconClass: 'bi-instagram',
-                                link: 'https://cubezoo.co.za'
-                            },
-                            {
-                                iconClass: 'bi-facebook',
-                                link: 'https://cubezoo.co.za'
-                            },
-                            {
-                                iconClass: 'bi-linkedin',
-                                link: 'https://cubezoo.co.za'
-                            },
-                        ],
-                    }"
-                >
+                <div class="my_card flex-shrink-0 rounded-2 p-8 d-flex flex-column gap-6">
                     <!-- card title -->
                     <div class="fs-28 fw-600 text-sage-1">
                         Contact Information
                     </div>
                     <!-- email and location cards -->
-                    <template x-for="button in copyButtons" :key="button.name">
+                    <template x-for="button in contactCopyButtons" :key="button.name">
                         <a
                             class="copy_btn d-flex align-items-center bg-midnight-8f rounded-2 gap-6 w-100"
                             :href="button.link" target="_blank"

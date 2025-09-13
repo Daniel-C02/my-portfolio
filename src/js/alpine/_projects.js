@@ -52,7 +52,7 @@ export const projects = [
     },
     {
         id: 4,
-        isFeatured: false,
+        isFeatured: true,
         title: 'Task Management App',
         timeline: 'Jan 2023 - Feb 2025',
         image: '/images/placeholder_project_management.avif',

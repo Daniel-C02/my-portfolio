@@ -9,11 +9,14 @@ import {homeAboutCards} from "@js/alpine/home/_about_cards.js";
 import {homeSkillCards} from "@js/alpine/home/_skill_cards.js";
 import {insideScoop} from "@js/alpine/home/_inside_scoop.js";
 import {aboutTimeline} from "@js/alpine/about/_timeline.js";
+import {contactCopyButtons} from "@js/alpine/_contact.js";
 import {projects} from "@js/alpine/_projects.js";
 import {devSkills} from "@js/alpine/_skills.js";
 import {socialLinks} from "@js/alpine/_social_links.js";
 import {copyEmail} from "@js/utilities/copy_email.js";
 import {footerAlpine, prettyCircles} from "@js/alpine/_footer.js";
+import {navbarAlpine} from "@js/alpine/_navbar.js";
+import {resumeAlpine} from "@js/alpine/_resume.js";
 
 // Assign Alpine to the window object
 window.Alpine = Alpine;
@@ -39,6 +42,9 @@ Alpine.data("appData", () => ({
     // About page data
     aboutTimeline,
 
+    // Contact page data
+    contactCopyButtons,
+
     // Projects
     projects,
     featuredProjects: projects.filter(p => p.isFeatured),
@@ -53,9 +59,15 @@ Alpine.data("appData", () => ({
      * Section specific functionality
      */
 
+    // Navbar
+    navbarAlpine,
+
     // Footer
     footerAlpine,
     prettyCircles,
+
+    // Resume
+    resumeAlpine,
 
     // Other
     copyEmail,

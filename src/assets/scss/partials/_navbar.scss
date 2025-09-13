@@ -1,4 +1,5 @@
 @use "../theme" as *;
+@use "../mixins" as *;
 
 #s_navbar {
 
@@ -33,6 +34,7 @@
    .navbar {
       height: var(--navbar-height);
       width: 100%;
+      position: relative;
    }
 
    // navbar brand
@@ -63,6 +65,88 @@
 
    // navbar toggle button
    .navbar_toggle {
+      width: 35px;
+      height: 25px;
+      position: relative;
+      transform: rotate(0deg);
+      transition: .5s ease-in-out;
+      cursor: pointer;
 
+      span {
+         display: block;
+         position: absolute; left: 0;
+         height: 3px; width: 100%;
+         background: #fff;
+         border-radius: 3px;
+         transform: rotate(0deg);
+         transition: .25s ease-in-out;
+
+         &:nth-child(1)                 { top: 0; }
+         &:nth-child(2), &:nth-child(3) { top: 11px; }
+         &:nth-child(4)                 { top: 22px; }
+      }
+
+      &.open span {
+         &:nth-child(2) { transform: rotate(45deg); }
+         &:nth-child(1) { top: 12px; width: 0; left: 50%; }
+         &:nth-child(3) { transform: rotate(-45deg); }
+         &:nth-child(4) { top: 12px; width: 0; left: 50%; }
+      }
    }
+}
+
+/*
+ * Mobile collapse state and animation
+ */
+#s_navbar {
+
+   @media(max-width: ($lg_bp - 1)) {
+      @include responsive-gutter;
+      --space-top: calc(var(--bs-gutter-x) / 4);
+
+      width: calc(100vw - (var(--space-top) * 2));
+      margin: var(--space-top) var(--space-top) 0;
+      border-radius: var(--bs-border-radius);
+
+      .navbar {
+         height: calc(var(--navbar-height) - var(--space-top));
+      }
+
+      .navbar-collapse {
+         position: absolute;
+         right: 0; top: 0; width: 0; height: 0;
+         background-color: $midnight-850;
+         border: 1px solid $frost-200;
+         border-radius: var(--bs-border-radius);
+
+         .inner {
+            padding: 0 2rem;
+            justify-content: center;
+            height: 100%;
+         }
+
+         .nav-link {
+            display: block;
+            overflow-y: hidden;
+            span { display: block }
+         }
+
+         &:not(.animatable) { opacity: 0; }
+         &:not(.open).animatable { animation: hideNavCollapse 1.25s $eo-slow-transition forwards; }
+         &.open.animatable {       animation: showNavCollapse 0.7s $eo-slow-transition forwards; }
+      }
+   }
+}
+
+@keyframes showNavCollapse {
+   0%   { width: 0;     height: 0;     opacity: 0; }
+   20%  {                              opacity: 1; }
+   100% { width: 248px; height: 352px; }
+}
+
+@keyframes hideNavCollapse {
+   0%   { width: 248px; height: 352px; }
+   44%  { width: 248px; height: 352px; }
+   80%  {                              opacity: 1; }
+   100% { width: 0;     height: 0;     opacity: 0; }
 }
