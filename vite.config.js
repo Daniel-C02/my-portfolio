@@ -11,10 +11,9 @@ export default defineConfig({
    resolve: {
       alias: {
          "@": path.resolve(__dirname, "src"),
+         "@js": path.resolve(__dirname, "src/js"),
          "@fonts": path.resolve(__dirname, "src/assets/fonts"),
          "@scss": path.resolve(__dirname, "src/assets/scss"),
-         "@js": path.resolve(__dirname, "src/js"),
-         "@pages": path.resolve(__dirname, "src/pages"),
       },
    },
    css: {
@@ -29,13 +28,5 @@ export default defineConfig({
    server: {
       port: 5173,
       open: true,
-      // watch: {
-      //    // Watch all asset + HTML files in src
-      //    paths: [
-      //       path.resolve(__dirname, "src/assets/**/*"),
-      //       path.resolve(__dirname, "src/**/*.html"),
-      //    ],
-      //    usePolling: true, // helps on WSL/Docker/VMs
-      // },
    },
 });

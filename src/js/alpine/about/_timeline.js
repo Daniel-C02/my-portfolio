@@ -2,7 +2,7 @@
 export const aboutTimeline = [
     {
         timeline: ['Feb 2024', 'Current'],
-        logo: '/images/about/timeline/cubezoo.svg',
+        logo: '/assets/images/about/timeline/cubezoo.svg',
         position: 'Software Engineer',
         company: 'CubeZoo',
         description: [
@@ -11,7 +11,7 @@ export const aboutTimeline = [
     },
     {
         timeline: ['Feb 2021', 'Oct 2023'],
-        logo: '/images/about/timeline/uj.jpg',
+        logo: '/assets/images/about/timeline/uj.jpg',
         position: 'Computer Science',
         company: 'University of Johannesburg',
         description: [
