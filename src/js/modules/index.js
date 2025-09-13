@@ -15,3 +15,4 @@ import(`./_cobe_globe.js`).then(module => module.init());
 import(`./_image_slider.js`).then(module => module.init());
 
 import(`./_counter_animation.js`).then(module => module.init());
+import(`./_contact_form_handler.js`).then(module => module.init());

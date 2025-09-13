@@ -21,6 +21,8 @@
       "embla-carousel": "^8.6.0",
       "embla-carousel-auto-scroll": "^8.6.0",
       "gsap": "^3.13.0",
+      "resend": "^6.0.3",
+      "sweetalert2": "^11.23.0",
       "vite-plugin-static-copy": "^3.1.2"
    }
 }
