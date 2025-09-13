@@ -147,3 +147,34 @@
       }
    }
 }
+
+// ---------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+/*
+ * Error Elements For all type of input fields
+ */
+.errorSection {
+   padding: 0.25rem 1.25rem 0 1.5rem;
+   color: #FA3F4D;
+   font-size: 12px;
+   @media(min-width: $ms_bp) { font-size: 13px; }
+   @media(min-width: $lg_bp) { font-size: 14px; }
+
+   &:not(.show) { display: none; }
+
+   &.show {
+      animation: showAnimation2 0.24s ease forwards;
+   }
+
+   @keyframes showAnimation2 {
+      from {
+         opacity: 0;
+         transform: translateX(12px);
+      }
+      to {
+         opacity: 1;
+         transform: translateX(0);
+      }
+   }
+}
