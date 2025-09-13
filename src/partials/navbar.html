@@ -2,66 +2,7 @@
 <nav
     id="s_navbar"
     class=""
-    x-data="{
-        navLinks: [
-            { name: 'Home', route: '/' },
-            { name: 'About', route: '/about' },
-            { name: 'Projects', route: '/projects' },
-            { name: 'Resume', route: '/resume' },
-            { name: 'Contact', route: '/contact' },
-        ],
-        locationPath: window.location.pathname,
-
-        // Scroll logic properties
-        lastScroll: 0,
-        thresholdBottom: 40,
-        thresholdTop: 40,
-        scrolledDown: false,
-        scrolledUp: false,
-        scrolledDownValue: 0,
-        scrolledUpValue: 0,
-
-        init() {
-            // set the threshold
-            this.thresholdBottom = window.innerHeight * 0.02; // 2% of window height
-            this.thresholdTop = window.innerHeight * 0.24; // 24% of window height
-
-            // Scroll listener
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.scrollY;
-
-                // If at the very top of the page, force the navbar to be visible.
-                if (currentScroll <= 0) {
-                    this.scrolledUp = true;
-                    this.scrolledDown = false;
-                    this.lastScroll = 0; // Reset last scroll position for accuracy
-                    return; // Exit early
-                }
-
-                const delta = currentScroll - this.lastScroll;
-
-                if (delta !== 0) {
-                    if (delta > 0) {
-                        this.scrolledUpValue = 0;
-                        this.scrolledDownValue += delta;
-                        if (this.scrolledDownValue >= this.thresholdBottom) {
-                            this.scrolledDown = true;
-                            this.scrolledUp = false;
-                        }
-                    } else {
-                        this.scrolledDownValue = 0;
-                        this.scrolledUpValue += Math.abs(delta);
-                        if (this.scrolledUpValue >= this.thresholdTop) {
-                            this.scrolledUp = true;
-                            this.scrolledDown = false;
-                        }
-                    }
-                }
-
-                this.lastScroll = currentScroll;
-            });
-        }
-    }"
+    x-data="navbarAlpine()"
     :class="{'scrolled-bottom': scrolledDown, 'scrolled-top': scrolledUp}"
 >
     <div class="navbar d-flex align-items-center justify-content-between mx-auto px-gutter">
@@ -70,13 +11,13 @@
             <span slot="logo"></span>
         </a>
         <!-- navbar menu | collapse menu -->
-        <div class="navbar-collapse">
-            <div class="d-flex align-items-center gap-9">
+        <div class="navbar-collapse" :class="{'open': collapseOpen, 'animatable': animatable}">
+            <div class="inner d-flex flex-column flex-lg-row align-items-lg-center gap-7 gap-lg-9">
                 <!-- nav links -->
                 <template x-for="navLink in navLinks" :key="navLink.route">
                     <div class="">
                         <a
-                            class="nav-link body-text expanding-border"
+                            class="nav-link text-frost-1 expanding-border expand-lg fs-24 fs-lg-16"
                             :class="navLink.route === locationPath ? 'active' : ''"
                             :href="navLink.route"
                         >
@@ -88,7 +29,7 @@
         </div>
         <!-- Theme Toggle -->
         <button
-            class="theme_toggle rounded-circle"
+            class="theme_toggle rounded-circle ms-auto ms-lg-0"
             data-bs-toggle="tooltip" data-bs-placement="bottom"
             data-bs-title="Feature Not Implemented" data-bs-custom-class="primary-tooltip"
         >
@@ -96,8 +37,9 @@
         </button>
         <!-- menu toggle | mobile, tablet -->
         <button
-            class="navbar_toggle d-lg-none"
-            type="button"
+            class="navbar_toggle d-lg-none ms-6"
+            type="button" :class="{'open': collapseOpen}"
+            @click="toggleCollapse()"
         >
             <span></span>
             <span></span>

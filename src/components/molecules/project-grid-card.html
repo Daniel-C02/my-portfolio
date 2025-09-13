@@ -2,7 +2,7 @@
 <div class="row row-gap-8 gx-xl-8">
     <template x-for="(project, index) in parentProjects" :key="project.id">
         <!-- each project card -->
-        <div class="col-sm-36 col-lg-40">
+        <div class="col-sm-60 col-lg-40" :class="{'d-none d-sm-block d-lg-none': index === 3}">
             <div class="project_grid_card h-100 d-flex flex-column rounded-2 overflow-hidden">
                 <!-- hero image -->
                 <div class="card-hero w-100 position-relative">

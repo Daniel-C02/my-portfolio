@@ -1,4 +1,5 @@
 @use "../theme" as *;
+@use "../mixins" as *;
 
 // Tag Primary | Glowing Tag
 .tag-primary {
@@ -44,5 +45,37 @@
    100% {
       box-shadow: 0 0 0 5px $ocean-400;
       opacity: 0;
+   }
+}
+
+/*
+ * Tags that should be scrollable
+ */
+.my-scroll-tags {
+   display: flex;
+   overflow-x: auto;
+   overflow-y: visible;
+   white-space: nowrap;
+   max-width: calc(100vw);
+   cursor: grab;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -webkit-overflow-scrolling: touch;
+
+   @include responsive-gutter;
+   padding: 0 calc(var(--bs-gutter-x) / 2);
+
+   scrollbar-width: none; /* Hides scrollbar on Firefox */
+   -ms-overflow-style: none; /* Hides scrollbar on IE */
+   &::-webkit-scrollbar { display: none; } /* Hides scrollbar on Chrome, Safari */
+
+   &.scroll-lg {
+      @media(min-width: $lg_bp) {
+         overflow-x: hidden;
+         cursor: default;
+         flex-wrap: wrap;
+      }
    }
 }

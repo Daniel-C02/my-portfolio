@@ -17,10 +17,15 @@
 #s_resume_page #filter_tags {
    .filter_tag {
       height: 42px;
-      padding: 0 .75rem;
+      padding: 0 1rem;
       box-shadow: 0 0 0 1px #ffffff;
       transition: $base-transition;
       &, .body-text { color: white !important; }
+
+      @media(max-width: ($lg_bp - 1)) {
+         width: calc((100% - 2.25rem) / 4);
+         min-width: 170px;
+      }
 
       &.active {
          box-shadow: 0 0 0 1px rgba(#fff, 0.58), inset 0 0 0 1px rgba(#fff, 0.58);
