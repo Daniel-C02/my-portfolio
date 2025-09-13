@@ -10,5 +10,39 @@
    @media (min-width: 1400px) { --bs-gutter-x: 7.2rem !important; }
 }
 
+/*
+ * Mixin using the modern CSS clamp() function to achieve the smooth, linear font-size transition
+ */
+@mixin responsive-font-size($selector, $minFont, $maxFont, $minWidth, $maxWidth, $needsBase: false) {
+   // Calculate the slope and intercept for the linear scaling
+   // SCSS handles unit calculations: (px - px) / (px - px) = unit-less number
+   $slope: calc(($maxFont - $minFont) / ($maxWidth - $minWidth));
+   // Calculate intercept: $minFont - slope * $minWidth (unit should match $minFont)
+   $intercept: $minFont - $slope * $minWidth;
 
+   // Construct the preferred value part of clamp()
+   // Format: calc(slope * 100vw + intercept)
+   // Use Sass interpolation #{} to insert variables into the calc string
+   $preferredValue: calc( #{$slope * 100}vw + #{$intercept} );
+
+   // Apply the styles to the selector
+   #{$selector} {
+      // Set the base font size (acts as a fallback and minimum)
+      @if $needsBase {
+         font-size: $minFont;
+      }
+
+      // Apply clamp() for fluid scaling between minWidth and maxWidth
+      // clamp() handles the min/max bounds automatically
+      @media (min-width: $minWidth) {
+         font-size: clamp(#{$minFont}, #{$preferredValue}, #{$maxFont});
+      }
+
+      // Optional: Explicitly set the max font size above maxWidth
+      // clamp() already caps it, but this can be clearer/safer for overrides
+      @media (min-width: $maxWidth) {
+         font-size: $maxFont;
+      }
+   }
+}
 

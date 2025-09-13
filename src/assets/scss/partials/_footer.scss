@@ -1,5 +1,172 @@
 @use "../theme" as *;
+@use "../mixins" as *;
 
 #s_footer {
+   background-color: $midnight-800;
 
+   // ------------------------------------------------------------------------------------------------------------------
+   // -- Pretty Circles Component (GSAP Driven) ------------------------------------------------------------------------
+
+   .circles_ctn {
+      width: 5em; height: 5em;
+
+      top: 1.25rem; right: 0;
+      @media(min-width: $sm_bp) { top: .5rem; }
+      @media(min-width: $lg_bp) { top: .5rem; }
+   }
+   .pretty_circles {
+      display: grid;
+      place-items: center;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+
+      --accent: 255, 255, 255;
+
+      .stage {
+         position: relative;
+         width: 5em;
+         height: 5em;
+         display: grid;
+         place-items: center;
+      }
+
+      // --------------------------------------------------
+      // Rings
+      // --------------------------------------------------
+      .ring {
+         position: absolute;
+         inset: 0;
+         border-radius: 50%;
+         border: 1.2px solid rgba(var(--accent), 0.28);
+         filter: blur(var(--blur));
+         transform-origin: center;
+         opacity: 0.72;
+      }
+
+      .ring.r1 {
+         --lit: 52%;
+         --sat: 75%;
+      }
+
+      .ring.r2 {
+         --lit: 52%;
+         --sat: 75%;
+         inset: 1.1em;
+      }
+
+      .ring.r3 {
+         --lit: 44%;
+         --sat: 75%;
+         inset: 2em;
+         opacity: 0.72;
+      }
+
+      // --------------------------------------------------
+      // Core Dot
+      // --------------------------------------------------
+      .core {
+         position: relative;
+         z-index: 2;
+
+         .dot {
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background: rgba(var(--accent), 1);
+            box-shadow:
+               0 0 16px rgba(var(--accent), 0.6),
+               0 0 32px rgba(var(--accent), 0.42);
+            transform-origin: center;
+         }
+      }
+
+      // --------------------------------------------------
+      // Orbit Accents
+      // --------------------------------------------------
+      .accents {
+         position: absolute;
+         inset: 0;
+         border-radius: 50%;
+         display: grid;
+         place-items: center;
+         transform-origin: center;
+      }
+
+      .accent {
+         position: absolute;
+         width: 0.4em;
+         height: 0.4em;
+         border-radius: 50%;
+         background: rgba(var(--accent), 0.95);
+         box-shadow:
+            0 0 8px rgba(var(--accent), 0.42),
+            0 0 16px rgba(var(--accent), 0.28);
+         transform-origin: center;
+      }
+
+      .accent:nth-child(1) { top: -0.6em; }
+      .accent:nth-child(2) { right: -0.6em; }
+      .accent:nth-child(3) { bottom: -0.6em; }
+   }
+
+   // -- Pretty Circles animation end ----------------------------------------------------------------------------------
+   // ------------------------------------------------------------------------------------------------------------------
+
+
+   .guest_btn {
+      background-color: rgba(white, 0.12);
+      width: 3.3rem;
+      height: 1rem;
+      @media(min-width: $sm_bp) { height: 1.125rem; }
+      @media(min-width: $lg_bp) { height: 1.25rem; }
+   }
+
+   .springy_divider {
+      height: 2px;
+   }
+
+   // Responsive font size for the title
+   @include responsive-font-size( '.author_title', // Selector
+         24px, 44px,   // Minimum & Maximum font size
+         280px, 576px, // Minimum & Maximum screen width where scaling starts
+         true
+   );
+   @include responsive-font-size( '.author_title',
+         34px,   57px,
+         576px,  992px
+   );
+   @include responsive-font-size( '.author_title',
+         52px,   72px,
+         992px,  1440px
+   );
+
+   // Responsive font size for the title
+   @include responsive-font-size( '.author_sub',
+         10px,    12px,
+         280px,  576px, true
+   );
+   @include responsive-font-size( '.author_sub',
+         14px,   16px,
+         576px,  992px
+   );
+   @include responsive-font-size( '.author_sub',
+         16px,   20px,
+         992px,  1440px
+   );
+
+   .author_sub {
+
+   }
+
+   .author_title {
+
+   }
+
+   .social_link {
+      transition: $base-transition;
+      &:hover {
+         transform: translateY(-3px);
+      }
+   }
 }

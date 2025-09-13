@@ -134,12 +134,20 @@
 
     <!-- grid cards -->
     <div class="w-100" x-show="is_grid" x-transition:enter>
-        <div slot="project-grid-card"></div>
+        <div
+            slot="project-grid-card"
+            x-data="{parentProjects: filteredProjects}"
+            x-init="$watch('filteredProjects', value => parentProjects = value)"
+        ></div>
     </div>
 
     <!-- list cards -->
     <div class="w-100" x-show="!is_grid" x-transition:enter style="display: none;">
-        <div slot="project-list-card"></div>
+        <div
+            slot="project-list-card"
+            x-data="{parentProjects: filteredProjects}"
+            x-init="$watch('filteredProjects', value => parentProjects = value)"
+        ></div>
     </div>
 
     <!-- spacing | 58px, 80px, 96px -->
