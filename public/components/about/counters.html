@@ -1,10 +1,10 @@
 
 <div id="s_about_counters" class="px-gutter">
-    <div class="row">
+    <div class="row row-gap-9">
         <!-- stat counters -->
-        <div class="col-lg-60">
+        <div class="col-lg-48 col-xl-52 col-xxl-60">
             <div
-                class="counters_ctn h-lg-100 d-flex flex-column justify-content-between"
+                class="counters_ctn h-lg-100 d-flex flex-column flex-sm-row flex-lg-column justify-content-between gap-6"
                 x-data="{
                     counters: [
                         { counter: 9, text: 'Projects Completed' },
@@ -24,13 +24,13 @@
                             ></div>
                             <p class="body-text mb-0" x-text="item.text"></p>
                         </div>
-                        <div x-show="item.divider" class="col-60 border-top border-frost-1 opacity-80"></div>
+                        <div x-show="item.divider" class="col-120 col-sm-60 border-top border-frost-1 opacity-80"></div>
                     </div>
                 </template>
             </div>
         </div>
         <!-- info about me -->
-        <div class="col-lg-60">
+        <div class="col-lg-72 col-xl-68 col-xxl-60">
             <h3 class="h3 text-white fw-500 pb-4">
                 Who Am I
             </h3>

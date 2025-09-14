@@ -16,13 +16,5 @@ gsap.registerPlugin(ScrollTrigger);
 // Project router initialization
 import(`./js/router.js`).then(async (module) => await module.init());
 
-// Project component loader.
-// Top-level await - all code from this point will execute only after components have been loaded.
-const loader = await import('./js/component-loader.js');
-await loader.init();
-
-// Modules
-import('./js/modules');
-
 // Run Vite Development Configuration (file watchers, scroll restoration, etc.)
 import('./js/vite-dev-config.js');

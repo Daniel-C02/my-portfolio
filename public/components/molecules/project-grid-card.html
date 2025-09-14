@@ -6,8 +6,25 @@
             <div class="project_grid_card h-100 d-flex flex-column rounded-2 overflow-hidden">
                 <!-- hero image -->
                 <div class="card-hero w-100 position-relative">
-                    <img class="my_image-fluid" :src="project.image" src="" alt="placeholder">
+                    <!-- background fill -->
+                    <div
+                        class="banner_bg position-absolute start-0 top-0 w-100 h-100"
+                        x-show="!project.image"
+                    ></div>
+                    <!-- banner image -->
+                    <img
+                         class="my_image-fluid" :src="project.image" src="" alt="placeholder"
+                         x-show="project.image"
+                    >
+                    <!-- category tag -->
+                    <div class="position-relative z-1 d-flex p-4 p-lg-5">
+                        <div class="category_tag d-center rounded-pill gap-3 py-2 px-5">
+                            <i class="bi fs-14 fs-sm-15 fs-lg-16" :class="project.categoryIcon"></i>
+                            <div class="text-white fs-12 fs-lg-13" x-text="project.category"></div>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- body content -->
                 <div class="card-body h-100 d-flex flex-column gap-4 p-8">
                     <!-- title -->

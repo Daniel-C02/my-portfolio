@@ -4,15 +4,37 @@
         <!-- each project card -->
         <div class="col-120">
             <div class="project_list_card h-100 d-flex flex-column rounded-2 overflow-hidden p-8">
-                <div class="d-flex flex-wrap flex-lg-nowrap p-4">
-                    <!-- banner image -->
-                    <div class="flex-shrink-0 d-flex align-items-center">
-                        <div class="banner position-relative rounded-2 overflow-hidden">
-                            <img class="my_image-fluid" :src="project.image" src="" alt="placeholder">
+                <div class="d-flex flex-wrap flex-lg-nowrap justify-content-between row-gap-8 p-4">
+                    <!-- category & timeline -->
+                    <div class="col-120 col-sm-auto flex-shrink-0 order-sm-2 order-lg-2">
+                        <div class="text-sm-end">
+                            <!-- project category -->
+                            <div class="tag-primary">
+                                <div class="tag_inner" x-text="project.category"></div>
+                            </div>
+                            <!-- timeline -->
+                            <div class="fs-13 fs-sm-14 text-frost-2 opacity-80 pt-4">
+                                <div class="pb-1" x-text="project.timeline"></div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- banner image -->
+                    <div class="col-120 col-sm-auto flex-shrink-0 d-flex align-items-center order-sm-1 order-lg-1">
+                        <div class="banner position-relative rounded-2 overflow-hidden">
+                            <div
+                                class="banner_bg position-absolute start-0 top-0 w-100 h-100"
+                                x-show="!project.image"
+                            ></div>
+                            <img
+                                class="my_image-fluid" :src="project.image" src="" alt="placeholder"
+                                x-show="project.image"
+                            >
+                        </div>
+                    </div>
+
                     <!-- main details -->
-                    <div class="w-100 px-8">
+                    <div class="w-100 px-lg-8 order-sm-2 order-lg-1">
                         <!-- title -->
                         <h6 class="h6 fw-600 text-white mb-0" x-text="project.title"></h6>
                         <!-- intro -->
@@ -36,19 +58,6 @@
                                     <span class="text-white fs-12 lh-130p" x-text="tag"></span>
                                 </div>
                             </template>
-                        </div>
-                    </div>
-                    <!-- category & timeline -->
-                    <div class="flex-shrink-0">
-                        <div class="text-sm-end">
-                            <!-- project category -->
-                            <div class="tag-primary">
-                                <div class="tag_inner" x-text="project.statusOrCategory"></div>
-                            </div>
-                            <!-- timeline -->
-                            <div class="fs-13 fs-sm-14 text-frost-2 opacity-80 pt-4">
-                                <div class="pb-1" x-text="project.timeline"></div>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -2,45 +2,6 @@ import createGlobe from 'cobe';
 
 export const init = () => {
 
-
-    // const canvas = document.getElementById("cobe");
-    //
-    // let phi = 0;
-    // const theta = 0.3;
-    //
-    // const width = canvas.width;
-    // const height = canvas.height;
-    //
-    // const globe = createGlobe(canvas, {
-    //     devicePixelRatio: 2,
-    //     width: width,
-    //     height: height,
-    //     phi: phi,
-    //     theta: theta,
-    //     dark: 1,
-    //     diffuse: 2.5,
-    //     scale: 1,
-    //     mapSamples: 16000,
-    //     mapBrightness: 6,
-    //     baseColor: [0.4, 0.65, 1],
-    //     markerColor: [0.4, 0.8, 1],
-    //     glowColor: [0.27, 0.57, 0.89],
-    //     offset: [0, 0],
-    //     markers: [
-    //         { location: [51.5074, -0.1278], size: 0.08 }, // London
-    //         { location: [28.6139, 77.2090], size: 0.08 }, // New Delhi
-    //         { location: [40.7128, -74.0060], size: 0.08 } // New York
-    //     ],
-    //     onRender: (state) => {
-    //         // Called on every animation frame.
-    //         // `state` will be an empty object, return updated params.
-    //         state.phi = phi;
-    //         state.theta = theta;
-    //         phi += 0.01
-    //     },
-    // });
-
-
     const canvas = document.getElementById('cobe-canvas');
     if (!canvas) return;
 
