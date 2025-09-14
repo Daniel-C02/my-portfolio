@@ -36,16 +36,8 @@
 .ff-georgia-pro-cond-black { font-family: 'Georgia Pro Cond Black', sans-serif; }
 */
 
-// Instrument Serif
-@font-face {
-   font-family: 'instrument-serif';
-   src: url("@fonts/instrument-serif.ttf") format('truetype');
-   font-optical-sizing: auto;
-   font-style: normal;
-}
-.ff-instrument { font-family: "instrument-serif", sans-serif; }
-
-// Instrument Serif Italic
+// ---------------------------------------------------------------------------------------------------------------------
+// -- Instrument Serif --
 @font-face {
    font-family: 'instrument-serif-italic';
    src: url("@fonts/instrument-serif-italic.ttf") format('truetype');
@@ -54,7 +46,8 @@
 }
 .ff-instrument-italic { font-family: "instrument-serif-italic", sans-serif; }
 
-// Inter Variable
+// ---------------------------------------------------------------------------------------------------------------------
+// -- Inter --
 @font-face {
    font-family: 'inter-variable';
    src: url("@fonts/inter-variable.ttf") format('truetype');
@@ -64,141 +57,25 @@
 }
 .ff-inter { font-family: "inter-variable", sans-serif; }
 
-// Inter Italic Variable
-@font-face {
-   font-family: 'inter-italic-variable';
-   src: url("@fonts/inter-italic-variable.ttf") format('truetype');
-   font-weight: 100 900;
-   font-display: swap;
-   font-style: normal;
-}
-.ff-inter-italic { font-family: "inter-italic-variable", sans-serif; }
-
 // ---------------------------------------------------------------------------------------------------------------------
 // -- Georgia Pro --
-//@font-face {
-//   font-family: 'Georgia Pro Cond';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: url('@fonts/georgia-pro/GeorgiaPro-CondRegular.woff') format('woff');
-//}
-//@font-face {
-//   font-family: 'Georgia Pro Cond Italic';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: url('@fonts/georgia-pro/GeorgiaPro-CondItalic.woff') format('woff');
-//}
-//@font-face {
-//   font-family: 'Georgia Pro Cond Bold';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: url('@fonts/georgia-pro/GeorgiaPro-CondBold.woff') format('woff');
-//}
-//@font-face {
-//   font-family: 'Georgia Pro Cond Bold Italic';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: url('@fonts/georgia-pro/GeorgiaPro-CondBoldItalic.woff') format('woff');
-//}
 @font-face {
    font-family: 'Georgia Pro Italic';
    font-style: normal;
    font-weight: normal;
-   src: url('@fonts/georgia-pro/GeorgiaPro-Italic.woff') format('woff');
+   src: url('@fonts/GeorgiaPro-Italic.woff') format('woff');
 }
-//@font-face {
-//   font-family: 'Georgia Pro Cond Light';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: url('@fonts/georgia-pro/GeorgiaPro-CondLight.woff') format('woff');
-//}
-@font-face {
-   font-family: 'Georgia Pro Light';
-   font-style: normal;
-   font-weight: normal;
-   src: url('@fonts/georgia-pro/GeorgiaPro-Light.woff') format('woff');
-}
-//@font-face {
-//   font-family: 'Georgia Pro Cond Light Italic';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: local('Georgia Pro Cond Light Italic'), url('@fonts/georgia-pro/GeorgiaPro-CondLightItalic.woff') format('woff');
-//}
-@font-face {
-   font-family: 'Georgia Pro Light Italic';
-   font-style: normal;
-   font-weight: normal;
-   src: url('@fonts/georgia-pro/GeorgiaPro-LightItalic.woff') format('woff');
-}
-//@font-face {
-//   font-family: 'Georgia Pro Cond Semibold';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: url('@fonts/georgia-pro/GeorgiaPro-CondSemiBold.woff') format('woff');
-//}
-@font-face {
-   font-family: 'Georgia Pro Semibold';
-   font-style: normal;
-   font-weight: normal;
-   src: url('@fonts/georgia-pro/GeorgiaPro-SemiBold.woff') format('woff');
-}
-//@font-face {
-//   font-family: 'Georgia Pro Cond Semibold Italic';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: url('@fonts/georgia-pro/GeorgiaPro-CondSemiBoldItalic.woff') format('woff');
-//}
 @font-face {
    font-family: 'Georgia Pro Semibold Italic';
    font-style: normal;
    font-weight: normal;
-   src: url('@fonts/georgia-pro/GeorgiaPro-SemiBoldItalic.woff') format('woff');
+   src: url('@fonts/GeorgiaPro-SemiBoldItalic.woff') format('woff');
 }
-@font-face {
-   font-family: 'Georgia Pro Bold';
-   font-style: normal;
-   font-weight: normal;
-   src: url('@fonts/georgia-pro/GeorgiaPro-Bold.woff') format('woff');
-}
-//@font-face {
-//   font-family: 'Georgia Pro Bold Italic';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: local('Georgia Pro Bold Italic'), url('@fonts/georgia-pro/GeorgiaPro-BoldItalic.woff') format('woff');
-//}
-//@font-face {
-//   font-family: 'Georgia Pro Black';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: url('@fonts/georgia-pro/GeorgiaPro-Black.woff') format('woff');
-//}
-//@font-face {
-//   font-family: 'Georgia Pro Cond Black';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: url('@fonts/georgia-pro/GeorgiaPro-CondBlack.woff') format('woff');
-//}
-//@font-face {
-//   font-family: 'Georgia Pro Black Italic';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: local('Georgia Pro Black Italic'), url('@fonts/georgia-pro/GeorgiaPro-BlackItalic.woff') format('woff');
-//}
-//@font-face {
-//   font-family: 'Georgia Pro Cond Black Italic';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: local('Georgia Pro Cond Black Italic'), url('@fonts/georgia-pro/GeorgiaPro-CondBlackItalic.woff') format('woff');
-//}
 .ff-georgia-pro-italic { font-family: 'Georgia Pro Italic', sans-serif; }
-.ff-georgia-pro-light-italic { font-family: 'Georgia Pro Light Italic', sans-serif; }
 .ff-georgia-pro-semibold-italic { font-family: 'Georgia Pro Semibold Italic', sans-serif; }
 
-.ff-georgia-pro-light { font-family: 'Georgia Pro Light', sans-serif; }
-.ff-georgia-pro-semibold { font-family: 'Georgia Pro Semibold', sans-serif; }
-.ff-georgia-pro-black { font-family: 'Georgia Pro Black', sans-serif; }
-
-// Body Text Font
+// ---------------------------------------------------------------------------------------------------------------------
+// -- Body Text Font --
 .body-text, .body-text-sm {
    font-weight: 400;
    color: $frost-100;

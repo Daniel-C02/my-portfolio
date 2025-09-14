@@ -10,7 +10,7 @@ import {homeSkillCards} from "@js/alpine/home/_skill_cards.js";
 import {insideScoop} from "@js/alpine/home/_inside_scoop.js";
 import {aboutTimeline} from "@js/alpine/about/_timeline.js";
 import {contactCopyButtons} from "@js/alpine/_contact.js";
-import {projects} from "@js/alpine/_projects.js";
+import {projects, projectsAlpine} from "@js/alpine/_projects.js";
 import {devSkills} from "@js/alpine/_skills.js";
 import {socialLinks} from "@js/alpine/_social_links.js";
 import {copyEmail} from "@js/utilities/copy_email.js";
@@ -68,6 +68,9 @@ Alpine.data("appData", () => ({
 
     // Resume
     resumeAlpine,
+
+    // Projects
+    projectsAlpine,
 
     // Other
     copyEmail,

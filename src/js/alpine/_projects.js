@@ -4,11 +4,12 @@ export const projects = [
         isFeatured: true,
         title: 'Oral Cancer Classification using Neural Networks',
         timeline: 'Jan 2023 - Feb 2025',
-        image: '/assets/images/placeholder_project_management.avif',
+        image: null,
         into: 'A machine learning model that detects and classifies oral cancer from images, using preprocessing, feature extraction, and evaluation techniques.',
         tags: ['Python', 'Javascript', 'React'],
-        projectType: 'Machine Learning',
-        statusOrCategory: 'Research Project',
+        projectType: 'Web Application',
+        category: 'Research Project',
+        categoryIcon: 'bi-person-badge',
         sourceCodeUrl: '#',
         accomplishments: [
             "Engineered a convolutional neural network (CNN) to classify oral cancer from medical imagery with high accuracy.",
@@ -24,8 +25,9 @@ export const projects = [
         image: '/assets/images/placeholder_project_management.avif',
         into: 'A responsive portfolio website designed to showcase personal projects, skills, and achievements with a clean and modern layout.',
         tags: ['HTML', 'CSS', 'Javascript'],
-        projectType: 'Portfolio Website',
-        statusOrCategory: 'Personal Project',
+        projectType: 'Web Application',
+        category: 'Personal Project',
+        categoryIcon: 'bi-person-badge',
         sourceCodeUrl: '#',
         accomplishments: [
             "Designed and developed a fully responsive portfolio website using modern HTML, CSS, and JavaScript.",
@@ -42,7 +44,8 @@ export const projects = [
         into: 'A full-stack e-commerce site featuring product listings, user accounts, shopping cart functionality, and secure online payment integration.',
         tags: ['Node.js', 'Express', 'MongoDB'],
         projectType: 'Web Application',
-        statusOrCategory: 'Client Work',
+        category: 'Client Work',
+        categoryIcon: 'bi-briefcase',
         sourceCodeUrl: '#',
         accomplishments: [
             "Built a complete full-stack e-commerce platform using the MERN stack (MongoDB, Express, React, Node.js).",
@@ -58,8 +61,9 @@ export const projects = [
         image: '/assets/images/placeholder_project_management.avif',
         into: 'A collaborative web app that helps users manage tasks, organize projects, and track progress across different teams and devices.',
         tags: ['React', 'Firebase', 'TailwindCSS'],
-        projectType: 'Productivity App',
-        statusOrCategory: 'Open Source',
+        projectType: 'Web Application',
+        category: 'Open Source',
+        categoryIcon: 'bi-building',
         sourceCodeUrl: '#',
         accomplishments: [
             "Developed a real-time, collaborative task management application using React and Firebase.",
@@ -76,7 +80,8 @@ export const projects = [
         into: 'A dashboard that fetches live weather data from an API, providing detailed forecasts, temperature trends, and location-based updates.',
         tags: ['Javascript', 'API', 'Bootstrap'],
         projectType: 'Dashboard',
-        statusOrCategory: 'Personal Project',
+        category: 'Personal Project',
+        categoryIcon: 'bi-lightning',
         sourceCodeUrl: '#',
         accomplishments: [
             "Created a dynamic weather dashboard that provides real-time forecasts by integrating a third-party weather API.",
@@ -92,8 +97,9 @@ export const projects = [
         image: '/assets/images/placeholder_project_management.avif',
         into: 'A real-time chat platform with private rooms, group messaging, and media sharing powered by WebSockets for instant communication.',
         tags: ['Socket.io', 'Node.js', 'React'],
-        projectType: 'Real-Time App',
-        statusOrCategory: 'MVP',
+        projectType: 'Web Application',
+        category: 'MVP',
+        categoryIcon: 'bi-lightning',
         sourceCodeUrl: '#',
         accomplishments: [
             "Engineered a real-time chat application using Node.js, React, and Socket.io for instant messaging.",
@@ -109,8 +115,9 @@ export const projects = [
         image: '/assets/images/placeholder_project_management.avif',
         into: 'A blogging system with markdown support, comments, and user profiles, allowing easy content publishing and interaction with readers.',
         tags: ['Laravel', 'PHP', 'MySQL'],
-        projectType: 'Content Platform',
-        statusOrCategory: 'Client Work',
+        projectType: 'Web Application',
+        category: 'Client Work',
+        categoryIcon: 'bi-building',
         sourceCodeUrl: '#',
         accomplishments: [
             "Developed a full-featured blog platform using the Laravel framework, PHP, and MySQL.",
@@ -127,7 +134,8 @@ export const projects = [
         into: 'An application for monitoring stock prices in real time, visualizing market trends, and saving custom watchlists for quick access.',
         tags: ['Python', 'Flask', 'Chart.js'],
         projectType: 'Finance Tool',
-        statusOrCategory: 'Side Project',
+        category: 'Side Project',
+        categoryIcon: 'bi-building',
         sourceCodeUrl: '#',
         accomplishments: [
             "Built a real-time stock price tracking application using Python and Flask.",
@@ -143,8 +151,9 @@ export const projects = [
         image: '/assets/images/placeholder_project_management.avif',
         into: 'A mobile-friendly app that tracks workouts, calories, and personal goals, giving users insights to improve their health journey.',
         tags: ['React Native', 'Expo', 'SQLite'],
-        projectType: 'Mobile App',
-        statusOrCategory: 'Personal Project',
+        projectType: 'Finance Tool',
+        category: 'Personal Project',
+        categoryIcon: 'bi-building',
         sourceCodeUrl: '#',
         accomplishments: [
             "Developed a cross-platform mobile fitness tracking application using React Native and Expo.",
@@ -160,8 +169,9 @@ export const projects = [
         image: '/assets/images/placeholder_project_management.avif',
         into: 'A platform for hosting online courses with video lessons, progress tracking, and interactive quizzes for engaging learning experiences.',
         tags: ['Django', 'Python', 'PostgreSQL'],
-        projectType: 'EdTech Platform',
-        statusOrCategory: 'Open Source',
+        projectType: 'Finance Tool',
+        category: 'Open Source',
+        categoryIcon: 'bi-building',
         sourceCodeUrl: '#',
         accomplishments: [
             "Constructed a robust online learning platform using Django, Python, and PostgreSQL.",
@@ -170,3 +180,64 @@ export const projects = [
         ],
     },
 ];
+
+export function projectsAlpine() {
+    return {
+        activeTag: null,
+        is_grid: true,
+        searchQuery: '', // This will hold the value of the search input
+
+        filterTags: [
+            'All Projects',
+            // This will be dynamically populated with project types
+        ],
+
+        // This is a computed property that reactively filters projects based on the active tag and search query.
+        get filteredProjects() {
+            // Start with the full list of projects.
+            let projectsToShow = projects;
+
+            // 1. Filter projects based on the selected 'activeTag'.
+            // We check if a tag is selected and it's not 'All Projects'.
+            if (this.activeTag && this.activeTag !== 'All Projects') {
+                projectsToShow = projectsToShow.filter(
+                    project => project.projectType === this.activeTag
+                );
+            }
+
+            // 2. Filter the already-tagged projects based on the 'searchQuery'.
+            // We proceed only if the search query is not empty.
+            if (this.searchQuery.trim() !== '') {
+                // Convert the search query to lowercase for case-insensitive matching.
+                const query = this.searchQuery.toLowerCase().trim();
+                projectsToShow = projectsToShow.filter(project => {
+                    // Create a single string of all searchable project data.
+                    // This makes it easy to check if the query exists anywhere in the project's details.
+                    const searchableContent = `
+                        ${project.title}
+                        ${project.timeline}
+                        ${project.into}
+                        ${project.tags.join(' ')}
+                        ${project.projectType}
+                        ${project.category}
+                        ${project.accomplishments.join(' ')}
+                    `.toLowerCase();
+
+                    // Return true if the searchable content includes the query.
+                    return searchableContent.includes(query);
+                });
+            }
+
+            return projectsToShow;
+        },
+
+        init() {
+            // Dynamically create filter tags from project types.
+            const projectTypes = [...new Set(this.projects.map(p => p.projectType))];
+            this.filterTags.push(...projectTypes);
+
+            // Set the initial active tag to 'All Projects'.
+            this.activeTag = this.filterTags[0];
+        }
+    }
+}

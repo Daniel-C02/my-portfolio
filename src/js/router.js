@@ -1,3 +1,5 @@
+import { reinitializeScripts } from './post-navigation.js';
+
 /**
  * Call on page load
  */
@@ -12,7 +14,7 @@ export const init = async () => {
    };
 
    // Listen for browser navigation
-   window.addEventListener("popstate", router);
+   // window.addEventListener("popstate", router);
 
    // Intercept link clicks
    document.addEventListener("click", (e) => {
@@ -42,6 +44,10 @@ const router = async () => {
    try {
       const html = await fetch(match.view).then((res) => res.text());
       document.getElementById("app").innerHTML = html;
+
+      // Call the re-initialization function
+      await reinitializeScripts();
+
    } catch (err) {
       document.getElementById("app").innerHTML = `<h1>Page not found</h1>`;
    }
