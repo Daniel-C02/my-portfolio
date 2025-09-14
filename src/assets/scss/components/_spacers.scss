@@ -1,0 +1,40 @@
+@use "../theme" as *;
+
+[class^="r_spacer"] {
+   padding-top: var(--spacer);
+}
+
+.r_spacer-v1 {
+   --spacer: 68px;
+   @media(min-width: $sm_bp) { --spacer: 84px; }
+   @media(min-width: $md_bp) { --spacer: 104px; }
+   @media(min-width: $lg_bp) { --spacer: 120px; }
+   @media(min-width: $xl_bp) { --spacer: 136px; }
+}
+.r_spacer-v2 {
+   --spacer: 64px;
+   @media(min-width: $sm_bp) { --spacer: 72px; }
+   @media(min-width: $md_bp) { --spacer: 94px; }
+   @media(min-width: $lg_bp) { --spacer: 108px; }
+   @media(min-width: $xl_bp) { --spacer: 120px; }
+}
+
+.r_card_sp {
+   padding: 1rem;
+   @media(min-width: $sm_bp) { padding: 1.25rem; }
+   @media(min-width: $lg_bp) { padding: 1.5rem; }
+}
+
+[class^="min_height-"] {
+   display: flex; flex-direction: column;
+   justify-content: center;
+}
+.min_height-sm {
+   min-height: min(72vh, 890px);
+}
+.min_height-md {
+   min-height: min(80vh, 960px);
+}
+.min_height-lg {
+   min-height: min(100vh, 1080px);
+}

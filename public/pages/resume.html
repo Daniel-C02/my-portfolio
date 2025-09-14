@@ -3,9 +3,8 @@
     id="s_resume_page"
     x-data="resumeAlpine()"
 >
-
     <!-- hero -->
-    <div id="hero" slot="resume-hero" class="px-gutter"></div>
+    <div id="hero" slot="resume-hero" class="container-xxl"></div>
 
     <!-- filter tags -->
     <div id="filter_tags">
@@ -15,7 +14,15 @@
                     type="button"
                     class="filter_tag d-center gap-3 rounded-2"
                     :class="filter.name === activeFilter ? 'active' : ''"
-                    @click="toggleFilter(filter.name)"
+                    @click="
+                        toggleFilter(filter.name);
+                        // scroll the tab into view | specifically for mobile
+                        $el.scrollIntoView({
+                            behavior: 'smooth',
+                            inline: 'center',
+                            block: 'nearest'
+                        });
+                    "
                 >
                     <i :class="filter.iconClass" class="fs-18"></i>
                     <span x-text="filter.name" class="body-text"></span>
@@ -27,7 +34,7 @@
     <!-- spacing -->
     <div class="pb-9 mb-3"></div>
 
-    <div class="px-gutter">
+    <div class="container-xxl">
         <!-- skills section -->
         <div
             id="skills" slot="resume-skills"
@@ -53,6 +60,6 @@
         ></div>
     </div>
 
-    <!-- spacing | 72px, 104px, 120px -->
-    <div class="mt-md-4 pt-11 pt-sm-12 pt-lg-13"></div>
+    <!-- spacing -->
+    <div class="r_spacer-v1"></div>
 </div>

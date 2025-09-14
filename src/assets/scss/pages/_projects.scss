@@ -1,6 +1,7 @@
 @use "../theme" as *;
 
 #s_projects_page {
+   padding-top: var(--navbar-height);
 
    .search_bar {
       background: var(--card-bg-3);

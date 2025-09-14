@@ -1,8 +1,8 @@
 <!-- contact page -->
-<div id="s_contact_page" class="px-gutter">
+<div id="s_contact_page" class="min_height-lg container-xxl">
 
-    <!-- spacing | 58px, 80px, 96px -->
-    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+    <!-- spacing -->
+    <div class="r_spacer-v2"></div>
 
     <!-- about section start -->
     <div
@@ -20,7 +20,7 @@
     <!-- contact blocks -->
     <div class="row row-gap-8">
         <div class="col-lg-60 order-lg-2">
-            <div class="my_card rounded-2 p-8">
+            <div class="my_card rounded-2 r_card_sp">
                 <form class="contact-form row g-6">
                     <!-- name input -->
                     <div
@@ -66,16 +66,17 @@
                         }"
                     ></div>
                     <!-- Privacy Clause & Submit Button -->
-                    <div class="d-flex align-items-center justify-content-between gap-5 pt-4">
+                    <div class="d-flex flex-wrap flex-sm-nowrap align-items-center justify-content-between gap-5 pt-4">
                         <div class="w-100">
                             <div class="text-frost-2 fs-12 opacity-80">
-                                I value your privacy. Your information<br>
+                                I value your privacy. Your information
+                                <br class="d-lg-none d-xl-block">
                                 will never be shared with 3rd parties.
                             </div>
                         </div>
                         <button
                             type="submit"
-                            class="btn btn-arrow btn-arrow-secondary flex-shrink-0"
+                            class="btn btn-arrow btn-arrow-secondary flex-shrink-0 col-120 col-sm-auto"
                             slot="btn-arrow"
                             x-data="{ text: 'Send Message' }"
                         ></button>
@@ -85,15 +86,15 @@
         </div>
         <div class="col-lg-60 order-lg-1">
             <div class="h-100 d-flex flex-column">
-                <div class="my_card flex-shrink-0 rounded-2 p-8 d-flex flex-column gap-6">
+                <div class="my_card flex-shrink-0 rounded-2 r_card_sp d-flex flex-column gap-6">
                     <!-- card title -->
-                    <div class="fs-28 fw-600 text-sage-1">
+                    <div class="fs-18 fs-sm-20 fs-md-22 fs-lg-26 fs-xl-28 fw-600 text-sage-1">
                         Contact Information
                     </div>
                     <!-- email and location cards -->
                     <template x-for="button in contactCopyButtons" :key="button.name">
                         <a
-                            class="copy_btn d-flex align-items-center bg-midnight-8f rounded-2 gap-6 w-100"
+                            class="copy_btn d-flex align-items-center bg-midnight-8f rounded-2 gap-5 gap-sm-6 px-5 px-sm-6 w-100"
                             :href="button.link" target="_blank"
                         >
                             <div class="icon d-center rounded-1">
@@ -122,7 +123,7 @@
                 </div>
                 <!-- Response time card -->
                 <div
-                    class="my_card rounded-2 p-8 mt-8"
+                    class="my_card rounded-2 r_card_sp mt-8"
                     style="height: 100%;"
                     x-init="
                         setTimeout(() => {
@@ -142,6 +143,6 @@
         </div>
     </div>
 
-    <!-- spacing | 58px, 80px, 96px -->
-    <div class="mt-4 mt-lg-0 pt-10 pt-sm-11 pt-lg-12"></div>
+    <!-- spacing -->
+    <div class="r_spacer-v1"></div>
 </div>

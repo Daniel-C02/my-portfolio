@@ -1,9 +1,6 @@
 @use "../../theme" as *;
 
 #s_home_about {
-   min-height: 100vh;
-   display: flex; flex-direction: column; justify-content: center;
-
    background-color: var(--bs-secondary-bg);
 
    // About cards

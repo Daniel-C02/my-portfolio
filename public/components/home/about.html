@@ -1,37 +1,39 @@
 
-<div id="s_home_about" class="px-gutter">
-    <!-- spacing | 58px, 96px, 112px -->
-    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
-    <!-- about section start -->
-    <div
-        slot="tag-title-text"
-        x-data="{
+<div id="s_home_about" class="min_height-md">
+    <div class="container-xxl">
+        <!-- spacing -->
+        <div class="r_spacer-v1"></div>
+        <!-- about section start -->
+        <div
+            slot="tag-title-text"
+            x-data="{
             tag: 'About Me',
             title: 'Who I Am',
             text: `I'm a Computer Science student specializing in AI & ML. Passionate about programming, AI<br>integration, and building innovative web applications.`
         }"
-    ></div>
-    <!-- spacing -->
-    <div class="pb-10 mb-4"></div>
-    <!-- skill cards -->
-    <div class="row g-7 gx-xl-8">
-        <template x-for="card in homeAboutCards" :key="card.title">
-            <div class="col-lg-40">
-                <div class="my_card rounded-2 p-8">
-                    <div class="d-flex flex-column d-center gap-5 text-center p-4">
-                        <!-- card icon -->
-                        <div class="my_icon d-center rounded-2 text-ocean-5">
-                            <i class="fs-18" :class="card.bsIconClass"></i>
+        ></div>
+        <!-- spacing -->
+        <div class="pb-10 mb-4"></div>
+        <!-- skill cards -->
+        <div class="row g-7 gx-xl-8">
+            <template x-for="card in homeAboutCards" :key="card.title">
+                <div class="col-lg-40">
+                    <div class="my_card rounded-2 p-8">
+                        <div class="d-flex flex-column d-center gap-5 text-center p-4">
+                            <!-- card icon -->
+                            <div class="my_icon d-center rounded-2 text-ocean-5">
+                                <i class="fs-18" :class="card.bsIconClass"></i>
+                            </div>
+                            <!-- card title -->
+                            <h6 class="h6 fw-500 text-white pt-4 mb-0" x-text="card.title"></h6>
+                            <!-- card description -->
+                            <div class="body-text fs-14" x-text="card.text"></div>
                         </div>
-                        <!-- card title -->
-                        <h6 class="h6 fw-500 text-white pt-4 mb-0" x-text="card.title"></h6>
-                        <!-- card description -->
-                        <div class="body-text fs-14" x-text="card.text"></div>
                     </div>
                 </div>
-            </div>
-        </template>
+            </template>
+        </div>
+        <!-- spacing -->
+        <div class="r_spacer-v1"></div>
     </div>
-    <!-- spacing | 58px, 96px, 112px -->
-    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
 </div>

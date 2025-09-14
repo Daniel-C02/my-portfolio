@@ -1,10 +1,6 @@
 @use "../../theme" as *;
 
 #s_about_hero {
-
-   min-height: 100vh;
-   display: flex; flex-direction: column; justify-content: center;
-
    padding-top: var(--navbar-height);
 
    button {
