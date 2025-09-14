@@ -1,7 +1,7 @@
 
-<div id="s_home_hero" class="px-gutter">
-    <!-- spacing | 58px, 96px, 112px -->
-    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
+<div id="s_home_hero" class="min_height-lg container-xxl">
+    <!-- spacing -->
+    <div class="r_spacer-v1"></div>
     <!-- hero Section start -->
     <div class="row row-gap-10">
         <!-- content section -->
@@ -61,13 +61,13 @@
         <!-- skills -->
         <div class="col-xl-70 col-xxl-60">
             <!-- skills card container -->
-            <div class="skills_card h-100 bg-ocean-8 rounded-2 p-8">
-                <div class="row h-100 p-2 row-gap-7 gx-7">
+            <div class="skills_card h-100 bg-ocean-8 rounded-2 r_card_sp">
+                <div class="row h-100 p-xl-2 row-gap-6 row-gap-sm-7 gx-7">
                     <template x-for="card in homeSkillCards" :key="card.title">
                         <!-- skill item -->
                         <div :class="card.class">
-                            <div class="skill_card w-100 h-100 rounded-2 py-7" :class="'type-' + card.type">
-                                <div class="h-100 ps-8 d-flex flex-column justify-content-center gap-2">
+                            <div class="skill_card w-100 h-100 rounded-2 py-6 py-md-7" :class="'type-' + card.type">
+                                <div class="h-100 pe-6 ps-6 ps-sm-7 ps-lg-8 d-flex flex-column justify-content-center gap-1 gap-md-2">
                                     <div class="d-flex align-items-center gap-3">
                                         <i class="bi bi-git fs-20"></i>
                                         <div class="fs-18 fs-sm-19 fs-lg-20 text-white fw-600" x-text="card.title"></div>
@@ -81,6 +81,6 @@
             </div>
         </div>
     </div>
-    <!-- spacing | 58px, 96px, 112px -->
-    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
+    <!-- spacing -->
+    <div class="r_spacer-v1"></div>
 </div>

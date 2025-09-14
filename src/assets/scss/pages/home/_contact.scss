@@ -1,9 +1,6 @@
 @use "../../theme" as *;
 
 #s_home_contact_cta {
-   min-height: 100vh;
-   display: flex; flex-direction: column; justify-content: center;
-
    .my_card {
       background-color: var(--card-bg-5);
       border: var(--border-primary-4);

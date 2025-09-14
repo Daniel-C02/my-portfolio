@@ -1,41 +1,42 @@
 
-<div id="s_home_featured" class="px-gutter">
+<div id="s_home_featured" class="min_height-lg">
+    <div class="container-xxl">
+        <!-- spacing -->
+        <div class="r_spacer-v1"></div>
 
-    <!-- spacing | 58px, 96px, 112px -->
-    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
-
-    <!-- featured projects section start -->
-    <div
-        slot="tag-title-text"
-        x-data="{
+        <!-- featured projects section start -->
+        <div
+            slot="tag-title-text"
+            x-data="{
             tag: 'Portfolio',
             title: 'Featured Projects',
             text: `A selection of my recent web development and programming projects.`
         }"
-    ></div>
+        ></div>
 
-    <!-- spacing -->
-    <div class="pb-10 mb-4"></div>
+        <!-- spacing -->
+        <div class="pb-10 mb-4"></div>
 
-    <!-- projects -->
-    <div
-        slot="project-grid-card"
-        x-data="{parentProjects: featuredProjects}"
-    ></div>
+        <!-- projects -->
+        <div
+            slot="project-grid-card"
+            x-data="{parentProjects: featuredProjects}"
+        ></div>
 
-    <!-- spacing | 32, 40, 48 -->
-    <div class="pt-8 mt-4 mt-sm-6 mt-lg-0 pt-lg-10"></div>
+        <!-- spacing | 32, 40, 48 -->
+        <div class="pt-8 mt-4 mt-sm-6 mt-lg-0 pt-lg-10"></div>
 
-    <!-- CTA button -->
-    <div class="d-center">
-        <a
-            href="/projects"
-            class="btn btn-primary"
-            slot="btn-primary"
-            x-data="{ text: 'View Projects' }"
-        ></a>
+        <!-- CTA button -->
+        <div class="d-center">
+            <a
+                href="/projects"
+                class="btn btn-primary"
+                slot="btn-primary"
+                x-data="{ text: 'View Projects' }"
+            ></a>
+        </div>
+
+        <!-- spacing -->
+        <div class="r_spacer-v1"></div>
     </div>
-
-    <!-- spacing | 58px, 96px, 112px -->
-    <div class="mt-4 mt-sm-0 pt-10 pt-sm-12 pt-lg-13"></div>
 </div>

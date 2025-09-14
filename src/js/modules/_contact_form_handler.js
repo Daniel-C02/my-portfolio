@@ -1,7 +1,8 @@
 /*
  * Global Form Submission Handler
  */
-import { fireSweetalert } from "../utilities/sweetalert.js"; // Ensure this path is correct
+import { fireSweetalert } from "../utilities/sweetalert.js";
+import {isMobile} from "@js/utilities/is_mobile.js"; // Ensure this path is correct
 
 export const init = () => {
     // Get the contact form
@@ -26,10 +27,20 @@ export const init = () => {
         }
     });
 
+    const toggleSubmitterState = (btn, disabled, loader) => {
+        disabled
+            ? btn.classList.add('disabled')
+            : btn.classList.remove('disabled');
+        loader
+            ? btn.classList.add('loader')
+            : btn.classList.remove('loader');
+    }
+
     // Attach the submit event listener to the form
     form.addEventListener('submit', async (event) => {
         event.preventDefault(); // Prevent default browser submission
 
+        // Find the submit button
         const submitButton = event.submitter || form.querySelector('button[type="submit"]');
         const postTo = "/api/send-email";
 
@@ -37,6 +48,13 @@ export const init = () => {
             console.error('Form submission failed: No submit button found.');
             fireSweetalert('error', 'Configuration Error', 'Could not submit the form.');
             return;
+        }
+
+        // Disable the submit button
+        toggleSubmitterState(submitButton, true, false);
+        if(isMobile()) {
+            submitButton.classList.remove('active');
+            setTimeout(() => submitButton.classList.add('active'), 350);
         }
 
         // Clear previous errors
@@ -62,12 +80,12 @@ export const init = () => {
                     errorEl.classList.add('show');
                 }
             });
+            toggleSubmitterState(submitButton, false, false);
             return; // Stop the submission if there are errors
         }
 
         // Disable button and show loading state
-        submitButton.disabled = true;
-        submitButton.classList.add('loader');
+        toggleSubmitterState(submitButton, true, true);
 
         try {
             const response = await fetch(postTo, {
@@ -126,8 +144,7 @@ export const init = () => {
         } finally {
             // This block runs whether the request succeeds or fails
             // Re-enable the button and remove the loader class
-            submitButton.disabled = false;
-            submitButton.classList.remove('loader');
+            toggleSubmitterState(submitButton, false, false);
         }
     });
 };

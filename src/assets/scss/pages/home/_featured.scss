@@ -1,7 +1,7 @@
 @use "../../theme" as *;
 
 #s_home_featured {
-   min-height: 100vh;
+   min-height: min(100vh, 1080px);
    display: flex; flex-direction: column; justify-content: center;
 
    background-color: var(--bs-secondary-bg);

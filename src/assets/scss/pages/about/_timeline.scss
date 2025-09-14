@@ -1,9 +1,6 @@
 @use "../../theme" as *;
 
 #s_about_timeline {
-   min-height: 100vh;
-   display: flex; flex-direction: column; justify-content: center;
-
    --inner-gap: 1rem;
    --col1-width: 86px;
    --col2-width: 50px;

@@ -1,9 +1,6 @@
 @use "../theme" as *;
 
 #s_contact_page {
-   min-height: 100vh;
-   display: flex; flex-direction: column; justify-content: center;
-
    padding-top: var(--navbar-height);
 
    // Contact cards
@@ -14,7 +11,6 @@
    // copy button
    a.copy_btn {
       height: 64px;
-      padding: 0 16px;
       .icon {
          width: 42px; height: 42px;
          background-color: rgba($ocean-500, 0.34);

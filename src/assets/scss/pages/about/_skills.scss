@@ -1,9 +1,6 @@
 @use "../../theme" as *;
 
 #s_about_skills {
-   min-height: 100vh;
-   display: flex; flex-direction: column; justify-content: center;
-
    .my_card {
       &.v1 {
          background-color: $midnight-800;

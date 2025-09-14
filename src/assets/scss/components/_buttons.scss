@@ -107,7 +107,7 @@ button, a {
       }
 
       // hover state
-      &:hover:not(.disabled) {
+      &:hover:not(.disabled):not(.active) {
          background: rgba($sage-100, 0.16);
 
          // text styling
@@ -151,7 +151,7 @@ button, a {
       /*
        * Arrow Animation Button Secondary - color configuration
        */
-      &.btn-arrow-secondary{
+      &.btn-arrow-secondary {
          background: $sage-100;
          // text styling
          span.body-text { color: $midnight-900; }
@@ -164,7 +164,7 @@ button, a {
          span.arrow svg path { stroke: $sage-100; }
 
          // hover state
-         &:hover:not(.disabled) {
+         &:hover:not(.disabled):not(.active) {
             background: rgba($sage-100, 0.16);
          }
       }
