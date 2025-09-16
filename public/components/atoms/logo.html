@@ -1,54 +1,17 @@
 <div>
-    <style>
-        .my_logo {
-            --logo-size: 400px;
-            position: relative;
-            width: var(--logo-size);
-            height: var(--logo-size);
-            display: flex; flex-direction: column;
-            justify-content: space-between;
-        }
-        .my_logo .initial_ctn {
-            height: 41.5%;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-        .my_logo .initials {
-            font-size: calc(var(--logo-size) * 0.75);
-            font-family: "instrument-serif-italic", sans-serif;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .my_logo .initials.top {
-            top: 0;
-            letter-spacing: calc(var(--logo-size) * 0.025);
-        }
-        .my_logo .initials.bottom {
-            bottom: 0;
-            letter-spacing: calc(var(--logo-size) * 0.0125);
-        }
-        .my_logo .center_text {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-34%, -50%);
-            font-family: "inter-variable", sans-serif;
-            font-weight: 500;
-            font-size: calc(var(--logo-size) * 0.15);
-            letter-spacing: calc(var(--logo-size) * 0.0075);
-            text-wrap: nowrap;
-        }
-    </style>
     <div class="my_logo">
-        <div class="initial_ctn">
-            <div class="initials top">DC</div>
+        <div class="initial_ctn top">
+            <div class="inner">
+                <div class="initial" style="top: 0;">DC</div>
+            </div>
         </div>
-        <div class="initial_ctn">
-            <div class="initials bottom">DC</div>
+        <div class="initial_ctn bottom">
+            <div class="inner">
+                <div class="initial" style="bottom: 0;">DC</div>
+            </div>
         </div>
-        <div class="center_text">
-            CHRISTENSEN
+        <div class="animation-container center_text">
+            <span>-</span><span>-</span><span>-</span><span>-</span><span>-</span><span>-</span><span>-</span><span>-</span><span>-</span><span>-</span>
         </div>
     </div>
 </div>

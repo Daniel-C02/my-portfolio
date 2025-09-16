@@ -1,3 +1,6 @@
+// Import most stylesheets that should load first
+@use "essentials" as *;
+
 // Import Sass's built-in math module for advanced mathematical functions
 @use "sass:math";
 

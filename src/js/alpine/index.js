@@ -8,7 +8,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import {homeAboutCards} from "@js/alpine/home/_about_cards.js";
 import {homeSkillCards} from "@js/alpine/home/_skill_cards.js";
 import {insideScoop} from "@js/alpine/home/_inside_scoop.js";
-import {aboutTimeline} from "@js/alpine/about/_timeline.js";
+import {aboutTimeline, timelineBoxActivationAlpine, timelineProgressAlpine} from "@js/alpine/about/_timeline.js";
 import {contactCopyButtons} from "@js/alpine/_contact.js";
 import {projects, projectsAlpine} from "@js/alpine/_projects.js";
 import {devSkills} from "@js/alpine/_skills.js";
@@ -71,6 +71,10 @@ Alpine.data("appData", () => ({
 
     // Projects
     projectsAlpine,
+
+    // About
+    timelineProgressAlpine,
+    timelineBoxActivationAlpine,
 
     // Other
     copyEmail,

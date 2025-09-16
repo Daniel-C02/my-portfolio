@@ -1,3 +1,4 @@
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 export const aboutTimeline = [
     {
@@ -20,3 +21,47 @@ export const aboutTimeline = [
         ],
     },
 ];
+
+export function timelineProgressAlpine($el) {
+    return {
+        progress: 0,
+        init() {
+            // Define the resize handler function
+            const handleResize = () => {
+                ScrollTrigger.refresh();
+            };
+
+            // Ensure Alpine finishes rendering and any nested components are mounted
+            this.$nextTick(() => {
+                ScrollTrigger.create({
+                    trigger: $el,
+                    start: 'top 56%',
+                    end: 'bottom 56%',
+                    onUpdate: self => {
+                        this.progress = Math.round(self.progress * 100);
+                    }
+                });
+                setTimeout(() => ScrollTrigger.refresh(), 1200);
+            });
+
+            // Add the event listener to the window object
+            window.addEventListener('resize', handleResize);
+        },
+    }
+}
+
+export function timelineBoxActivationAlpine($el) {
+    return {
+        passed: false,
+        init() {
+            this.$nextTick(() => {
+                ScrollTrigger.create({
+                    trigger: $el,
+                    start: 'bottom 68%',
+                    onEnter: () => this.passed = true,
+                    onLeaveBack: () => this.passed = false
+                });
+            });
+        }
+    }
+}

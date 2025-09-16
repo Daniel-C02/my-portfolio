@@ -4,8 +4,8 @@ import { init as initLoader } from './component-loader.js';
 import { init as initModules } from './modules/index.js';
 
 export const reinitializeScripts = async () => {
-    // 1. Run the component loader again
+    // Run the component loader
     await initLoader();
-    // 2. Run your modules' logic again
+    // Run our modules' logic
     await initModules();
 };

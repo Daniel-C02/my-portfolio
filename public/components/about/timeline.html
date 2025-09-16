@@ -19,19 +19,7 @@
     <!-- Timeline Section -->
     <div
         class="timeline_ctn col-120 col-xl-88 col-xxl-80 mx-auto position-relative"
-        x-data="{ progress: 0 }"
-        x-init="
-            $nextTick(() => {
-                ScrollTrigger.create({
-                    trigger: $el,
-                    start: 'top 68%',       // when top hits the 32%-from-bottom line
-                    end: 'bottom 68%',      // when bottom crosses the same line
-                    onUpdate: self => {
-                        progress = Math.round(self.progress * 100);
-                    }
-                });
-            });
-        "
+        x-data="timelineProgressAlpine($el)"
     >
         <!-- progress bar -->
         <div class="bar_ctn position-absolute z-n1">
@@ -70,17 +58,7 @@
                     <div></div>
                     <div
                         class="text_card rounded-2 p-5 p-sm-6 ms-n5"
-                        x-data="{ passed: false }"
-                        x-init="
-                            $nextTick(() => {
-                               ScrollTrigger.create({
-                                    trigger: $el,
-                                    start: 'bottom 68%',
-                                    onEnter: () => passed = true,
-                                    onLeaveBack: () => passed = false
-                                });
-                            });
-                        "
+                        x-data="timelineBoxActivationAlpine($el)"
                         :class="passed ? 'passed' : ''"
                     >
                         <span class="w-100 d-inline-block px-2">
@@ -95,5 +73,5 @@
     </div>
 
     <!-- spacing -->
-    <div class="r_spacer-v1"></div>
+    <div class="r_spacer-v0"></div>
 </div>
