@@ -7,17 +7,20 @@ export const aboutTimeline = [
         position: 'Software Engineer',
         company: 'CubeZoo',
         description: [
-            "My journey in programming began with an interest in solving complex problems. This led me to explore various programming languages and technologies, with a focus on web development and artificial intelligence.",
+            "Joined CubeZoo as a full-stack Laravel developer, delivering 9+ large-scale projects across industries.",
+            "Recognized with a 'Remarkable Achievement' award for exceptional problem-solving, leadership, and project delivery.",
+            "Specialized in Laravel, Livewire, Alpine.js, and frontend animation, while leading teams and managing direct client communication."
         ],
     },
     {
-        timeline: ['Feb 2021', 'Oct 2023'],
+        timeline: ['Feb 2021', 'Nov 2023'],
         logo: '/assets/images/about/timeline/uj.jpg',
-        position: 'Computer Science',
+        position: 'BSc Computer & Mathematical Sciences',
         company: 'University of Johannesburg',
         description: [
-            "My journey in programming began with an interest in solving complex problems. This led me to explore various programming languages and technologies, with a focus on web development and artificial intelligence.",
-            "When I'm not coding, I enjoy exploring new technologies, solving algorithmic problems, contributing to open-source projects and playing video games.\n"
+            "Graduated with a Bachelor of Science in Computer Science & Mathematical Sciences, achieving multiple distinctions in mathematics, statistics, and computer science.",
+            "Built a strong foundation in algorithms, data structures, and problem-solving, later applied to professional software engineering projects.",
+            "Completed the degree with a consistent record of academic excellence."
         ],
     },
 ];

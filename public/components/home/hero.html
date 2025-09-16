@@ -16,7 +16,7 @@
                     <div class="auth_image position-relative my-3">
                         <img
                             class="position-absolute h-100 w-100 object-fit-cover rounded-2"
-                            src="/assets/images/placeholder_gym.webp" alt="author image"
+                            src="/assets/images/author_pfp.webp" alt="author image"
                         >
                     </div>
                     <div>
@@ -34,10 +34,9 @@
                 </div>
                 <!-- short intro -->
                 <div class="body-text pt-6">
-                    Passionate about programming and software development
-                    with expertise in Python, JavaScript, and C++. Building
-                    modern web applications using Node.js, React.js, and
-                    Next.js. Freelancer specializing in AI-powered solutions.
+                    Full-stack developer and problem-solver specializing in the Laravel ecosystem.
+                    Building dynamic web applications using PHP, JavaScript, Livewire, and React.
+                    Available for freelance opportunities in web development and data-related fields.
                 </div>
                 <!-- CTA Buttons -->
                 <div class="d-flex gap-6 pt-8 mt-4">
@@ -69,7 +68,7 @@
                             <div class="skill_card w-100 h-100 rounded-2 py-6 py-md-7" :class="'type-' + card.type">
                                 <div class="h-100 pe-6 ps-6 ps-sm-7 ps-lg-8 d-flex flex-column justify-content-center gap-1 gap-md-2">
                                     <div class="d-flex align-items-center gap-3">
-                                        <i class="bi bi-git fs-20"></i>
+                                        <i class="fs-20" :class="card.iconName"></i>
                                         <div class="fs-18 fs-sm-19 fs-lg-20 text-white fw-600" x-text="card.title"></div>
                                     </div>
                                     <div class="fs-13 fs-sm-14 text-white" x-text="card.text"></div>
