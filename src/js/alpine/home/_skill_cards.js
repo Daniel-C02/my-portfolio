@@ -1,57 +1,56 @@
-
 export const homeSkillCards = [
-    {   title: 'Python',
-        text: 'Expert level proficiency',
+    {   title: 'Laravel',
+        text: 'PHP Web Framework',
         type: 'primary',
         class: 'col-sm-60 col-lg-60 order-lg-1',
-        iconName: ''
+        iconName: 'devicon-laravel-plain'
     },
-    {   title: 'Javascript',
-        text: 'Expert level proficiency',
+    {   title: 'JavaScript',
+        text: 'Dynamic Web Programming',
         type: 'secondary',
         class: 'col-sm-60 col-lg-60 order-lg-1',
-        iconName: ''
-    },
-    {   title: 'Laravel',
-        text: '',
-        type: 'primary',
-        class: 'col-lg-40 order-lg-2',
-        iconName: ''
+        iconName: 'devicon-javascript-plain'
     },
     {   title: 'React',
-        text: 'UI Library',
-        type: 'secondary',
-        class: 'col-sm-60 col-lg-40 order-lg-1',
-        iconName: ''
-    },
-    {   title: 'Django',
-        text: '',
+        text: 'JS UI Library',
         type: 'primary',
-        class: 'col-sm-60 col-lg-40 order-lg-2',
-        iconName: ''
-    },
-    {   title: 'Vue.js',
-        text: '',
-        type: 'primary',
-        class: 'col-lg-60 d-none d-sm-block order-lg-2',
-        iconName: ''
+        class: 'col-lg-40 order-lg-2',
+        iconName: 'devicon-react-original'
     },
     {   title: 'Bootstrap',
-        text: 'Frontend & Backend Development',
+        text: 'Frontend Toolkit',
         type: 'secondary',
-        class: 'col-sm-60 col-lg-60 d-none d-lg-block order-lg-2',
-        iconName: ''
+        class: 'col-sm-60 col-lg-40 order-lg-1',
+        iconName: 'devicon-bootstrap-plain'
+    },
+    {   title: 'PHP',
+        text: 'Backend Scripting',
+        type: 'primary',
+        class: 'col-sm-60 col-lg-40 order-lg-2',
+        iconName: 'devicon-php-plain'
+    },
+    {   title: 'Docker',
+        text: 'Containerization & Deployment',
+        type: 'primary',
+        class: 'col-lg-60 d-none d-sm-block order-lg-2',
+        iconName: 'devicon-docker-plain'
     },
     {   title: 'Livewire',
-        text: '',
+        text: 'Full-stack Laravel Framework',
         type: 'secondary',
         class: 'col-sm-60 col-lg-60 d-none d-lg-block order-lg-2',
-        iconName: ''
+        iconName: 'devicon-livewire-plain'
     },
-    {   title: 'Filament',
-        text: '',
+    {   title: 'Django',
+        text: 'Python Web Framework',
+        type: 'secondary',
+        class: 'col-sm-60 col-lg-60 d-none d-lg-block order-lg-2',
+        iconName: 'devicon-django-plain'
+    },
+    {   title: 'Python',
+        text: 'Versatile Scripting Language',
         type: 'primary',
         class: 'col-lg-60 d-none d-lg-block order-lg-2',
-        iconName: ''
+        iconName: 'devicon-python-plain'
     },
 ];

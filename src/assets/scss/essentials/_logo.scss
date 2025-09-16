@@ -1,0 +1,49 @@
+
+.my_logo {
+   --logo-size: 400px;
+   position: relative;
+   height: var(--logo-size); width: calc(var(--logo-size) * 1.18);
+   display: flex; flex-direction: column;
+   justify-content: space-between;
+   line-height: 1.33;
+   font-family: 'Georgia Pro Semibold Italic', sans-serif;
+
+   .initial_ctn {
+      height: 100%; width: 100%;
+      position: absolute;
+      overflow: hidden;
+      &.top {
+         top: 0;
+         height: 40%;
+         .initial {
+            top: 0;
+         }
+      }
+      &.bottom {
+         bottom: 0;
+         height: 40%;
+         .initial {
+            bottom: 0;
+         }
+      }
+   }
+   .inner {
+      position: relative;
+      width: 100%; height: 100%;
+   }
+   .initial {
+      font-size: calc(var(--logo-size) * 0.75);
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+   }
+   .center_text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-44.5%, -50%);
+      font-weight: 500;
+      font-size: calc(var(--logo-size) * 0.208);
+      letter-spacing: calc(var(--logo-size) * 0.035);
+      text-wrap: nowrap;
+      padding-bottom: calc(var(--logo-size) * 0.04);
+   }
+}

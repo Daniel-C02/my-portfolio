@@ -4,6 +4,13 @@
    padding-top: var(--spacer);
 }
 
+.r_spacer-v0 {
+   --spacer: 104px;
+   @media(min-width: $sm_bp) { --spacer: 124px; }
+   @media(min-width: $md_bp) { --spacer: 132px; }
+   @media(min-width: $lg_bp) { --spacer: 148px; }
+   @media(min-width: $xl_bp) { --spacer: 156px; }
+}
 .r_spacer-v1 {
    --spacer: 68px;
    @media(min-width: $sm_bp) { --spacer: 84px; }

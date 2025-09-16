@@ -2,7 +2,7 @@
 @use "../mixins" as *;
 
 html {
-
+   overflow-x: clip;
 }
 
 body {

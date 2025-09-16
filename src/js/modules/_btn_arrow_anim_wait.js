@@ -4,6 +4,7 @@ export const init = () => {
     const delayedButtons = document.querySelectorAll('a.btn.btn-arrow');
 
     delayedButtons.forEach(button => {
+        if(button.download) return;
         button.addEventListener('click', (event) => {
             // Immediately prevent the default action (like navigating or submitting a form)
             event.preventDefault();
