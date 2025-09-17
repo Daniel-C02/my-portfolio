@@ -16,7 +16,14 @@ import {socialLinks} from "@js/alpine/_social_links.js";
 import {copyEmail} from "@js/utilities/copy_email.js";
 import {footerAlpine, prettyCircles} from "@js/alpine/_footer.js";
 import {navbarAlpine} from "@js/alpine/_navbar.js";
-import {resumeAlpine} from "@js/alpine/_resume.js";
+import {
+    certifications,
+    educationItems,
+    experienceItems,
+    primarySkills,
+    resumeAlpine,
+    softSkills
+} from "@js/alpine/_resume.js";
 
 // Assign Alpine to the window object
 window.Alpine = Alpine;
@@ -48,6 +55,13 @@ Alpine.data("appData", () => ({
     // Projects
     projects,
     featuredProjects: projects.filter(p => p.isFeatured),
+
+    // Resume data
+    certifications,
+    educationItems,
+    experienceItems,
+    primarySkills,
+    softSkills,
 
     // Developer skills
     devSkills,

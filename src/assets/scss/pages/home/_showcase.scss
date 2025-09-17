@@ -521,6 +521,7 @@
          @media(min-width: calc(($sm_bp + $md_bp) / 2)) { height: 520px; width: 520px; bottom: -34%; }
          @media(min-width: $md_bp) {                      height: 600px; width: 600px; bottom: -50%; }
          @media(min-width: $lg_bp) {                      height: 580px; width: 580px; bottom: -36%; }
+         @media(min-width: $xl_bp) {                      height: 600px; width: 620px; bottom: -54%; }
       }
 
       .controls {
