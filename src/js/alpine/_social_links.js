@@ -2,18 +2,18 @@
 export const socialLinks = [
     {
         iconClass: 'bi-instagram',
-        link: 'https://cubezoo.co.za'
+        link: 'https://www.instagram.com/daniel_christensen__/'
     },
     {
         iconClass: 'bi-facebook',
-        link: 'https://cubezoo.co.za'
+        link: 'https://www.facebook.com/profile.php?id=61573055593987'
     },
     {
         iconClass: 'bi-whatsapp',
-        link: 'https://cubezoo.co.za'
+        link: 'https://wa.me/+27719644819'
     },
     {
         iconClass: 'bi-linkedin',
-        link: 'https://cubezoo.co.za'
+        link: 'https://www.linkedin.com/in/daniel-christensen-052813343/'
     },
 ];
