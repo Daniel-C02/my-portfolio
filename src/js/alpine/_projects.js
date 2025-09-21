@@ -7,10 +7,11 @@ export const projects = [
         image: '/assets/images/projects/hive.webp',
         intro: "Subscription-platform connecting video editors, companies, and customers with intuitive workflows, content discovery, and flexible subscription management.",
         tags: ["Laravel", "Livewire", "Subscription", "Video Platform"],
-        projectType: "Web Application",
+        projectType: ["Web Application"],
         category: "Client Work",
         categoryIcon: "bi-briefcase",
         sourceCodeUrl: null,
+        liveUrl: "https://highfivevideos.com/",
         accomplishments: [
             "Built multiple user roles (customers, video editors, admins) each with distinct dashboards and UX paths.",
             "Implemented complex subscription & payout systems, content upload, and performance tracking for editors.",
@@ -25,10 +26,11 @@ export const projects = [
         image: '/assets/images/projects/hartree.webp',
         intro: "Data-driven React platform for global commodities trading; real-time analytics, custom dashboards and flexible, backend-agnostic component library.",
         tags: ["React", "Data Visualisation", "Dashboards"],
-        projectType: "Web Application",
+        projectType: ["Web Application"],
         category: "Client Work",
         categoryIcon: "bi-briefcase",
         sourceCodeUrl: null,
+        liveUrl: null,
         accomplishments: [
             "Designed and built a modular component library using React & Storybook to allow flexible UI elements for data analytics.",
             "Created customisable dashboards supporting real-time data visualisation, filters, and reports.",
@@ -37,16 +39,17 @@ export const projects = [
     },
     {
         id: 3,
-        isFeatured: true,
+        isFeatured: false,
         title: "CrackerJack Job-Match Discovery Platform",
         timeline: "Jun 2025 – Present",
         image: '/assets/images/projects/cj.webp',
         intro: "AI-powered job matching platform that connects job seekers with companies, optimising discovery and matching workflows.",
         tags: ["Laravel", "Livewire", "AI", "Matches"],
-        projectType: "Web Application",
+        projectType: ["Web Application"],
         category: "Client Work",
         categoryIcon: "bi-briefcase",
         sourceCodeUrl: null,
+        liveUrl: null,
         accomplishments: [
             "Built matching algorithm integration using OpenAI to improve job-to-candidate relevance.",
             "Created roles and flows for employers and job seekers: searching, applying, reviewing matches.",
@@ -61,10 +64,11 @@ export const projects = [
         image: '/assets/images/projects/portfolio.webp',
         intro: "Personal portfolio built using only HTML, JS, Alpine.js and related utilities. Showcases skills, projects, achievements with minimal dependencies.",
         tags: ["HTML", "JavaScript", "Alpine.js", "Personal"],
-        projectType: "Web Application",
+        projectType: ["Web Application"],
         category: "Personal Project",
         categoryIcon: "bi-person-badge",
         sourceCodeUrl: "https://github.com/Daniel-C02/my-portfolio",
+        liveUrl: null,
         accomplishments: [
             "Designed and built layout from scratch without a framework, focusing on performance and minimal dependencies.",
             "Demonstrated clean code structure and responsive design across devices.",
@@ -79,10 +83,11 @@ export const projects = [
         image: '/assets/images/projects/lat.webp',
         intro: "Laravel + Livewire + Filament app for advanced booking, with integrations for Stripe, Meilisearch, and nightsbridge. Heavy backend work. (Private repo)",
         tags: ["Laravel", "Livewire", "Filament", "Payment Integration"],
-        projectType: "Web Application",
+        projectType: ["Web Application"],
         category: "Client Work",
         categoryIcon: "bi-briefcase",
         sourceCodeUrl: null,
+        liveUrl: null,
         accomplishments: [
             "Implemented full booking journey with payment gateway (Stripe) and nightsbridge integration.",
             "Built search functionality using Meilisearch for fast, relevant results.",
@@ -97,10 +102,11 @@ export const projects = [
         image: '/assets/images/projects/hico.webp',
         intro: "Redesigned the website of HICO Group — an AI & data consultancy — to showcase expertise, improve UX, integrate with Odoo via a custom frontend, and elevate their digital presence.",
         tags: ["HTML", "SCSS", "JavaScript", "Odoo Integration", "UX/UI"],
-        projectType: "Web Application",
+        projectType: ["Web Application"],
         category: "Client Work",
         categoryIcon: "bi-briefcase",
         sourceCodeUrl: null,
+        liveUrl: "https://www.hico-group.com/",
         accomplishments: [
             "Built custom frontend using raw HTML, SCSS, and JavaScript to ensure compatibility with Odoo and client’s internal systems.",
             "Designed an intricate UI with complex design elements (irregular borders, custom shapes, animations), while enforcing consistency via a style guide.",
@@ -109,20 +115,40 @@ export const projects = [
     },
     {
         id: 7,
-        isFeatured: false,
+        isFeatured: true,
         title: "CubeZoo Website Revamp",
         timeline: "Mar 2025 – May 2025",
         image: '/assets/images/projects/cz.webp',
         intro: "Full-screen redesign of the CubeZoo website with enhanced animation, feature-rich front end, stronger Alpine.js usage to improve interactivity and user engagement.",
         tags: ["Laravel", "Alpine.js", "Frontend Animation", "Responsive Design", "UX enhancements"],
-        projectType: "Web Application",
+        projectType: ["Web Application"],
         category: "Client Work",
         categoryIcon: "bi-briefcase",
         sourceCodeUrl: null,
+        liveUrl: "https://www.cubezoo.co.uk/",
         accomplishments: [
             "Implemented immersive animation and interactive features using Alpine.js to provide a modern, engaging homepage and browsing experience.",
             "Upgraded frontend architecture for improved performance and maintainability, optimizing assets, layout rendering, and responsiveness across devices.",
             "Revamped site layout and content presentation to better showcase portfolio, services, and projects with clarity and visual impact."
+        ]
+    },
+    {
+        id: 8,
+        isFeatured: false,
+        title: "Forex Social Trading Platform",
+        timeline: "May 2020 – Aug 2020",
+        image: '/assets/images/projects/forex.webp', // Suggested image path
+        intro: "My first web application, a social media platform built with Django for forex traders to create profiles, log trades, and follow other traders.",
+        tags: ["Django", "Python", "MySQL", "Azure"],
+        projectType: ["Web Application"],
+        category: "Personal Project",
+        categoryIcon: "bi-person-badge",
+        sourceCodeUrl: "https://github.com/Daniel-C02/forex_com_project",
+        liveUrl: null,
+        accomplishments: [
+            "Developed a full CRUD (Create, Read, Update, Delete) system for users to post and manage their trades.",
+            "Implemented user registration, authentication, and profile management functionalities from scratch.",
+            "Built a social following system, allowing users to follow/unfollow each other and view a curated feed."
         ]
     }
 ]
@@ -148,7 +174,7 @@ export function projectsAlpine() {
             // We check if a tag is selected and it's not 'All Projects'.
             if (this.activeTag && this.activeTag !== 'All Projects') {
                 projectsToShow = projectsToShow.filter(
-                    project => project.projectType === this.activeTag
+                    project => project.projectType.includes(this.activeTag)
                 );
             }
 
@@ -180,7 +206,7 @@ export function projectsAlpine() {
 
         init() {
             // Dynamically create filter tags from project types.
-            const projectTypes = [...new Set(this.projects.map(p => p.projectType))];
+            const projectTypes = [...new Set(projects.flatMap(p => p.projectType))];
             this.filterTags.push(...projectTypes);
 
             // Set the initial active tag to 'All Projects'.

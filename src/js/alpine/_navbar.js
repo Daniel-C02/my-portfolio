@@ -97,6 +97,23 @@ export function navbarAlpine() {
                     this.lastScroll = currentScroll;
                 });
             })();
+
+            /*
+             * If Mobile nav is open, and the user clicks elsewhere on the page, then close the navbar
+             */
+            (() => {
+                document.addEventListener('click', (e) => {
+                    const collapseMenu = document.querySelector('#s_navbar .navbar-collapse');
+                    const collapseToggle = document.querySelector('#s_navbar .navbar_toggle');
+                    if (
+                        this.collapseOpen &&
+                        !collapseMenu.contains(e.target) &&
+                        !collapseToggle.contains(e.target)
+                    ) {
+                        this.toggleCollapse();
+                    }
+                })
+            })();
         }
     }
 }

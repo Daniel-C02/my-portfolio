@@ -32,11 +32,10 @@
    }
 
    &.expand-lg {
-      span {
-         padding: 0;
-
-         &::after {
-            content: none;
+      @media(max-width: ($lg_bp - 1)) {
+         span {
+            padding: 0;
+            &::after { content: none; }
          }
       }
    }
