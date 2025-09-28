@@ -5,7 +5,7 @@ import Alpine from "alpinejs";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 // Import required project data to assign to AlpineJs
-import {homeAboutCards} from "@js/alpine/home/_about_cards.js";
+import {homeAboutAlpine, homeAboutCards} from "@js/alpine/home/_about_cards.js";
 import {homeSkillCards} from "@js/alpine/home/_skill_cards.js";
 import {insideScoop} from "@js/alpine/home/_inside_scoop.js";
 import {aboutTimeline, timelineBoxActivationAlpine, timelineProgressAlpine} from "@js/alpine/about/_timeline.js";
@@ -72,6 +72,9 @@ Alpine.data("appData", () => ({
     /*
      * Section specific functionality
      */
+
+    // Home page
+    homeAboutAlpine,
 
     // Navbar
     navbarAlpine,

@@ -92,7 +92,7 @@ export const experienceItems = [
         name: 'Software Engineer',
         type: 'CubeZoo',
         intro: 'Full-stack Laravel developer, delivering large-scale web applications across industries with a focus on performance, scalability, and clean code.',
-        timeline: 'Feb 2024 – Present',
+        timeline: 'Jan 2024 – Present',
         responsibilities: [
             'Delivered 9+ major client projects using Laravel, Livewire, Alpine.js, and React.',
             'Led development teams, managed direct client communication, and ensured project success under tight deadlines.',
