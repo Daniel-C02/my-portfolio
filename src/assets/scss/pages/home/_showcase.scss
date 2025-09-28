@@ -8,7 +8,7 @@
       position: relative;
       width: 100%;
       max-width: 1280px;
-      height: clamp(750px, calc(100vh - 120px), 960px);
+      height: clamp(750px, calc(100vh - 272px), 808px);
 
       --gap: 1.25rem;
 
@@ -522,6 +522,7 @@
          @media(min-width: $md_bp) {                      height: 600px; width: 600px; bottom: -50%; }
          @media(min-width: $lg_bp) {                      height: 580px; width: 580px; bottom: -36%; }
          @media(min-width: $xl_bp) {                      height: 600px; width: 620px; bottom: -54%; }
+         @media(min-width: $xxl_bp) {                     height: 600px; width: 620px; bottom: -48%; }
       }
 
       .controls {
