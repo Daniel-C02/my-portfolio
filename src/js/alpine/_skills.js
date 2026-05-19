@@ -7,7 +7,7 @@ export const devSkills = [
     },
     {
         name: 'GSAP',
-        devIcon: 'devicon-greensock-original',
+        devIcon: 'devicon-chrome-plain',
         proficiency: 68,
         background: 'green-200',
     },

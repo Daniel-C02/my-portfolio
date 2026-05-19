@@ -2,7 +2,7 @@
 export const socialLinks = [
     {
         iconClass: 'bi-instagram',
-        link: 'https://www.instagram.com/daniel_christensen__/'
+        link: 'https://www.instagram.com/daniel.christnsn/'
     },
     {
         iconClass: 'bi-facebook',
