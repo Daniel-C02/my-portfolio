@@ -2,7 +2,17 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 export const aboutTimeline = [
     {
-        timeline: ['Feb 2024', 'Current'],
+        timeline: ['Jan 2026', 'Current'],
+        logo: '/assets/images/about/timeline/propay.svg',
+        position: 'Intermediate Software Engineer',
+        company: 'ProPay',
+        description: [
+            "Working across high-traffic Laravel and Livewire platforms in a fully remote Agile environment, focusing on performance optimization, legacy refactoring, scalability, and maintainable frontend architecture.",
+            "Trusted to solve complex production issues, optimize large data workflows, and improve code quality across systems actively used by thousands of users."
+        ],
+    },
+    {
+        timeline: ['Jan 2024', 'Dec 2025'],
         logo: '/assets/images/about/timeline/cubezoo.svg',
         position: 'Software Engineer',
         company: 'CubeZoo',
